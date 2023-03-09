@@ -53,6 +53,11 @@
 			children = (
 				B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */,
 				B03C5A5429BA1D3200BFE310 /* ContentView.swift */,
+				B03C5A6429BA1F3E00BFE310 /* CoreData */,
+				B03C5A6029BA1F0400BFE310 /* Model */,
+				B03C5A6129BA1F0D00BFE310 /* View */,
+				B03C5A6229BA1F1A00BFE310 /* Manager */,
+				B03C5A6329BA1F2C00BFE310 /* Component */,
 				B03C5A5629BA1D3300BFE310 /* Assets.xcassets */,
 				B03C5A5829BA1D3300BFE310 /* Preview Content */,
 			);
@@ -65,6 +70,41 @@
 				B03C5A5929BA1D3300BFE310 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B03C5A6029BA1F0400BFE310 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B03C5A6129BA1F0D00BFE310 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B03C5A6229BA1F1A00BFE310 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B03C5A6329BA1F2C00BFE310 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B03C5A6429BA1F3E00BFE310 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
