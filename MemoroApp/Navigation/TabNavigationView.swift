@@ -37,7 +37,7 @@ struct TabNavigationView: View {
                 }
                 .tag(TabSelectable.places)
             
-            Text("Settings")
+            SettingsView()
                 .tabItem {
                     Label(settingsLabelText, systemImage: "gear")
                 }

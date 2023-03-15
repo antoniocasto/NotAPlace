@@ -60,7 +60,7 @@ struct LocalAuthView: View {
                 .background(Color.backgroundColor)
                 .foregroundColor(Color.foregroundColor)
                 .clipShape(Capsule())
-                .shadow(color: Color.backgroundColor.opacity(0.7), radius: 10, x: 0, y: 10)
+                .shadow(color: Color.backgroundColor.opacity(0.3), radius: 10, x: 0, y: 10)
         }
     }
     

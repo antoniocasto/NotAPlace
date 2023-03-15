@@ -15,6 +15,7 @@
 		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
 		B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE6129C1D92400483769 /* TabNavigationView.swift */; };
+		B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE6329C1E35500483769 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B0C8BE6129C1D92400483769 /* TabNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationView.swift; sourceTree = "<group>"; };
+		B0C8BE6329C1E35500483769 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */,
+				B0C8BE6329C1E35500483769 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */,
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
 				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,

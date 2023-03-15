@@ -12,16 +12,29 @@ struct ContentView: View {
     // Manager for Local Authentication
     @EnvironmentObject var localAuthManager: LocalAuthManager
     
+    // Persistent setting
+    @AppStorage("LocalAuthEnabled") private var localAuthEnabled = false
+    
     var body: some View {
         
-        // If user is not authenticated, force local auth.
-        if localAuthManager.isAuthenticated {
+        if localAuthEnabled {
             
-            TabNavigationView()
+            // Local Auth is enabled.
+            // If user is not authenticated, force local auth.
+            if localAuthManager.isAuthenticated {
+                
+                TabNavigationView()
+                
+            } else {
+                
+                LocalAuthView()
+                
+            }
             
         } else {
             
-            LocalAuthView()
+            // Local Auth is disabled.
+            TabNavigationView()
             
         }
         
