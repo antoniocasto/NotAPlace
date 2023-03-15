@@ -17,7 +17,7 @@ struct ContentView: View {
         // If user is not authenticated, force local auth.
         if localAuthManager.isAuthenticated {
             
-            Text("Authenticated.")
+            TabNavigationView()
             
         } else {
             
