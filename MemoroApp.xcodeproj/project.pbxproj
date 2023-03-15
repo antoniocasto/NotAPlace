@@ -11,6 +11,9 @@
 		B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5429BA1D3200BFE310 /* ContentView.swift */; };
 		B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5629BA1D3300BFE310 /* Assets.xcassets */; };
 		B03C5A5A29BA1D3300BFE310 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5929BA1D3300BFE310 /* Preview Assets.xcassets */; };
+		B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */; };
+		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
+		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		B03C5A5429BA1D3200BFE310 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B03C5A5629BA1D3300BFE310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C5A5929BA1D3300BFE310 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthManager.swift; sourceTree = "<group>"; };
+		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
+		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,12 +58,12 @@
 			isa = PBXGroup;
 			children = (
 				B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */,
-				B03C5A5429BA1D3200BFE310 /* ContentView.swift */,
-				B03C5A6429BA1F3E00BFE310 /* CoreData */,
+				B0C8BE5C29C1C73400483769 /* Navigation */,
 				B03C5A6029BA1F0400BFE310 /* Model */,
 				B03C5A6129BA1F0D00BFE310 /* View */,
 				B03C5A6229BA1F1A00BFE310 /* Manager */,
 				B03C5A6329BA1F2C00BFE310 /* Component */,
+				B0C8BE5929C1C5BF00483769 /* Extension */,
 				B03C5A5629BA1D3300BFE310 /* Assets.xcassets */,
 				B03C5A5829BA1D3300BFE310 /* Preview Content */,
 			);
@@ -82,6 +88,7 @@
 		B03C5A6129BA1F0D00BFE310 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +96,7 @@
 		B03C5A6229BA1F1A00BFE310 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -100,11 +108,20 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		B03C5A6429BA1F3E00BFE310 /* CoreData */ = {
+		B0C8BE5929C1C5BF00483769 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */,
 			);
-			path = CoreData;
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B0C8BE5C29C1C73400483769 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B03C5A5429BA1D3200BFE310 /* ContentView.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +195,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
+				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
+				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,
+				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +330,7 @@
 				DEVELOPMENT_TEAM = YYLHLGYA35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to authenticate you to unlock your places.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +360,7 @@
 				DEVELOPMENT_TEAM = YYLHLGYA35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to authenticate you to unlock your places.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

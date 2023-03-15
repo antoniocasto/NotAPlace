@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct MemoroAppApp: App {
+    
+    // Manager for Local Authentication
+    @StateObject var localAuthManager = LocalAuthManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(localAuthManager)
         }
     }
 }
