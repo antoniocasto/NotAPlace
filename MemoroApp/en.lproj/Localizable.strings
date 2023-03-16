@@ -26,5 +26,12 @@
 /* SettingsView */
 "SettingsView.Settings" = "Settings";
 "SettingsView.Security" = "Security";
-"SettingsView.securitySectionFooter" = "Local Authentication uses device biometric authentication or the device code to hide the places you have saved in Memoro from anyone but you.";
+"SettingsView.securitySectionFooter" = "Local Authentication uses a password and - optionally - the device biometric authentication (Face ID or Touch ID, if available) or the device code to hide the places you have saved in Memoro from anyone but you.";
 "SettingsView.Local Authentication" = "Local Authentication";
+"SettingsView.Use Face ID or Touch ID" = "Use Face ID or Touch ID";
+"SettingsView.Password Requested" = "Password Requested";
+"SettingsView.PasswordAlertMessage" = "To enable Local Authentication you must chose a password to be used when requested.";
+"SettingsView.Cancel" = "Cancel";
+"SettingsView.Create" = "Create";
+"SettingsView.Password" = "Password";
+"SettingsView.Repeat Password" = "Repeat Password";
