@@ -69,9 +69,9 @@ class LocalAuthManager: ObservableObject {
                         
             print(error.localizedDescription)
             
-            // Show error
-            errorDescription = error.localizedDescription
-            showAlert = true
+            // Optional - Show error
+//            errorDescription = error.localizedDescription
+//            showAlert = true
             
             // Set to .none to let the user using his credentials
             biometryType = .none

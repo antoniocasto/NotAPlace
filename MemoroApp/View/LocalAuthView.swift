@@ -58,6 +58,9 @@ struct LocalAuthView: View {
         } message: {
             Text(localAuthManager.errorDescription ?? unknownError)
         }
+        .task {
+            await localAuthManager.authenticateWithBiometrics()
+        }
         
         
         
