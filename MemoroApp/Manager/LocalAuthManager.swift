@@ -5,7 +5,7 @@
 //  Created by Antonio Casto on 15/03/23.
 //
 
-import Foundation
+import SwiftUI
 import LocalAuthentication
 
 class LocalAuthManager: ObservableObject {
@@ -22,13 +22,8 @@ class LocalAuthManager: ObservableObject {
     @Published private(set) var isAuthenticated = false
     
     // Error handling
-    @Published private(set) var errorDescription: String?
+    @Published private(set) var errorDescription: LocalizedStringKey?
     @Published var showAlert = false
-        
-    // Same as info.plist
-    let unlockReason = "We need to authenticate you to unlock your places."
-    
-    let biometricPermissionNotAllowedMessage = "Biometric authentication or device code authentication has been disabled for Memoro from the iOS Settings. Reactivate this setting to use it."
     
     init() {
         
@@ -53,7 +48,7 @@ class LocalAuthManager: ObservableObject {
         context = LAContext()
                         
         guard canEvaluatePolicy else {
-            showAlertErrorWithMessage(biometricPermissionNotAllowedMessage)
+            showAlertErrorWithMessage(LocalAuthManager.biometricPermissionNotAllowedMessage)
             return
         }
         
@@ -82,14 +77,32 @@ class LocalAuthManager: ObservableObject {
         isAuthenticated = false
     }
     
-    private func showAlertErrorWithMessage(_ message: String) {
-        errorDescription = message
+    private func showAlertErrorWithMessage(_ messageKey: LocalizedStringKey) {
+        errorDescription = messageKey
         showAlert = true
     }
     
     private func clearErrorMessage() {
         errorDescription = nil
         showAlert = false
+    }
+    
+}
+
+extension LocalAuthManager {
+    static let biometricPermissionNotAllowedMessage = LocalizedStringKey("LocalAuthManager.disabled")
+    
+    // Same as info.plist, check Localizable files.
+    var unlockReason: String {
+        let langStr = NSLocale.current.language.languageCode?.identifier ?? "en"
+        switch langStr {
+        case "it":
+            return "Abbiamo bisogno di questo permesso per sbloccare i luoghi che hai salvato."
+        case "en":
+            return "We need this permission to unlock your saved places."
+        default:
+            return "We need this permission to unlock your saved places."
+        }
     }
     
 }

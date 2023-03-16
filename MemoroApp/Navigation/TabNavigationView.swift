@@ -17,29 +17,25 @@ struct TabNavigationView: View {
     
     @AppStorage("SelectedTab") var selectedTab: TabSelectable = .places
     
-    let mapViewLabelText = "World Map"
-    let placesLabelText = "Places"
-    let settingsLabelText = "Settings"
-    
     var body: some View {
         
         TabView(selection: $selectedTab) {
             
             WorldMapView()
                 .tabItem {
-                    Label(mapViewLabelText, systemImage: "map")
+                    Label(TabNavigationView.mapViewLabelText, systemImage: "map")
                 }
                 .tag(TabSelectable.map)
             
             Text("Places")
                 .tabItem {
-                    Label(placesLabelText, systemImage: "house")
+                    Label(TabNavigationView.placesLabelText, systemImage: "house")
                 }
                 .tag(TabSelectable.places)
             
             SettingsView()
                 .tabItem {
-                    Label(settingsLabelText, systemImage: "gear")
+                    Label(TabNavigationView.settingsLabelText, systemImage: "gear")
                 }
                 .tag(TabSelectable.settings)
             
@@ -52,4 +48,10 @@ struct TabNavigationView_Previews: PreviewProvider {
     static var previews: some View {
         TabNavigationView()
     }
+}
+
+extension TabNavigationView {
+    static let mapViewLabelText = LocalizedStringKey("TabNavigationView.World Map")
+    static let placesLabelText = LocalizedStringKey("TabNavigationView.Places")
+    static let settingsLabelText = LocalizedStringKey("TabNavigationView.Settings")
 }

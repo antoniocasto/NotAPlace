@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.string.strings
+  MemoroApp
+
+  Created by Antonio Casto on 16/03/23.
+  
+*/
+
+NSFaceIDUsageDescription = "Abbiamo bisogno di questo permesso per sbloccare i luoghi che hai salvato.";

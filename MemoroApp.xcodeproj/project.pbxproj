@@ -12,6 +12,8 @@
 		B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5629BA1D3300BFE310 /* Assets.xcassets */; };
 		B03C5A5A29BA1D3300BFE310 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5929BA1D3300BFE310 /* Preview Assets.xcassets */; };
 		B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EA5A329C323C800D425E6 /* WorldMapView.swift */; };
+		B06EA5A729C3259B00D425E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B06EA5A929C3259B00D425E6 /* Localizable.strings */; };
+		B06EA5B729C33ADC00D425E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B06EA5B929C33ADC00D425E6 /* InfoPlist.strings */; };
 		B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */; };
 		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
@@ -26,6 +28,10 @@
 		B03C5A5629BA1D3300BFE310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C5A5929BA1D3300BFE310 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B06EA5A329C323C800D425E6 /* WorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
+		B06EA5A829C3259B00D425E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B06EA5AA29C325C200D425E6 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B06EA5B829C33ADC00D425E6 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B06EA5BA29C33AE000D425E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthManager.swift; sourceTree = "<group>"; };
 		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 				B03C5A6329BA1F2C00BFE310 /* Component */,
 				B0C8BE5929C1C5BF00483769 /* Extension */,
 				B03C5A5629BA1D3300BFE310 /* Assets.xcassets */,
+				B06EA5B929C33ADC00D425E6 /* InfoPlist.strings */,
+				B06EA5A929C3259B00D425E6 /* Localizable.strings */,
 				B03C5A5829BA1D3300BFE310 /* Preview Content */,
 			);
 			path = MemoroApp;
@@ -175,6 +183,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = B03C5A4629BA1D3200BFE310;
 			productRefGroup = B03C5A5029BA1D3200BFE310 /* Products */;
@@ -192,6 +201,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03C5A5A29BA1D3300BFE310 /* Preview Assets.xcassets in Resources */,
+				B06EA5B729C33ADC00D425E6 /* InfoPlist.strings in Resources */,
+				B06EA5A729C3259B00D425E6 /* Localizable.strings in Resources */,
 				B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +226,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B06EA5A929C3259B00D425E6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B06EA5A829C3259B00D425E6 /* en */,
+				B06EA5AA29C325C200D425E6 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B06EA5B929C33ADC00D425E6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B06EA5B829C33ADC00D425E6 /* it */,
+				B06EA5BA29C33AE000D425E6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B03C5A5B29BA1D3300BFE310 /* Debug */ = {
@@ -342,7 +374,7 @@
 				DEVELOPMENT_TEAM = YYLHLGYA35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to authenticate you to unlock your places.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -372,7 +404,7 @@
 				DEVELOPMENT_TEAM = YYLHLGYA35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to authenticate you to unlock your places.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

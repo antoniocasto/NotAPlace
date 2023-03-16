@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  MemoroApp
+
+  Created by Antonio Casto on 16/03/23.
+  
+*/
+
+/* LocalAuthView */
+"LocalAuthView.Memoro is Locked" = "Memoro è Bloccato";
+"LocalAuthView.Unlock it to show your places." = "Sbloccalo per vedere i tuoi luoghi.";
+"LocalAuthView.Unlock" = "Sblocca";
+"LocalAuthView.Unknown Error" = "Errore Sconosciuto";
+"LocalAuthView.OK" = "OK";
+"LocalAuthView.Open Settings" = "Apri Impostazioni";
+"LocalAuthView.Authentication Error" = "Errore di Autenticazione";
+
+/* LocalAuthManager*/
+"LocalAuthManager.disabled" = "L'autenticazione biometrica o l'autentcazione con il codice del dispositivo è stata disabilitata per Memoro dalle Impostazioni di iOS. Riattiva questa impostazione per utilizzarla.";
+
+/* TabNavigationView */
+"TabNavigationView.World Map" = "Mappamondo";
+"TabNavigationView.Places" = "Luoghi";
+"TabNavigationView.Settings" = "Impostazioni";
+
+/* SettingsView */
+"SettingsView.Settings" = "Impostazioni";
+"SettingsView.Security" = "Sicurezza";
+"SettingsView.securitySectionFooter" = "L'Autenticazione Locale utilizza l'autenticazione biometrica del dispositivo o il codice del dispositivo per nascondere i luoghi che hai salvato in Memoro da altri tranne te.";
+"SettingsView.Local Authentication" = "Authenticazione Locale";

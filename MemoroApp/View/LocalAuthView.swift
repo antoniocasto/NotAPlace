@@ -12,14 +12,6 @@ struct LocalAuthView: View {
     // Manager for Local Authentication
     @EnvironmentObject var localAuthManager: LocalAuthManager
     
-    let lockTitleText = "Memoro is Locked"
-    let lockReasonText = "Unlock to show your places."
-    let unlockButtonText = "Unlock"
-    let authErrorTitle = "Authentication Error"
-    let unknownError = "Unknown Error"
-    let okButtonText = "OK"
-    let openSettingsButtonText = "Open Settings"
-    
     var body: some View {
         
         VStack(alignment: .center, spacing: 10) {
@@ -32,11 +24,11 @@ struct LocalAuthView: View {
                 .foregroundColor(.accentColor)
             
             
-            Text(lockTitleText)
+            Text(LocalAuthView.lockTitleText)
                 .font(.title.bold())
                 .foregroundColor(.accentColor)
             
-            Text(lockReasonText)
+            Text(LocalAuthView.lockReasonText)
                 .foregroundColor(.accentColor)
             
             
@@ -47,16 +39,16 @@ struct LocalAuthView: View {
             Spacer()
             
         }
-        .alert(authErrorTitle, isPresented: $localAuthManager.showAlert) {
-            Button(okButtonText, role: .cancel) { }
-            Button(openSettingsButtonText) {
+        .alert(LocalAuthView.authErrorTitle, isPresented: $localAuthManager.showAlert) {
+            Button(LocalAuthView.okButtonText, role: .cancel) { }
+            Button(LocalAuthView.openSettingsButtonText) {
                 // Get the App Settings URL in iOS Settings and open it.
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.open(url)
                 }
             }
         } message: {
-            Text(localAuthManager.errorDescription ?? unknownError)
+            Text(localAuthManager.errorDescription ?? LocalAuthView.unknownError)
         }
         .task {
             await localAuthManager.authenticateWithBiometrics()
@@ -72,7 +64,7 @@ struct LocalAuthView: View {
                 await localAuthManager.authenticateWithBiometrics()
             }
         } label: {
-            Text(unlockButtonText)
+            Text(LocalAuthView.unlockButtonText)
                 .font(.title2)
                 .bold()
                 .padding()
@@ -90,4 +82,14 @@ struct LocalAuthView_Previews: PreviewProvider {
         LocalAuthView()
             .environmentObject(LocalAuthManager())
     }
+}
+
+extension LocalAuthView {
+    static let lockTitleText = LocalizedStringKey("LocalAuthView.Memoro is Locked")
+    static let lockReasonText = LocalizedStringKey("LocalAuthView.Unlock it to show your places.")
+    static let unlockButtonText = LocalizedStringKey("LocalAuthView.Unlock")
+    static let authErrorTitle = LocalizedStringKey("LocalAuthView.Authentication Error")
+    static let unknownError = LocalizedStringKey("LocalAuthView.Unknown Error")
+    static let okButtonText = LocalizedStringKey("LocalAuthView.OK")
+    static let openSettingsButtonText = LocalizedStringKey("LocalAuthView.Open Settings")
 }

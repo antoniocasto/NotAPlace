@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.string.strings
+  MemoroApp
+
+  Created by Antonio Casto on 16/03/23.
+  
+*/
+
+NSFaceIDUsageDescription = "We need this permission to unlock your saved places.";

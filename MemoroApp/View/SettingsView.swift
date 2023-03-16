@@ -12,25 +12,20 @@ struct SettingsView: View {
     // Persistent setting
     @AppStorage("LocalAuthEnabled") private var localAuthEnabled = false
     
-    let viewTitleText = "Settings"
-    let securitySectionHeaderText = "Security"
-    let securitySectionFooterText = "Local Authentication uses device biometric authentication or the device code to hide the places you have saved in Memoro from anyone but you."
-    let localAuthToggleText = "Local Authentication"
-    
     var body: some View {
         NavigationStack {
             Form {
                 
                 Section {
-                    Toggle(localAuthToggleText, isOn: $localAuthEnabled)
+                    Toggle(SettingsView.localAuthToggleText, isOn: $localAuthEnabled)
                 } header: {
-                    Text(securitySectionHeaderText)
+                    Text(SettingsView.securitySectionHeaderText)
                 } footer: {
-                    Text(securitySectionFooterText)
+                    Text(SettingsView.securitySectionFooterText)
                 }
                 
             }
-            .navigationTitle(viewTitleText)
+            .navigationTitle(SettingsView.viewTitleText)
         }
     }
 }
@@ -39,4 +34,11 @@ struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
     }
+}
+
+extension SettingsView {
+    static let viewTitleText = LocalizedStringKey("SettingsView.Settings")
+    static let securitySectionHeaderText = LocalizedStringKey("SettingsView.Security")
+    static let securitySectionFooterText = LocalizedStringKey("SettingsView.securitySectionFooter")
+    static let localAuthToggleText = LocalizedStringKey("SettingsView.Local Authentication")
 }

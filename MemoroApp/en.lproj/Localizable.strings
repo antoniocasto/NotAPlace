@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  MemoroApp
+
+  Created by Antonio Casto on 16/03/23.
+  
+*/
+
+/* LocalAuthView */
+"LocalAuthView.Memoro is Locked" = "Memoro is Locked";
+"LocalAuthView.Unlock it to show your places." = "Unlock it to show your places.";
+"LocalAuthView.Unlock" = "Unlock";
+"LocalAuthView.Unknown Error" = "Unknown Error";
+"LocalAuthView.OK" = "OK";
+"LocalAuthView.Open Settings" = "Open Settings";
+"LocalAuthView.Authentication Error" = "Authentication Error";
+
+/* LocalAuthManager*/
+"LocalAuthManager.disabled" = "Biometric authentication or device code authentication has been disabled for Memoro from the iOS Settings. Reactivate this setting to use it.";
+
+/* TabNavigationView */
+"TabNavigationView.World Map" = "World Map";
+"TabNavigationView.Places" = "Places";
+"TabNavigationView.Settings" = "Settings";
+
+/* SettingsView */
+"SettingsView.Settings" = "Settings";
+"SettingsView.Security" = "Security";
+"SettingsView.securitySectionFooter" = "Local Authentication uses device biometric authentication or the device code to hide the places you have saved in Memoro from anyone but you.";
+"SettingsView.Local Authentication" = "Local Authentication";
