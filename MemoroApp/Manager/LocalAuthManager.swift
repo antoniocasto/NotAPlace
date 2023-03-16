@@ -28,6 +28,8 @@ class LocalAuthManager: ObservableObject {
     // Same as info.plist
     let unlockReason = "We need to authenticate you to unlock your places."
     
+    let biometricPermissionNotAllowedMessage = "Biometric authentication or device code authentication has been disabled for Memoro from the iOS Settings. Reactivate this setting to use it."
+    
     init() {
         
         // Sets biometry type
@@ -49,15 +51,22 @@ class LocalAuthManager: ObservableObject {
     func authenticateWithBiometrics() async {
         
         context = LAContext()
-        
-        guard canEvaluatePolicy else { return }
+                        
+        guard canEvaluatePolicy else {
+            showAlertErrorWithMessage(biometricPermissionNotAllowedMessage)
+            return
+        }
         
         do {
             
             // Set auth status
             isAuthenticated = try await context.evaluatePolicy(biometryType == .none ? .deviceOwnerAuthentication : .deviceOwnerAuthenticationWithBiometrics, localizedReason: unlockReason)
+            
+            // Clear error message if any
+            clearErrorMessage()
                         
         } catch {
+                        
             print(error.localizedDescription)
             
             // Show error
@@ -71,6 +80,16 @@ class LocalAuthManager: ObservableObject {
     
     func logout() {
         isAuthenticated = false
+    }
+    
+    private func showAlertErrorWithMessage(_ message: String) {
+        errorDescription = message
+        showAlert = true
+    }
+    
+    private func clearErrorMessage() {
+        errorDescription = nil
+        showAlert = false
     }
     
 }

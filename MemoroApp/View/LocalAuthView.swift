@@ -15,6 +15,10 @@ struct LocalAuthView: View {
     let lockTitleText = "Memoro is Locked"
     let lockReasonText = "Unlock to show your places."
     let unlockButtonText = "Unlock"
+    let authErrorTitle = "Authentication Error"
+    let unknownError = "Unknown Error"
+    let okButtonText = "OK"
+    let openSettingsButtonText = "Open Settings"
     
     var body: some View {
         
@@ -34,7 +38,7 @@ struct LocalAuthView: View {
             
             Text(lockReasonText)
                 .foregroundColor(.accentColor)
-
+            
             
             Spacer()
             
@@ -43,6 +47,18 @@ struct LocalAuthView: View {
             Spacer()
             
         }
+        .alert(authErrorTitle, isPresented: $localAuthManager.showAlert) {
+            Button(okButtonText, role: .cancel) { }
+            Button(openSettingsButtonText) {
+                // Get the App Settings URL in iOS Settings and open it.
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+        } message: {
+            Text(localAuthManager.errorDescription ?? unknownError)
+        }
+        
         
         
     }
