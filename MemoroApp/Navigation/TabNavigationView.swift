@@ -25,7 +25,7 @@ struct TabNavigationView: View {
         
         TabView(selection: $selectedTab) {
             
-            Text("Map View")
+            WorldMapView()
                 .tabItem {
                     Label(mapViewLabelText, systemImage: "map")
                 }

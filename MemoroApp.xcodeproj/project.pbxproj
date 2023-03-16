@@ -11,6 +11,7 @@
 		B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5429BA1D3200BFE310 /* ContentView.swift */; };
 		B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5629BA1D3300BFE310 /* Assets.xcassets */; };
 		B03C5A5A29BA1D3300BFE310 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5929BA1D3300BFE310 /* Preview Assets.xcassets */; };
+		B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EA5A329C323C800D425E6 /* WorldMapView.swift */; };
 		B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */; };
 		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
@@ -24,6 +25,7 @@
 		B03C5A5429BA1D3200BFE310 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B03C5A5629BA1D3300BFE310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C5A5929BA1D3300BFE310 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B06EA5A329C323C800D425E6 /* WorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
 		B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthManager.swift; sourceTree = "<group>"; };
 		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */,
+				B06EA5A329C323C800D425E6 /* WorldMapView.swift */,
 				B0C8BE6329C1E35500483769 /* SettingsView.swift */,
 			);
 			path = View;
@@ -206,6 +209,7 @@
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,
+				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
