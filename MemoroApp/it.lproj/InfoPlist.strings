@@ -7,3 +7,4 @@
 */
 
 NSFaceIDUsageDescription = "Abbiamo bisogno di questo permesso per sbloccare i luoghi che hai salvato.";
+NSLocationWhenInUseUsageDescription = "Abbiamo bisogno di accedere alla tua posizione al fine di centrare la mappa attorno alla tua posizione corrente.";

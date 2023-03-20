@@ -20,6 +20,8 @@
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
 		B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE6129C1D92400483769 /* TabNavigationView.swift */; };
 		B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE6329C1E35500483769 /* SettingsView.swift */; };
+		B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB859429C8ADBD004A49B7 /* LocationManager.swift */; };
+		B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B0C8BE6129C1D92400483769 /* TabNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationView.swift; sourceTree = "<group>"; };
 		B0C8BE6329C1E35500483769 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B0CB859429C8ADBD004A49B7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */,
+				B0CB859429C8ADBD004A49B7 /* LocationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */,
+				B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -227,6 +233,8 @@
 			files = (
 				B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */,
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
+				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
+				B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */,
 				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
@@ -387,6 +395,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -417,6 +426,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

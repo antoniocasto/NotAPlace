@@ -48,4 +48,9 @@
 "SettingsView.ErrorMessage2" = "Password not matching password confirmation.";
 "SettingsView.ErrorMessage3" = "An error occured while saving your password. Try again.";
 
-
+/* WorldMapView */
+"WorldMapView.ErrorTitle" = "Location not available";
+"WorldMapView.Cancel" = "Cancel";
+"WorldMapView.Open Settings" = "Open Settings";
+"WorldMapView.Error Message" = "Impossible obtaining your location. If you revoked the permission, please enable it from iOS Settings.";
+"WorldMapView.Error Restriction Message" = "Impossible obtaining your location due to restrictions. Please check iOS Settings.";

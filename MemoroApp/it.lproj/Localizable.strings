@@ -48,6 +48,15 @@
 "SettingsView.ErrorMessage2" = "La password non coincide con la conferma della password.";
 "SettingsView.ErrorMessage3" = "Si è verificato un errore durante il salvataggio della tua password. Prova di nuovo.";
 
+/* WorldMapView */
+"WorldMapView.ErrorTitle" = "Posizione non disponibile";
+"WorldMapView.Cancel" = "Annulla";
+"WorldMapView.Open Settings" = "Apri Impostazioni";
+"WorldMapView.Error Message" = "Impossibile ottenere la tua posizione. Se ne hai revocato il permesso, riattivalo dalle impostazione di iOS per favore.";
+"WorldMapView.Error Restriction Message" = "Impossibile ottenere la tua posizione a causa di alcune restrizioni. Per favore controlla le Impostazioni di iOS.";
+
+
+
 
 
 
