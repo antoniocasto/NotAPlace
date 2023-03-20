@@ -14,6 +14,7 @@
 		B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EA5A329C323C800D425E6 /* WorldMapView.swift */; };
 		B06EA5A729C3259B00D425E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B06EA5A929C3259B00D425E6 /* Localizable.strings */; };
 		B06EA5B729C33ADC00D425E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B06EA5B929C33ADC00D425E6 /* InfoPlist.strings */; };
+		B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09F196B29C89EBC00656900 /* KeychainHelper.swift */; };
 		B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */; };
 		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
@@ -32,6 +33,7 @@
 		B06EA5AA29C325C200D425E6 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B06EA5B829C33ADC00D425E6 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B06EA5BA29C33AE000D425E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B09F196B29C89EBC00656900 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthManager.swift; sourceTree = "<group>"; };
 		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				B03C5A6129BA1F0D00BFE310 /* View */,
 				B03C5A6229BA1F1A00BFE310 /* Manager */,
 				B03C5A6329BA1F2C00BFE310 /* Component */,
+				B09F196A29C89E8300656900 /* Helper */,
 				B0C8BE5929C1C5BF00483769 /* Extension */,
 				B03C5A5629BA1D3300BFE310 /* Assets.xcassets */,
 				B06EA5B929C33ADC00D425E6 /* InfoPlist.strings */,
@@ -122,6 +125,14 @@
 			children = (
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		B09F196A29C89E8300656900 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B09F196B29C89EBC00656900 /* KeychainHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		B0C8BE5929C1C5BF00483769 /* Extension */ = {
@@ -218,6 +229,7 @@
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
 				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
+				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,
 				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,

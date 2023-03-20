@@ -14,9 +14,16 @@
 "LocalAuthView.OK" = "OK";
 "LocalAuthView.Open Settings" = "Apri Impostazioni";
 "LocalAuthView.Authentication Error" = "Errore di Autenticazione";
+"LocalAuthView.UnlockPassword" = "Sblocca con la Password";
+"LocalAuthView.Password" = "Password";
+"LocalAuthView.Cancel" = "Annulla";
+"LocalAuthView.Login" = "Accedi";
+"LocalAuthView.PasswordReason" = "Inserisci la tua Password per accedere ai tuoi luoghi su Memoro.";
+"LocalAuthView.PasswordError" = "Password Errata";
 
 /* LocalAuthManager*/
-"LocalAuthManager.disabled" = "L'autenticazione biometrica o l'autentcazione con il codice del dispositivo è stata disabilitata per Memoro dalle Impostazioni di iOS. Riattiva questa impostazione per utilizzarla.";
+"LocalAuthManager.disabled" = "L'autenticazione biometrica e l'autenticazione con il codice del dispositivo non sono disponibili. Se li hai disattivati dalle Impostazioni di iOS, riattivali per favore. Altrimenti accedi con la password che hai creato per Memoro.";
+"LocalAuthManager.wrongPassword" = "Questa non è la password corretta. Riprova.";
 
 /* TabNavigationView */
 "TabNavigationView.World Map" = "Mappamondo";
@@ -27,10 +34,20 @@
 "SettingsView.Settings" = "Impostazioni";
 "SettingsView.Security" = "Sicurezza";
 "SettingsView.securitySectionFooter" = "L'Autenticazione Locale utilizza una password e, opzionalmente, l'autenticazione biometrica del dispositivo (Face ID o Touch ID, se disponibili) o il codice del dispositivo per nascondere i luoghi che hai salvato in Memoro da altri tranne te.";
-"SettingsView.Local Authentication" = "Authenticazione Locale";
+"SettingsView.Local Authentication" = "Autenticazione Locale";
 "SettingsView.Use Face ID or Touch ID" = "Usa Face ID o Touch ID";
 "SettingsView.Password Requested" = "Password Richiesta";
 "SettingsView.PasswordAlertMessage" = "Per abilitare l'Autenticazione Locale devi scegliere una password da utilizzare quando ti viene richiesta.";
 "SettingsView.Cancel" = "Annulla";
 "SettingsView.Create" = "Crea";
+"SettingsView.Password" = "Password";
 "SettingsView.Repeat Password" = "Ripeti Password";
+"SettingsView.OK" = "OK";
+"SettingsView.ErrorTitle" = "Errore Password";
+"SettingsView.ErrorMessage1" = "La password deve contenere almeno 8 caratteri.";
+"SettingsView.ErrorMessage2" = "La password non coincide con la conferma della password.";
+"SettingsView.ErrorMessage3" = "Si è verificato un errore durante il salvataggio della tua password. Prova di nuovo.";
+
+
+
+

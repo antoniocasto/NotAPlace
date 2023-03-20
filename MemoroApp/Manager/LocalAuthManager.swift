@@ -9,6 +9,9 @@ import SwiftUI
 import LocalAuthentication
 
 class LocalAuthManager: ObservableObject {
+    
+    // For Keychain
+    private let account = "Local"
         
     // Evaluates auth policies
     private(set) var context = LAContext()
@@ -24,6 +27,8 @@ class LocalAuthManager: ObservableObject {
     // Error handling
     @Published private(set) var errorDescription: LocalizedStringKey?
     @Published var showAlert = false
+    @Published private(set) var passwordErrorDescription: LocalizedStringKey?
+    @Published var showPasswordAlert = false
     
     init() {
         
@@ -70,6 +75,7 @@ class LocalAuthManager: ObservableObject {
             
             // Set to .none to let the user using his credentials
             biometryType = .none
+            isAuthenticated = false
         }
     }
     
@@ -77,12 +83,59 @@ class LocalAuthManager: ObservableObject {
         isAuthenticated = false
     }
     
-    private func showAlertErrorWithMessage(_ messageKey: LocalizedStringKey) {
+    // Local auth method: Login - Implement later
+    func loginPassword(with password: String) {
+        
+        guard let bundleID = Bundle.main.bundleIdentifier else { return }
+        
+        // Get stored password from Keychain
+        guard let encodedPassword = KeychainHelper.read(service: bundleID, account: account) else { return }
+        
+        // Decode password
+        guard let decodedPassword = String(data: encodedPassword, encoding: .utf8) else { return }
+                
+        if password == decodedPassword {
+            
+            clearErrorMessage(forPassword: true)
+            isAuthenticated = true
+            
+        } else {
+            showAlertErrorWithMessage(LocalAuthManager.wrongPasswordMessage, forPassword: true)
+        }
+        
+    }
+    
+    // Local auth method: Password Creation
+    func createPassword(with password: String) {
+        
+        // Encode password and obtain Bundle id
+        guard let encodedPassword = password.data(using: .utf8), let bundleID = Bundle.main.bundleIdentifier else { return }
+                            
+        // Store password in Keychain
+        KeychainHelper.save(encodedPassword, service: bundleID, account: "Local")
+        
+    }
+    
+    private func showAlertErrorWithMessage(_ messageKey: LocalizedStringKey, forPassword: Bool = false) {
+        
+        if forPassword {
+            passwordErrorDescription = messageKey
+            showPasswordAlert = true
+            return
+        }
+        
         errorDescription = messageKey
         showAlert = true
     }
     
-    private func clearErrorMessage() {
+    private func clearErrorMessage(forPassword: Bool = false) {
+        
+        if forPassword {
+            passwordErrorDescription = nil
+            showPasswordAlert = false
+            return
+        }
+        
         errorDescription = nil
         showAlert = false
     }
@@ -90,7 +143,9 @@ class LocalAuthManager: ObservableObject {
 }
 
 extension LocalAuthManager {
+    
     static let biometricPermissionNotAllowedMessage = LocalizedStringKey("LocalAuthManager.disabled")
+    static let wrongPasswordMessage = LocalizedStringKey("LocalAuthManager.wrongPassword")
     
     // Same as info.plist, check Localizable files.
     var unlockReason: String {
@@ -106,4 +161,3 @@ extension LocalAuthManager {
     }
     
 }
-

@@ -12,6 +12,14 @@ struct LocalAuthView: View {
     // Manager for Local Authentication
     @EnvironmentObject var localAuthManager: LocalAuthManager
     
+    // Persistent settings
+    @AppStorage("LocalAuthWithBiometrics") private var localAuthWithBiometrics = false
+    
+    // Backup mode to login
+    @State private var showLoginWithPassword = false
+    @State private var showPasswordPrompt = false
+    @State private var password = ""
+    
     var body: some View {
         
         VStack(alignment: .center, spacing: 10) {
@@ -36,11 +44,26 @@ struct LocalAuthView: View {
             
             unlockButton
             
+            if showLoginWithPassword {
+                Text(LocalAuthView.unlockWithPasswordText)
+                    .foregroundColor(.accentColor)
+                    .padding()
+                    .onTapGesture {
+                        // Login With Password
+                        showPasswordPrompt = true
+                    }
+            }
+            
             Spacer()
             
         }
+        // Alert for biometric authentication error
         .alert(LocalAuthView.authErrorTitle, isPresented: $localAuthManager.showAlert) {
-            Button(LocalAuthView.okButtonText, role: .cancel) { }
+            Button(LocalAuthView.okButtonText, role: .cancel) {
+                withAnimation {
+                    showLoginWithPassword = true
+                }
+            }
             Button(LocalAuthView.openSettingsButtonText) {
                 // Get the App Settings URL in iOS Settings and open it.
                 if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -50,8 +73,33 @@ struct LocalAuthView: View {
         } message: {
             Text(localAuthManager.errorDescription ?? LocalAuthView.unknownError)
         }
+        // Password prompt for Local Authentication
+        .alert(LocalAuthView.unlockWithPasswordText, isPresented: $showPasswordPrompt) {
+            SecureField(LocalAuthView.passwordInput, text: $password)
+            Button(LocalAuthView.passwordCancelButton, role: .cancel) {
+                password = ""
+            }
+            Button(LocalAuthView.passwordLoginButton) {
+                
+                // Perform login here
+                localAuthManager.loginPassword(with: password)
+                
+            }
+        } message: {
+            Text(LocalAuthView.passowrdReasonText)
+        }
+        // Alert for wrong password in Local Authentication
+        .alert(LocalAuthView.passwordErrorTitle, isPresented: $localAuthManager.showPasswordAlert) {
+            Button(LocalAuthView.okButtonText, role: .cancel) {
+                password = ""
+            }
+        } message: {
+            Text(localAuthManager.passwordErrorDescription ?? LocalAuthView.unknownError)
+        }
         .task {
-            await localAuthManager.authenticateWithBiometrics()
+            if localAuthWithBiometrics {
+                await localAuthManager.authenticateWithBiometrics()
+            }
         }
         
         
@@ -60,8 +108,14 @@ struct LocalAuthView: View {
     
     var unlockButton: some View {
         Button {
-            Task {
-                await localAuthManager.authenticateWithBiometrics()
+            if localAuthWithBiometrics {
+                // Login via Biometrics
+                Task {
+                    await localAuthManager.authenticateWithBiometrics()
+                }
+            } else {
+                // Login using password
+                showPasswordPrompt = true
             }
         } label: {
             Text(LocalAuthView.unlockButtonText)
@@ -92,4 +146,10 @@ extension LocalAuthView {
     static let unknownError = LocalizedStringKey("LocalAuthView.Unknown Error")
     static let okButtonText = LocalizedStringKey("LocalAuthView.OK")
     static let openSettingsButtonText = LocalizedStringKey("LocalAuthView.Open Settings")
+    static let unlockWithPasswordText = LocalizedStringKey("LocalAuthView.UnlockPassword")
+    static let passwordInput = LocalizedStringKey("LocalAuthView.Password")
+    static let passwordCancelButton = LocalizedStringKey("LocalAuthView.Cancel")
+    static let passwordLoginButton = LocalizedStringKey("LocalAuthView.Login")
+    static let passowrdReasonText = LocalizedStringKey("LocalAuthView.PasswordReason")
+    static let passwordErrorTitle = LocalizedStringKey("LocalAuthView.PasswordError")
 }
