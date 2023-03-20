@@ -18,8 +18,7 @@ struct WorldMapView: View {
             
             ZStack {
                 
-                Map(coordinateRegion: $locationManager.region, interactionModes: .all, showsUserLocation: true)
-                    .tint(.accentColor)
+                MapArea(mapRegion: $locationManager.region)
                 
                 
                 pointer

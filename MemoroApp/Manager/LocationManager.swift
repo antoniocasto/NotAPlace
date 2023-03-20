@@ -32,6 +32,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
 
     }
     
+    @MainActor
     private func checkLocationAuthorization() {
                 
         switch manager.authorizationStatus {
@@ -58,6 +59,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         showErrorAlert = true
     }
     
+    @MainActor
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
