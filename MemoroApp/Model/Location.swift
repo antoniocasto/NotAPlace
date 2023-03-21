@@ -14,7 +14,6 @@ struct Location: Identifiable, Codable {
     let title: String
     let description: String
     let image: String
-    // Range in [0,2]
     let emotionalRating: EmotionalRating
     let latitude: Double
     let longitude: Double
