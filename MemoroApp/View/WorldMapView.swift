@@ -11,6 +11,8 @@ import MapKit
 struct WorldMapView: View {
     
     @StateObject private var locationManager = LocationManager()
+    
+    @State private var showAddPlaceView = false
  
     var body: some View {
         
@@ -20,8 +22,9 @@ struct WorldMapView: View {
                 
                 MapArea(mapRegion: $locationManager.region)
                 
+                MapPointer()
                 
-                pointer
+                addButton
                 
             }
             .edgesIgnoringSafeArea(.top)
@@ -52,18 +55,29 @@ struct WorldMapView: View {
         } message: {
             Text(WorldMapView.errorRestrictionMessage)
         }
+        // Sheet to present the view to add a place
+        .sheet(isPresented: $showAddPlaceView) {
+            AddPlaceView()
+        }
         
     }
     
-    var pointer: some View {
-        Circle()
-            .fill(Color.accentColor.opacity(0.3))
-            .frame(width: 32, height: 32)
-            .overlay {
-                Circle()
-                    .stroke(lineWidth: 2)
-                    .foregroundColor(.white.opacity(0.7))
-            }
+    var addButton: some View {
+        Button {
+            showAddPlaceView.toggle()
+        } label: {
+            Image(systemName: "plus")
+                .font(.title.bold())
+                .padding()
+                .background(Color.backgroundColor)
+                .foregroundColor(Color.foregroundColor)
+                .clipShape(Circle())
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+        .padding()
+        .padding(.bottom)
+        .shadow(color: Color.backgroundColor.opacity(0.4), radius: 10, x: 0, y: 10)
+        
     }
     
 }

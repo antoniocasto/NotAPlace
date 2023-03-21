@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B009AA1329C9B21200D9AA94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1229C9B21200D9AA94 /* Location.swift */; };
+		B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */; };
+		B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1629C9C25E00D9AA94 /* MapPointer.swift */; };
+		B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */; };
+		B009AA1B29C9CEF900D9AA94 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1A29C9CEF900D9AA94 /* PhotoPicker.swift */; };
 		B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */; };
 		B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5429BA1D3200BFE310 /* ContentView.swift */; };
 		B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5629BA1D3300BFE310 /* Assets.xcassets */; };
@@ -28,6 +32,10 @@
 
 /* Begin PBXFileReference section */
 		B009AA1229C9B21200D9AA94 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
+		B009AA1629C9C25E00D9AA94 /* MapPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointer.swift; sourceTree = "<group>"; };
+		B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCounter.swift; sourceTree = "<group>"; };
+		B009AA1A29C9CEF900D9AA94 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoroAppApp.swift; sourceTree = "<group>"; };
 		B03C5A5429BA1D3200BFE310 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +124,7 @@
 			children = (
 				B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */,
 				B06EA5A329C323C800D425E6 /* WorldMapView.swift */,
+				B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */,
 				B0C8BE6329C1E35500483769 /* SettingsView.swift */,
 			);
 			path = View;
@@ -134,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				B0EB502F29C8DFFE00388E10 /* MapArea.swift */,
+				B009AA1629C9C25E00D9AA94 /* MapPointer.swift */,
+				B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -142,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				B09F196B29C89EBC00656900 /* KeychainHelper.swift */,
+				B009AA1A29C9CEF900D9AA94 /* PhotoPicker.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -237,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */,
 				B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */,
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
 				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
@@ -247,8 +260,11 @@
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,
+				B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */,
+				B009AA1B29C9CEF900D9AA94 /* PhotoPicker.swift in Sources */,
 				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
+				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -55,6 +55,14 @@
 "WorldMapView.Error Message" = "Impossibile ottenere la tua posizione. Se ne hai revocato il permesso, riattivalo dalle impostazione di iOS per favore.";
 "WorldMapView.Error Restriction Message" = "Impossibile ottenere la tua posizione a causa di alcune restrizioni. Per favore controlla le Impostazioni di iOS.";
 
+/* AddPlaceView */
+"AddPlaceView.NewPlace" = "Nuovo Luogo";
+"AddPlaceView.PlaceTitleSection" = "Titolo luogo";
+"AddPlaceView.TitleMaxChar" = "caratteri";
+
+
+
+
 
 
 

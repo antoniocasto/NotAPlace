@@ -54,3 +54,8 @@
 "WorldMapView.Open Settings" = "Open Settings";
 "WorldMapView.Error Message" = "Impossible obtaining your location. If you revoked the permission, please enable it from iOS Settings.";
 "WorldMapView.Error Restriction Message" = "Impossible obtaining your location due to restrictions. Please check iOS Settings.";
+
+/* AddPlaceView */
+"AddPlaceView.NewPlace" = "New Place";
+"AddPlaceView.PlaceTitleSection" = "Place title";
+"AddPlaceView.TitleMaxChar" = "characters";
