@@ -56,9 +56,19 @@
 "WorldMapView.Error Restriction Message" = "Impossibile ottenere la tua posizione a causa di alcune restrizioni. Per favore controlla le Impostazioni di iOS.";
 
 /* AddPlaceView */
-"AddPlaceView.NewPlace" = "Nuovo Luogo";
+"AddPlaceView.NewPlace" = "Nuovo luogo";
 "AddPlaceView.PlaceTitleSection" = "Titolo luogo";
 "AddPlaceView.TitleMaxChar" = "caratteri";
+"AddPlaceView.PermissionError" = "Accesso fotocamera disabilitato";
+"AddPlaceView.Cancel" = "Annulla";
+"SettingsView.Save" = "Salva";
+"AddPlaceView.Open Settings" = "Apri Impostazioni";
+"AddPlaceView.CameraError" = "La fotocamera non è disponibile. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
+"AddPlaceView.ImageReason"  = "Opzionalmente, puoi aggiungere una foto se lo desideri. Ti aiuterà a ricordare il luogo che hai salvato.";
+"AddPlaceView.PickImage" = "Seleziona immagine";
+"AddPlaceView.ChangeImage" = "Cambia immagine";
+
+
 
 
 

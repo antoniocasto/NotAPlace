@@ -18,9 +18,8 @@ enum MapDetails {
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     private var manager = CLLocationManager()
-        
-    @Published var showErrorAlert = false
-    @Published var showRestrictedSettingsAlert = false
+    
+    @Published var clAuthStatus: CLAuthorizationStatus = .authorizedWhenInUse
     
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
@@ -39,13 +38,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
             
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
+            clAuthStatus = .notDetermined
         case .restricted:
             // Location is restricted i.e. due to parental controls.
-            showRestrictedSettingsAlert = true
+            clAuthStatus = .restricted
         case .denied:
             // Location access denied
-            showErrorAlert = true
+            clAuthStatus = .denied
         case .authorizedAlways, .authorizedWhenInUse:
+            clAuthStatus = .authorizedWhenInUse
             guard let location = manager.location else { return }
             region = MKCoordinateRegion(center: location.coordinate, span: MapDetails.defaultSpan)
         @unknown default:
@@ -56,7 +57,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error getting location: \(error)")
-        showErrorAlert = true
     }
     
     @MainActor

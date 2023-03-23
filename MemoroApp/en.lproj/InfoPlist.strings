@@ -8,3 +8,4 @@
 
 NSFaceIDUsageDescription = "We need this permission to unlock your saved places.";
 NSLocationWhenInUseUsageDescription = "We need to access your location in order to center the map around your current position.";
+NSCameraUsageDescription = "We need to access the camera in order to let you pick photos for your places.";

@@ -13,7 +13,7 @@ struct Location: Identifiable, Codable {
     var id = UUID()
     let title: String
     let description: String
-    let image: String
+    let image: String?
     let emotionalRating: EmotionalRating
     let latitude: Double
     let longitude: Double

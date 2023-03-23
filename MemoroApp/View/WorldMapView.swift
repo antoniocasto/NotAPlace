@@ -13,7 +13,10 @@ struct WorldMapView: View {
     @StateObject private var locationManager = LocationManager()
     
     @State private var showAddPlaceView = false
- 
+    
+    @State var showErrorAlert = false
+    @State var showRestrictedSettingsAlert = false
+     
     var body: some View {
         
         NavigationStack {
@@ -32,7 +35,7 @@ struct WorldMapView: View {
             
         }
         // Alert for location access denied or error getting location 
-        .alert(WorldMapView.errorTitle, isPresented: $locationManager.showErrorAlert) {
+        .alert(WorldMapView.errorTitle, isPresented: $showErrorAlert) {
             Button(WorldMapView.cancelButton, role: .cancel) { }
             Button(WorldMapView.openSettingsButtonText) {
                 // Get the App Settings URL in iOS Settings and open it.
@@ -44,7 +47,7 @@ struct WorldMapView: View {
             Text(WorldMapView.errorMessage)
         }
         // Alert for location access restricted
-        .alert(WorldMapView.errorTitle, isPresented: $locationManager.showRestrictedSettingsAlert) {
+        .alert(WorldMapView.errorTitle, isPresented: $showRestrictedSettingsAlert) {
             Button(WorldMapView.cancelButton, role: .cancel) { }
             Button(WorldMapView.openSettingsButtonText) {
                 // Get the App Settings URL in iOS Settings and open it.
@@ -59,6 +62,14 @@ struct WorldMapView: View {
         .sheet(isPresented: $showAddPlaceView) {
             AddPlaceView()
         }
+        .onReceive(locationManager.$clAuthStatus) { newStatus in
+            if newStatus == .denied {
+                showErrorAlert = true
+            } else if newStatus == .restricted {
+                showRestrictedSettingsAlert = true
+            }
+        }
+
         
     }
     
