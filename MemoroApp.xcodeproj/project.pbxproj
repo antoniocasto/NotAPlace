@@ -11,6 +11,8 @@
 		B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */; };
 		B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1629C9C25E00D9AA94 /* MapPointer.swift */; };
 		B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */; };
+		B0117D5B29CF2C7C008195A9 /* HappinessIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */; };
+		B0117D5D29CF3E7C008195A9 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D5C29CF3E7C008195A9 /* ViewExtension.swift */; };
 		B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95829CC38CD00F9261C /* FormPlaceImage.swift */; };
 		B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */; };
 		B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */; };
@@ -36,6 +38,8 @@
 		B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
 		B009AA1629C9C25E00D9AA94 /* MapPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointer.swift; sourceTree = "<group>"; };
 		B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCounter.swift; sourceTree = "<group>"; };
+		B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappinessIcon.swift; sourceTree = "<group>"; };
+		B0117D5C29CF3E7C008195A9 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		B025A95829CC38CD00F9261C /* FormPlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlaceImage.swift; sourceTree = "<group>"; };
 		B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,7 @@
 				B009AA1629C9C25E00D9AA94 /* MapPointer.swift */,
 				B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */,
 				B025A95829CC38CD00F9261C /* FormPlaceImage.swift */,
+				B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			children = (
 				B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */,
 				B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */,
+				B0117D5C29CF3E7C008195A9 /* ViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,
+				B0117D5B29CF2C7C008195A9 /* HappinessIcon.swift in Sources */,
+				B0117D5D29CF3E7C008195A9 /* ViewExtension.swift in Sources */,
 				B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */,
 				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,

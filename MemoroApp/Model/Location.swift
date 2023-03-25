@@ -14,7 +14,7 @@ struct Location: Identifiable, Codable {
     let title: String
     let description: String
     let image: String?
-    let emotionalRating: EmotionalRating
+    let emotionalRating: HappinessRating
     let latitude: Double
     let longitude: Double
     
@@ -22,31 +22,32 @@ struct Location: Identifiable, Codable {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
-    var ratingIconName: String {
-        switch emotionalRating {
-        case .slightlyHappy:
-            return "hand.thumbsup"
-        case .happy:
-            return "face.smiling"
-        case .veryHappy:
-            return "heart"
-        }
-    }
-    
-    var ratingColor: Color {
-        switch emotionalRating {
-        case .slightlyHappy:
-            return .gray
-        case .happy:
-            return .yellow
-        case .veryHappy:
-            return .red
-        }
-    }
-    
-    enum EmotionalRating: Int, Codable {
+    enum HappinessRating: Int, Codable, CaseIterable {
         case slightlyHappy = 0
         case happy = 1
         case veryHappy = 2
+        
+        var ratingIconName: String {
+            switch self {
+            case .slightlyHappy:
+                return "hand.thumbsup"
+            case .happy:
+                return "face.smiling"
+            case .veryHappy:
+                return "heart"
+            }
+        }
+        
+        var ratingColor: Color {
+            switch self {
+            case .slightlyHappy:
+                return .gray
+            case .happy:
+                return .yellow
+            case .veryHappy:
+                return .red
+            }
+        }
+        
     }
 }

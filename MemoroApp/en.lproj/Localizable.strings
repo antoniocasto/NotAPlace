@@ -61,10 +61,14 @@
 "AddPlaceView.TitleMaxChar" = "characters";
 "AddPlaceView.PermissionError" = "Camera access disabled";
 "AddPlaceView.Cancel" = "Cancel";
-"SettingsView.Save" = "Save";
+"AddPlaceView.Save" = "Save";
 "AddPlaceView.Open Settings" = "Open Settings";
 "AddPlaceView.CameraError" = "Your camera is not available. If you revoked its permission, please enable it from iOS Settings.";
 "AddPlaceView.ImageReason"  = "Optionally, you can add a photo if you want. It will help you remember the place you saved.";
 "AddPlaceView.PickImage" = "Pick image";
 "AddPlaceView.ChangeImage" = "Change image";
+"AddPlaceView.happinessSection" = "Happiness level";
+"AddPlaceView.descriptionHeader" = "Description";
+"AddPlaceView.descriptionFooter" = "You can optionally change the default description.";
+
 

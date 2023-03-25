@@ -13,7 +13,7 @@ import AVFoundation
 struct AddPlaceView: View {
     
     @Environment(\.dismiss) var dismiss
-            
+    
     @State private var pickedImageItem: PhotosPickerItem?
     @State private var selectedImage: UIImage?
     @State private var cameraCoordinatorShown = false
@@ -27,9 +27,14 @@ struct AddPlaceView: View {
     
     let region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
-    let charLimit = 50
+    let titleCharLimit = 50
+    let descriptionCharLimit = 100
     
     @State private var title = ""
+    
+    @State private var happinessRate: Location.HappinessRating = .happy
+    
+    @State private var description = ""
     
     var body: some View {
         
@@ -44,7 +49,7 @@ struct AddPlaceView: View {
                         ZStack {
                             Map(coordinateRegion: .constant(region), showsUserLocation: true)
                                 .frame(maxWidth: .infinity)
-                                .frame(height: imageHeight)
+                                .frame(height: imageHeight / 1.5)
                                 .cornerRadius(10)
                                 .disabled(true)
                             
@@ -55,31 +60,9 @@ struct AddPlaceView: View {
                         .listRowInsets(EdgeInsets())
                     }
                     
-                    Section(AddPlaceView.placeTitleSection) {
-                        
-                        HStack(alignment: .firstTextBaseline) {
-                            
-                            Image(systemName: "character")
-                                .foregroundColor(.accentColor)
-                            
-                            
-                            VStack {
-                                
-                                TextField(AddPlaceView.placeTitleSection, text: $title)
-                                    .onChange(of: title) { newValue in
-                                        if newValue.count > charLimit {
-                                            title = String(newValue.prefix(charLimit))
-                                        }
-                                    }
-                                
-                                CharacterCounter(text: title, charLimit: charLimit)
-                                
-                            }
-                            
-                            
-                        }
-                        
-                    }
+                    titleSection
+                    
+                    sliderSection
                     
                     if let uiImage = selectedImage {
                         
@@ -107,7 +90,7 @@ struct AddPlaceView: View {
                     Section {
                         
                         HStack {
-                                                        
+                            
                             cameraPicker
                             
                             
@@ -120,38 +103,48 @@ struct AddPlaceView: View {
                         Text(AddPlaceView.imageReason)
                     }
                     
-                }
-            }
-            
-            .animation(.easeInOut(duration: 0.3), value: selectedImage)
-            .navigationTitle(AddPlaceView.navigationTitle)
-            .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $cameraCoordinatorShown) {
-                CameraImagePicker(isCoordinatorShown: $cameraCoordinatorShown, image: $selectedImage)
-                    .preferredColorScheme(.dark)
-            }
-            .toolbar {
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(AddPlaceView.cancelButton, role: .cancel) {
-                        dismiss()
-                    }
-                    .tint(.accentColor)
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        
-                        // Save new place here
-                        
-                        
-                    } label: {
-                        Text(AddPlaceView.saveButton).bold()
-                    }
-                    .tint(.accentColor)
+                    descriptionSection
                     
                 }
                 
+                .animation(.easeInOut(duration: 0.3), value: selectedImage)
+                .navigationTitle(AddPlaceView.navigationTitle)
+                .navigationBarTitleDisplayMode(.inline)
+                .sheet(isPresented: $cameraCoordinatorShown) {
+                    CameraImagePicker(isCoordinatorShown: $cameraCoordinatorShown, image: $selectedImage)
+                        .preferredColorScheme(.dark)
+                }
+                .toolbar {
+                    
+                    ToolbarItem(placement: .keyboard) {
+                        Button {
+                            hideKeyboard()
+                        } label: {
+                            Image(systemName: "keyboard.chevron.compact.down.fill")
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(AddPlaceView.cancelButton, role: .cancel) {
+                            dismiss()
+                        }
+                        .tint(.accentColor)
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            
+                            // Save new place here
+                            
+                            
+                        } label: {
+                            Text(AddPlaceView.saveButton).bold()
+                        }
+                        .tint(.accentColor)
+                        
+                    }
+                    
+                }
             }
             .onAppear {
                 if cameraDisabled {
@@ -174,7 +167,48 @@ struct AddPlaceView: View {
         }
     }
     
+    var titleSection: some View {
+        Section(AddPlaceView.placeTitleSection) {
+            
+            HStack(alignment: .firstTextBaseline) {
+                
+                Image(systemName: "character")
+                    .foregroundColor(.accentColor)
+                
+                
+                VStack {
+                    
+                    TextField(AddPlaceView.placeTitleSection, text: $title)
+                        .onChange(of: title) { newValue in
+                            if newValue.count > titleCharLimit {
+                                title = String(newValue.prefix(titleCharLimit))
+                            }
+                        }
+                    
+                    CharacterCounter(text: title, charLimit: titleCharLimit)
+                    
+                }
+                
+                
+            }
+            
+        }
+    }
     
+    var sliderSection: some View {
+        Section(AddPlaceView.happinessSection) {
+            Picker(AddPlaceView.happinessSection, selection: $happinessRate) {
+                ForEach(Location.HappinessRating.allCases, id: \.rawValue) { item in
+                    HappinessIcon(happinessRate: item)
+                        .tag(item)
+                }
+            }
+            .pickerStyle(.segmented)
+            .listRowBackground(Color.clear)
+            .listRowInsets(EdgeInsets())
+        }
+        
+    }
     
     var deleteImageButton: some View {
         Circle()
@@ -235,6 +269,30 @@ struct AddPlaceView: View {
             .cornerRadius(10)
     }
     
+    var descriptionSection: some View {
+        Section {
+            VStack {
+                TextField(AddPlaceView.descriptionSectionHeader, text: $description, axis: .vertical)
+                    .onChange(of: description) { newValue in
+                        if newValue.count > descriptionCharLimit {
+                            description = String(newValue.prefix(descriptionCharLimit))
+                        }
+                    }
+                    
+                
+                CharacterCounter(text: description, charLimit: descriptionCharLimit)
+            }
+        } header: {
+            HStack {
+                Image(systemName: "info.circle")
+                Text(AddPlaceView.descriptionSectionHeader)
+            }
+        } footer: {
+            Text(AddPlaceView.descriptionSectionFooter)
+        }
+        
+    }
+    
 }
 
 struct AddPlaceView_Previews: PreviewProvider {
@@ -255,4 +313,7 @@ extension AddPlaceView {
     static let imageReason = LocalizedStringKey("AddPlaceView.ImageReason")
     static let pickImage = LocalizedStringKey("AddPlaceView.PickImage")
     static let changeImage = LocalizedStringKey("AddPlaceView.ChangeImage")
+    static let happinessSection = LocalizedStringKey("AddPlaceView.happinessSection")
+    static let descriptionSectionHeader = LocalizedStringKey("AddPlaceView.descriptionHeader")
+    static let descriptionSectionFooter = LocalizedStringKey("AddPlaceView.descriptionFooter")
 }
