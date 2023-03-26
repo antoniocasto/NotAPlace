@@ -27,7 +27,7 @@ struct AddPlaceView: View {
         return AVCaptureDevice.authorizationStatus(for: .video) == .denied
     }
     
-    let region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
+    var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
     let titleCharLimit = 50
     let descriptionCharLimit = 100

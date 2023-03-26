@@ -11,12 +11,15 @@ import MapKit
 struct MapArea: View {
     
     @Binding var mapRegion: MKCoordinateRegion
+    let annotationItems: [Location]
     
     var body: some View {
         
         // To avoid publishing changes while Map updating warning
-        Map(coordinateRegion: .constant(mapRegion), interactionModes: .all, showsUserLocation: true)
-            .tint(.accentColor)
-        
+        Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: annotationItems) { item in
+            MapMarker(coordinate: item.coordinate)
+        }
+        .tint(.accentColor)
+                
     }
 }

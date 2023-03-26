@@ -28,12 +28,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-
     }
     
     @MainActor
     private func checkLocationAuthorization() {
-                
+                        
         switch manager.authorizationStatus {
             
         case .notDetermined:
@@ -48,7 +47,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         case .authorizedAlways, .authorizedWhenInUse:
             clAuthStatus = .authorizedWhenInUse
             guard let location = manager.location else { return }
-            region = MKCoordinateRegion(center: location.coordinate, span: MapDetails.defaultSpan)
+            DispatchQueue.main.async {
+                self.region = MKCoordinateRegion(center: location.coordinate, span: MapDetails.defaultSpan)
+
+            }
         @unknown default:
             break
         }

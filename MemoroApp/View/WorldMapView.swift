@@ -17,25 +17,37 @@ struct WorldMapView: View {
     
     @State var showErrorAlert = false
     @State var showRestrictedSettingsAlert = false
-     
+    
+    // To avoid bug in SwiftUI Map
+    var regionBinding: Binding<MKCoordinateRegion> {
+        .init(
+            get: { self.locationManager.region },
+            set: { newValue in
+                DispatchQueue.main.async {
+                    self.locationManager.region = newValue
+                }
+            }
+        )
+    }
+    
     var body: some View {
         
         NavigationStack {
             
             ZStack {
                 
-                MapArea(mapRegion: $locationManager.region)
+                MapArea(mapRegion: regionBinding, annotationItems: placeManager.places)
                 
                 MapPointer()
                 
                 addButton
-                                
+                
             }
             .edgesIgnoringSafeArea(.top)
             
             
         }
-        // Alert for location access denied or error getting location 
+        // Alert for location access denied or error getting location
         .alert(WorldMapView.errorTitle, isPresented: $showErrorAlert) {
             Button(WorldMapView.cancelButton, role: .cancel) { }
             Button(WorldMapView.openSettingsButtonText) {
@@ -61,7 +73,7 @@ struct WorldMapView: View {
         }
         // Full Screen sheet to present the view to add a place
         .fullScreenCover(isPresented: $showAddPlaceView) {
-            AddPlaceView()
+            AddPlaceView(region: locationManager.region)
         }
         .onReceive(locationManager.$clAuthStatus) { newStatus in
             if newStatus == .denied {
@@ -70,7 +82,6 @@ struct WorldMapView: View {
                 showRestrictedSettingsAlert = true
             }
         }
-
         
     }
     
