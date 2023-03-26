@@ -39,19 +39,15 @@ class PlaceManager: ObservableObject {
     }
     
     func addPlace(_ place: Location) {
-        var temp = places
-        places.append(place)
-        
-        
         do {
-            
+            places.append(place)
             let url = FileManager.documentsDirectory.appending(component: placeDirectory)
             let encoded = try JSONEncoder().encode(places)
             try encoded.write(to: url, options: .completeFileProtection)
             
         } catch {
             print(error)
-            places = temp
+            loadPlaces()
         }
     }
     

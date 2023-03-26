@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */; };
 		B009AA1329C9B21200D9AA94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1229C9B21200D9AA94 /* Location.swift */; };
 		B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */; };
 		B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1629C9C25E00D9AA94 /* MapPointer.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedPlaceMaterialCard.swift; sourceTree = "<group>"; };
 		B009AA1229C9B21200D9AA94 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
 		B009AA1629C9C25E00D9AA94 /* MapPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointer.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */,
 				B025A95829CC38CD00F9261C /* FormPlaceImage.swift */,
 				B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */,
+				B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
 				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,
+				B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

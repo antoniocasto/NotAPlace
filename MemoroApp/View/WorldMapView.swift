@@ -59,8 +59,8 @@ struct WorldMapView: View {
         } message: {
             Text(WorldMapView.errorRestrictionMessage)
         }
-        // Sheet to present the view to add a place
-        .sheet(isPresented: $showAddPlaceView) {
+        // Full Screen sheet to present the view to add a place
+        .fullScreenCover(isPresented: $showAddPlaceView) {
             AddPlaceView()
         }
         .onReceive(locationManager.$clAuthStatus) { newStatus in

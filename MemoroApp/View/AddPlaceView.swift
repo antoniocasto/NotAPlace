@@ -38,14 +38,19 @@ struct AddPlaceView: View {
     
     @State private var description = ""
     
+    @State private var showAddedPlaceCard = false
+    
     var body: some View {
         
         NavigationStack {
+            
             GeometryReader { proxy in
                 
                 let imageHeight = proxy.size.height / 3
                 
-                Form {
+                ZStack {
+                    
+                    Form {
                     
                     Section {
                         ZStack {
@@ -108,7 +113,12 @@ struct AddPlaceView: View {
                     descriptionSection
                     
                 }
-                
+                    
+                    if showAddedPlaceCard {
+                        AddedPlaceMaterialCard()
+                    }
+                    
+                }
                 .animation(.easeInOut(duration: 0.3), value: selectedImage)
                 .navigationTitle(AddPlaceView.navigationTitle)
                 .navigationBarTitleDisplayMode(.inline)
@@ -147,12 +157,17 @@ struct AddPlaceView: View {
                             
                             placeManager.addPlace(newPlace)
                             
-                            dismiss()
+                            showAddedPlaceCard = true
                             
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                dismiss()
+                            }
+                                                        
                         } label: {
                             Text(AddPlaceView.saveButton).bold()
                         }
                         .tint(.accentColor)
+                        .disabled(title.count == 0)
                         
                     }
                     
