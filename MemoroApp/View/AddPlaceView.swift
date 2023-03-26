@@ -14,6 +14,8 @@ struct AddPlaceView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @EnvironmentObject var placeManager: PlaceManager
+    
     @State private var pickedImageItem: PhotosPickerItem?
     @State private var selectedImage: UIImage?
     @State private var cameraCoordinatorShown = false
@@ -135,7 +137,17 @@ struct AddPlaceView: View {
                         Button {
                             
                             // Save new place here
+                            var newPlace = Location(title: title, description: description, image: nil, emotionalRating: happinessRate, latitude: region.center.latitude, longitude: region.center.longitude)
                             
+                            if let image = selectedImage {
+                               let imageUrl = placeManager.saveImage(image)
+                                
+                                newPlace.image = imageUrl
+                            }
+                            
+                            placeManager.addPlace(newPlace)
+                            
+                            dismiss()
                             
                         } label: {
                             Text(AddPlaceView.saveButton).bold()
@@ -298,6 +310,7 @@ struct AddPlaceView: View {
 struct AddPlaceView_Previews: PreviewProvider {
     static var previews: some View {
         AddPlaceView()
+            .environmentObject(PlaceManager())
     }
 }
 

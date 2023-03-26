@@ -11,6 +11,7 @@ import MapKit
 struct WorldMapView: View {
     
     @StateObject private var locationManager = LocationManager()
+    @EnvironmentObject var placeManager: PlaceManager
     
     @State private var showAddPlaceView = false
     
@@ -28,7 +29,7 @@ struct WorldMapView: View {
                 MapPointer()
                 
                 addButton
-                
+                                
             }
             .edgesIgnoringSafeArea(.top)
             
@@ -96,6 +97,7 @@ struct WorldMapView: View {
 struct WorldMapView_Previews: PreviewProvider {
     static var previews: some View {
         WorldMapView()
+            .environmentObject(PlaceManager())
     }
 }
 

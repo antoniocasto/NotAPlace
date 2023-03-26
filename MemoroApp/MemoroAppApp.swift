@@ -13,10 +13,14 @@ struct MemoroAppApp: App {
     // Manager for Local Authentication
     @StateObject var localAuthManager = LocalAuthManager()
     
+    // Manager for saved places
+    @StateObject var placeManager = PlaceManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(localAuthManager)
+                .environmentObject(placeManager)
         }
     }
 }

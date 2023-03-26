@@ -13,6 +13,8 @@
 		B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */; };
 		B0117D5B29CF2C7C008195A9 /* HappinessIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */; };
 		B0117D5D29CF3E7C008195A9 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D5C29CF3E7C008195A9 /* ViewExtension.swift */; };
+		B0117D6129CF4132008195A9 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D6029CF4132008195A9 /* PlaceManager.swift */; };
+		B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D6229CF427D008195A9 /* FileManagerExtension.swift */; };
 		B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95829CC38CD00F9261C /* FormPlaceImage.swift */; };
 		B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */; };
 		B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */; };
@@ -40,6 +42,8 @@
 		B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCounter.swift; sourceTree = "<group>"; };
 		B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappinessIcon.swift; sourceTree = "<group>"; };
 		B0117D5C29CF3E7C008195A9 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		B0117D6029CF4132008195A9 /* PlaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
+		B0117D6229CF427D008195A9 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		B025A95829CC38CD00F9261C /* FormPlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlaceImage.swift; sourceTree = "<group>"; };
 		B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,7 @@
 			children = (
 				B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */,
 				B0CB859429C8ADBD004A49B7 /* LocationManager.swift */,
+				B0117D6029CF4132008195A9 /* PlaceManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */,
 				B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */,
 				B0117D5C29CF3E7C008195A9 /* ViewExtension.swift */,
+				B0117D6229CF427D008195A9 /* FileManagerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -265,10 +271,12 @@
 				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */,
 				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
+				B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */,
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
 				B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */,
 				B009AA1329C9B21200D9AA94 /* Location.swift in Sources */,
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
+				B0117D6129CF4132008195A9 /* PlaceManager.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,
 				B0117D5B29CF2C7C008195A9 /* HappinessIcon.swift in Sources */,
