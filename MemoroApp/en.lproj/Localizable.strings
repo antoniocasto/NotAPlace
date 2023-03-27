@@ -71,4 +71,5 @@
 "AddPlaceView.descriptionHeader" = "Description";
 "AddPlaceView.descriptionFooter" = "You can optionally change the default description.";
 
-
+/* PlaceDetailView */
+"PlaceDetailView.openInMaps" = "Open in Maps";

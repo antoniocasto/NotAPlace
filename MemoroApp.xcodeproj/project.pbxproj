@@ -50,6 +50,7 @@
 		B025A95829CC38CD00F9261C /* FormPlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlaceImage.swift; sourceTree = "<group>"; };
 		B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
 		B026977729D1A6E10065C735 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
+		B026977929D1B15D0065C735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoroAppApp.swift; sourceTree = "<group>"; };
 		B03C5A5429BA1D3200BFE310 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		B03C5A5129BA1D3200BFE310 /* MemoroApp */ = {
 			isa = PBXGroup;
 			children = (
+				B026977929D1B15D0065C735 /* Info.plist */,
 				B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */,
 				B0C8BE5C29C1C73400483769 /* Navigation */,
 				B03C5A6029BA1F0400BFE310 /* Model */,
@@ -446,6 +448,7 @@
 				DEVELOPMENT_TEAM = YYLHLGYA35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoroApp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
@@ -481,6 +484,7 @@
 				DEVELOPMENT_TEAM = YYLHLGYA35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoroApp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;

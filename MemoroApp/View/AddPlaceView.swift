@@ -61,11 +61,10 @@ struct AddPlaceView: View {
                                 .disabled(true)
                             
                             MapPointer()
-                            
                         }
-                        .listRowBackground(Color.clear)
-                        .listRowInsets(EdgeInsets())
                     }
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets())
                     
                     titleSection
                     
