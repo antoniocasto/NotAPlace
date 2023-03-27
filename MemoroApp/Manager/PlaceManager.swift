@@ -22,20 +22,52 @@ class PlaceManager: ObservableObject {
         
         let imageName = UUID().uuidString
         
-        let url = FileManager.documentsDirectory.appending(component: imageDirectory).appending(component: imageName)
+        let imagesDirectoryUrl = FileManager.documentsDirectory.appendingPathComponent(imageDirectory, conformingTo: .directory)
         
-        guard let compressedImage = image.jpegData(compressionQuality: 0.7) else {
-            fatalError("Error while compressing image.")
-        }
         
         do {
+            
+            if !FileManager.default.fileExists(atPath: imagesDirectoryUrl.path) {
+                try FileManager.default.createDirectory(atPath: imagesDirectoryUrl.path, withIntermediateDirectories: false)
+            }
+            
+            let url = imagesDirectoryUrl.appending(component: imageName)
+            
+            
+            guard let compressedImage = image.jpegData(compressionQuality: 0.7) else {
+                fatalError("Error while compressing image.")
+            }
+            
             try compressedImage.write(to: url, options: .completeFileProtection)
             
             return imageName
         } catch {
+            print("An error occured while saving the image: \(error)")
             return nil
         }
         
+    }
+    
+    func loadImage(imageName: String) -> UIImage {
+        
+        let url = FileManager.documentsDirectory.appending(component: imageDirectory).appending(component: imageName)
+        
+        do {
+            
+            let imageData = try Data(contentsOf: url)
+            
+            guard let image = UIImage(data: imageData) else {
+                print("Error loading image. Return default one.")
+                return UIImage(imageLiteralResourceName: "Logo")
+            }
+                    
+            return image
+            
+            
+        } catch {
+            print("An error occured while loading an image: \(error)")
+            return UIImage(imageLiteralResourceName: "Logo")
+        }
     }
     
     func addPlace(_ place: Location) {
@@ -54,6 +86,11 @@ class PlaceManager: ObservableObject {
     private func loadPlaces() {
         
         let url = FileManager.documentsDirectory.appending(component: placeDirectory)
+        
+        guard FileManager.default.fileExists(atPath: url.path()) else {
+            places = [Location]()
+            return
+        }
         
         do {
             

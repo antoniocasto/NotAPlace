@@ -10,14 +10,25 @@ import MapKit
 
 struct MapArea: View {
     
+    @EnvironmentObject var placeManager: PlaceManager
+    
     @Binding var mapRegion: MKCoordinateRegion
     let annotationItems: [Location]
     
     var body: some View {
         
-        // To avoid publishing changes while Map updating warning
         Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: annotationItems) { item in
-            MapMarker(coordinate: item.coordinate)
+            
+//            MapMarker(coordinate: item.coordinate, tint: item.emotionalRating.ratingColor)
+            
+            MapAnnotation(coordinate: item.coordinate) {
+                if let itemImage = item.image {
+                    CircularMapAnnotationView(image: placeManager.loadImage(imageName: itemImage), borderColor: item.emotionalRating.ratingColor)
+                } else {
+                    CircularMapAnnotationView(image: UIImage(imageLiteralResourceName: "Logo"), borderColor: item.emotionalRating.ratingColor)
+                }
+            }
+            
         }
         .tint(.accentColor)
                 

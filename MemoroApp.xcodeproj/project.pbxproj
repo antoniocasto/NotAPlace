@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */; };
+		B0063A6729D05C6A00957E71 /* CircularMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6629D05C6A00957E71 /* CircularMapAnnotationView.swift */; };
 		B009AA1329C9B21200D9AA94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1229C9B21200D9AA94 /* Location.swift */; };
 		B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */; };
 		B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1629C9C25E00D9AA94 /* MapPointer.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedPlaceMaterialCard.swift; sourceTree = "<group>"; };
+		B0063A6629D05C6A00957E71 /* CircularMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularMapAnnotationView.swift; sourceTree = "<group>"; };
 		B009AA1229C9B21200D9AA94 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
 		B009AA1629C9C25E00D9AA94 /* MapPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointer.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				B025A95829CC38CD00F9261C /* FormPlaceImage.swift */,
 				B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */,
 				B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */,
+				B0063A6629D05C6A00957E71 /* CircularMapAnnotationView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */,
 				B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */,
 				B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */,
+				B0063A6729D05C6A00957E71 /* CircularMapAnnotationView.swift in Sources */,
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
 				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */,
