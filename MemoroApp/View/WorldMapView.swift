@@ -14,8 +14,6 @@ struct WorldMapView: View {
     @EnvironmentObject var placeManager: PlaceManager
     
     @State private var showAddPlaceView = false
-    @State private var showPlaceDetailView = false
-    @State private var selectedPlace: Location?
     
     @State var showErrorAlert = false
     @State var showRestrictedSettingsAlert = false
@@ -38,7 +36,7 @@ struct WorldMapView: View {
             
             ZStack {
                 
-                MapArea(mapRegion: regionBinding, showPlaceDetailView: $showPlaceDetailView, selectedPlace: $selectedPlace)
+                MapArea(mapRegion: regionBinding)
                 
                 MapPointer()
                 
@@ -46,18 +44,9 @@ struct WorldMapView: View {
                 
             }
             .edgesIgnoringSafeArea(.top)
-            // Go Place Details
-            .navigationDestination(isPresented: $showPlaceDetailView) {
-                if let _ = selectedPlace {
-                    PlaceDetailView(place: $selectedPlace)
-                }
-            }
-            
             
         }
-        .onAppear {
-            selectedPlace = nil
-        }
+        
         // Alert for location access denied or error getting location
         .alert(WorldMapView.errorTitle, isPresented: $showErrorAlert) {
             Button(WorldMapView.cancelButton, role: .cancel) { }
@@ -84,7 +73,7 @@ struct WorldMapView: View {
         }
         // Full Screen sheet to present the view to add a place
         .fullScreenCover(isPresented: $showAddPlaceView) {
-            PlaceDetailView(inputRegion: locationManager.region, place: .constant(nil))
+            PlaceDetailView(inputRegion: locationManager.region, place: nil)
         }
         .onReceive(locationManager.$clAuthStatus) { newStatus in
             if newStatus == .denied {

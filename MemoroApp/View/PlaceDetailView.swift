@@ -28,7 +28,8 @@ struct PlaceDetailView: View {
     }
     
     var inputRegion = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
-    @Binding var place: Location?
+    var place: Location?
+    
     
     private var region: MKCoordinateRegion {
         if let place = place {
@@ -54,7 +55,7 @@ struct PlaceDetailView: View {
     @State private var showAddedPlaceCard = false
     
     @State private var editModeEnabled = false
-        
+    
     @State private var navTitle = navigationTitle
     
     var body: some View {
@@ -85,11 +86,11 @@ struct PlaceDetailView: View {
                         
                         titleSection
                             .disabled(!editModeEnabled && detailViewMode)
-
+                        
                         
                         sliderSection
                             .disabled(!editModeEnabled && detailViewMode)
-
+                        
                         
                         if let uiImage = selectedImage {
                             
@@ -107,7 +108,7 @@ struct PlaceDetailView: View {
                                     }
                                     .opacity(!editModeEnabled && detailViewMode ? 0 : 1)
                                     .disabled(!editModeEnabled && detailViewMode)
-
+                                
                                 
                             }
                             .listRowBackground(Color.clear)
@@ -135,7 +136,7 @@ struct PlaceDetailView: View {
                         
                         descriptionSection
                             .disabled(!editModeEnabled && detailViewMode)
-
+                        
                         
                         if detailViewMode && !editModeEnabled {
                             openInMapsSection
@@ -189,7 +190,6 @@ struct PlaceDetailView: View {
                     } else {
                         
                         // Place Detail Mode
-                        
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(PlaceDetailView.cancelButton, role: .cancel) {
                                 withAnimation {
@@ -243,9 +243,6 @@ struct PlaceDetailView: View {
                 }
                 
             }
-            .onDisappear {
-                place = nil
-            }
             .alert(PlaceDetailView.permissionError, isPresented: $showPermissionAlert) {
                 Button(PlaceDetailView.cancelButton, role: .cancel) { }
                 Button(PlaceDetailView.openSettingsButtonText) {
@@ -269,7 +266,6 @@ struct PlaceDetailView: View {
                 Image(systemName: "character")
                     .foregroundColor(.accentColor)
                 
-                
                 VStack {
                     
                     TextField(PlaceDetailView.placeTitleSection, text: $title)
@@ -282,7 +278,6 @@ struct PlaceDetailView: View {
                     CharacterCounter(text: title, charLimit: titleCharLimit)
                     
                 }
-                
                 
             }
             
@@ -521,8 +516,12 @@ struct PlaceDetailView: View {
 
 struct AddPlaceView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailView(place: .constant(Location.example))
+        //        PlaceDetailView(place: .constant(Location.example))
+        //            .environmentObject(PlaceManager())
+        
+        PlaceDetailView(place: Location.example)
             .environmentObject(PlaceManager())
+        
     }
 }
 

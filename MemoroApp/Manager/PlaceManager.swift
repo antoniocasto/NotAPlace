@@ -65,7 +65,7 @@ class PlaceManager: ObservableObject {
             if FileManager.default.fileExists(atPath: url.absoluteString) {
                 try FileManager.default.removeItem(at: url)
             }
-                                    
+            
         } catch {
             print("An error occured while deleting the image: \(error)")
         }
@@ -83,7 +83,7 @@ class PlaceManager: ObservableObject {
                 print("Error loading image. Return default one.")
                 return UIImage(imageLiteralResourceName: "Logo")
             }
-                    
+            
             return image
             
             
@@ -163,7 +163,7 @@ class PlaceManager: ObservableObject {
             try encoded.write(to: url, options: .completeFileProtection)
             
             loadPlaces()
-                        
+            
         } catch {
             print(error)
             loadPlaces()
