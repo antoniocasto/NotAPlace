@@ -22,7 +22,7 @@ struct MapArea: View {
             
             // MapAnnotation generates runtime warnings. A SwiftUI fix seems to be needed.
             MapAnnotation(coordinate: item.coordinate) {
-                Image(systemName: "mappin.and.ellipse")
+                Image(systemName: item.emotionalRating.ratingIconName)
                     .font(.title3).bold()
                     .foregroundColor(item.emotionalRating.ratingColor)
                     .onTapGesture {
