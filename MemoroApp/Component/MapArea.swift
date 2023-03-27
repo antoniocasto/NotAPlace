@@ -19,8 +19,7 @@ struct MapArea: View {
         
         Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: annotationItems) { item in
             
-//            MapMarker(coordinate: item.coordinate, tint: item.emotionalRating.ratingColor)
-            
+            // This will generate a runtime warning. A fix on SwiftUI is needed.
             MapAnnotation(coordinate: item.coordinate) {
                 if let itemImage = item.image {
                     CircularMapAnnotationView(image: placeManager.loadImage(imageName: itemImage), borderColor: item.emotionalRating.ratingColor)
