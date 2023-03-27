@@ -17,7 +17,7 @@ struct CharacterCounter: View {
             Divider()
             
             Group{
-                Text("\(text.count)/\(charLimit) ") + Text(AddPlaceView.titleMaxChar)
+                Text("\(text.count)/\(charLimit) ") + Text(PlaceDetailView.titleMaxChar)
             }
                 .foregroundColor(text.count == charLimit ? Color.red : Color.gray)
                 .font(.caption)

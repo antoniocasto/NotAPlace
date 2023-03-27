@@ -56,22 +56,21 @@
 "WorldMapView.Error Restriction Message" = "Impossibile ottenere la tua posizione a causa di alcune restrizioni. Per favore controlla le Impostazioni di iOS.";
 
 /* AddPlaceView */
-"AddPlaceView.NewPlace" = "Nuovo luogo";
-"AddPlaceView.PlaceTitleSection" = "Titolo luogo";
-"AddPlaceView.TitleMaxChar" = "caratteri";
-"AddPlaceView.PermissionError" = "Accesso fotocamera disabilitato";
-"AddPlaceView.Cancel" = "Annulla";
-"AddPlaceView.Save" = "Salva";
-"AddPlaceView.Open Settings" = "Apri Impostazioni";
-"AddPlaceView.CameraError" = "La fotocamera non è disponibile. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
-"AddPlaceView.ImageReason"  = "Opzionalmente, puoi aggiungere una foto se lo desideri. Ti aiuterà a ricordare il luogo che hai salvato.";
-"AddPlaceView.PickImage" = "Seleziona immagine";
-"AddPlaceView.ChangeImage" = "Cambia immagine";
-"AddPlaceView.happinessSection" = "Livello di felicità";
-"AddPlaceView.descriptionHeader" = "Descrizione";
-"AddPlaceView.descriptionFooter" = "Opzionalmente puoi cambiare la descrizione predefinita.";
-
-/* PlaceDetailView */
+"PlaceDetailView.NewPlace" = "Nuovo luogo";
+"PlaceDetailView.PlaceTitleSection" = "Titolo luogo";
+"PlaceDetailView.TitleMaxChar" = "caratteri";
+"PlaceDetailView.PermissionError" = "Accesso fotocamera disabilitato";
+"PlaceDetailView.Cancel" = "Annulla";
+"PlaceDetailView.Save" = "Salva";
+"PlaceDetailView.Open Settings" = "Apri Impostazioni";
+"PlaceDetailView.CameraError" = "La fotocamera non è disponibile. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
+"PlaceDetailView.ImageReason"  = "Opzionalmente, puoi aggiungere una foto se lo desideri. Ti aiuterà a ricordare il luogo che hai salvato.";
+"PlaceDetailView.PickImage" = "Seleziona immagine";
+"PlaceDetailView.ChangeImage" = "Cambia immagine";
+"PlaceDetailView.happinessSection" = "Livello di felicità";
+"PlaceDetailView.descriptionHeader" = "Descrizione";
+"PlaceDetailView.descriptionFooter" = "Opzionalmente puoi cambiare la descrizione predefinita.";
+"PlaceDetailView.editButton" = "Modifica";
 "PlaceDetailView.openInMaps" = "Apri in Mappe";
 
 

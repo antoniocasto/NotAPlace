@@ -55,21 +55,20 @@
 "WorldMapView.Error Message" = "Impossible obtaining your location. If you revoked the permission, please enable it from iOS Settings.";
 "WorldMapView.Error Restriction Message" = "Impossible obtaining your location due to restrictions. Please check iOS Settings.";
 
-/* AddPlaceView */
-"AddPlaceView.NewPlace" = "New place";
-"AddPlaceView.PlaceTitleSection" = "Place title";
-"AddPlaceView.TitleMaxChar" = "characters";
-"AddPlaceView.PermissionError" = "Camera access disabled";
-"AddPlaceView.Cancel" = "Cancel";
-"AddPlaceView.Save" = "Save";
-"AddPlaceView.Open Settings" = "Open Settings";
-"AddPlaceView.CameraError" = "Your camera is not available. If you revoked its permission, please enable it from iOS Settings.";
-"AddPlaceView.ImageReason"  = "Optionally, you can add a photo if you want. It will help you remember the place you saved.";
-"AddPlaceView.PickImage" = "Pick image";
-"AddPlaceView.ChangeImage" = "Change image";
-"AddPlaceView.happinessSection" = "Happiness level";
-"AddPlaceView.descriptionHeader" = "Description";
-"AddPlaceView.descriptionFooter" = "You can optionally change the default description.";
-
 /* PlaceDetailView */
+"PlaceDetailView.NewPlace" = "New place";
+"PlaceDetailView.PlaceTitleSection" = "Place title";
+"PlaceDetailView.TitleMaxChar" = "characters";
+"PlaceDetailView.PermissionError" = "Camera access disabled";
+"PlaceDetailView.Cancel" = "Cancel";
+"PlaceDetailView.Save" = "Save";
+"PlaceDetailView.Open Settings" = "Open Settings";
+"PlaceDetailView.CameraError" = "Your camera is not available. If you revoked its permission, please enable it from iOS Settings.";
+"PlaceDetailView.ImageReason"  = "Optionally, you can add a photo if you want. It will help you remember the place you saved.";
+"PlaceDetailView.PickImage" = "Pick image";
+"PlaceDetailView.ChangeImage" = "Change image";
+"PlaceDetailView.happinessSection" = "Happiness level";
+"PlaceDetailView.descriptionHeader" = "Description";
+"PlaceDetailView.descriptionFooter" = "You can optionally change the default description.";
+"PlaceDetailView.editButton" = "Edit";
 "PlaceDetailView.openInMaps" = "Open in Maps";

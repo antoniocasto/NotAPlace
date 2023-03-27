@@ -48,12 +48,15 @@ struct WorldMapView: View {
             .edgesIgnoringSafeArea(.top)
             // Go Place Details
             .navigationDestination(isPresented: $showPlaceDetailView) {
-                if let selectedPlace = selectedPlace {
-                    PlaceDetailView(place: selectedPlace)
+                if let _ = selectedPlace {
+                    PlaceDetailView(place: $selectedPlace)
                 }
             }
             
             
+        }
+        .onAppear {
+            selectedPlace = nil
         }
         // Alert for location access denied or error getting location
         .alert(WorldMapView.errorTitle, isPresented: $showErrorAlert) {
@@ -81,7 +84,7 @@ struct WorldMapView: View {
         }
         // Full Screen sheet to present the view to add a place
         .fullScreenCover(isPresented: $showAddPlaceView) {
-            AddPlaceView(region: locationManager.region)
+            PlaceDetailView(inputRegion: locationManager.region, place: .constant(nil))
         }
         .onReceive(locationManager.$clAuthStatus) { newStatus in
             if newStatus == .denied {

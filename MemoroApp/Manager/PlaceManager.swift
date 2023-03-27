@@ -49,6 +49,28 @@ class PlaceManager: ObservableObject {
         
     }
     
+    func deleteImage(imageName: String) {
+        
+        let imagesDirectoryUrl = FileManager.documentsDirectory.appendingPathComponent(imageDirectory, conformingTo: .directory)
+        
+        
+        do {
+            
+            if !FileManager.default.fileExists(atPath: imagesDirectoryUrl.path) {
+                try FileManager.default.createDirectory(atPath: imagesDirectoryUrl.path, withIntermediateDirectories: false)
+            }
+            
+            let url = imagesDirectoryUrl.appending(component: imageName)
+            
+            if FileManager.default.fileExists(atPath: url.absoluteString) {
+                try FileManager.default.removeItem(at: url)
+            }
+                                    
+        } catch {
+            print("An error occured while deleting the image: \(error)")
+        }
+    }
+    
     func loadImage(imageName: String) -> UIImage {
         
         let url = FileManager.documentsDirectory.appending(component: imageDirectory).appending(component: imageName)
@@ -103,6 +125,48 @@ class PlaceManager: ObservableObject {
         } catch {
             print(error)
             places = [Location]()
+        }
+    }
+    
+    func deletePlace(place: Location) {
+        do {
+            places.removeAll { $0.id == place.id}
+            let url = FileManager.documentsDirectory.appending(component: placeDirectory)
+            let encoded = try JSONEncoder().encode(places)
+            try encoded.write(to: url, options: .completeFileProtection)
+            
+            guard let image = place.image else {
+                return
+            }
+            
+            deleteImage(imageName: image)
+            
+        } catch {
+            print(error)
+            loadPlaces()
+        }
+    }
+    
+    func updatePlaceAt(id: UUID, place: Location) {
+        do {
+            
+            let optionalIndex = places.firstIndex{ $0.id == id }
+            
+            guard let i = optionalIndex else {
+                return
+            }
+            
+            places[i] = place
+            
+            let url = FileManager.documentsDirectory.appending(component: placeDirectory)
+            let encoded = try JSONEncoder().encode(places)
+            try encoded.write(to: url, options: .completeFileProtection)
+            
+            loadPlaces()
+                        
+        } catch {
+            print(error)
+            loadPlaces()
         }
     }
     

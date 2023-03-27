@@ -25,6 +25,15 @@ struct MapArea: View {
                 Image(systemName: item.emotionalRating.ratingIconName)
                     .font(.title3).bold()
                     .foregroundColor(item.emotionalRating.ratingColor)
+                    .padding(3)
+                    .background(Color.white.opacity(0.5))
+                    .clipShape(Circle())
+                    .overlay {
+                        Circle()
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.white.opacity(0.7))
+
+                    }
                     .onTapGesture {
                         selectedPlace = item
                         showPlaceDetailView.toggle()
@@ -35,4 +44,5 @@ struct MapArea: View {
         .tint(.accentColor)
                 
     }
+    
 }

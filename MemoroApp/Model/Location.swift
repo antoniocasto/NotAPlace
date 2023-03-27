@@ -11,10 +11,10 @@ import CoreLocation
 struct Location: Identifiable, Codable {
     
     var id = UUID()
-    let title: String
-    let description: String
+    var title: String
+    var description: String
     var image: String?
-    let emotionalRating: HappinessRating
+    var emotionalRating: HappinessRating
     let latitude: Double
     let longitude: Double
     
