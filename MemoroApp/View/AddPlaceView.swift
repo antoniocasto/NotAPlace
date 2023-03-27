@@ -146,6 +146,8 @@ struct AddPlaceView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             
+                            hideKeyboard()
+                            
                             // Save new place here
                             var newPlace = Location(title: title, description: description, image: nil, emotionalRating: happinessRate, latitude: region.center.latitude, longitude: region.center.longitude)
                             

@@ -13,19 +13,22 @@ struct MapArea: View {
     @EnvironmentObject var placeManager: PlaceManager
     
     @Binding var mapRegion: MKCoordinateRegion
-    let annotationItems: [Location]
+    @Binding var showPlaceDetailView: Bool
+    @Binding var selectedPlace: Location?
     
     var body: some View {
         
-        Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: annotationItems) { item in
+        Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: placeManager.places) { item in
             
-            // This will generate a runtime warning. A fix on SwiftUI is needed.
+            // MapAnnotation generates runtime warnings. A SwiftUI fix seems to be needed.
             MapAnnotation(coordinate: item.coordinate) {
-                if let itemImage = item.image {
-                    CircularMapAnnotationView(image: placeManager.loadImage(imageName: itemImage), borderColor: item.emotionalRating.ratingColor)
-                } else {
-                    CircularMapAnnotationView(image: UIImage(imageLiteralResourceName: "Logo"), borderColor: item.emotionalRating.ratingColor)
-                }
+                Image(systemName: "mappin.and.ellipse")
+                    .font(.title3).bold()
+                    .foregroundColor(item.emotionalRating.ratingColor)
+                    .onTapGesture {
+                        selectedPlace = item
+                        showPlaceDetailView.toggle()
+                    }
             }
             
         }

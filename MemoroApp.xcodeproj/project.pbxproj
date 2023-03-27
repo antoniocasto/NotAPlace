@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */; };
-		B0063A6729D05C6A00957E71 /* CircularMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6629D05C6A00957E71 /* CircularMapAnnotationView.swift */; };
 		B009AA1329C9B21200D9AA94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1229C9B21200D9AA94 /* Location.swift */; };
 		B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */; };
 		B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1629C9C25E00D9AA94 /* MapPointer.swift */; };
@@ -19,6 +18,7 @@
 		B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D6229CF427D008195A9 /* FileManagerExtension.swift */; };
 		B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95829CC38CD00F9261C /* FormPlaceImage.swift */; };
 		B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */; };
+		B026977829D1A6E10065C735 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B026977729D1A6E10065C735 /* PlaceDetailView.swift */; };
 		B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */; };
 		B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5429BA1D3200BFE310 /* ContentView.swift */; };
 		B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5629BA1D3300BFE310 /* Assets.xcassets */; };
@@ -39,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedPlaceMaterialCard.swift; sourceTree = "<group>"; };
-		B0063A6629D05C6A00957E71 /* CircularMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularMapAnnotationView.swift; sourceTree = "<group>"; };
 		B009AA1229C9B21200D9AA94 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
 		B009AA1629C9C25E00D9AA94 /* MapPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointer.swift; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		B0117D6229CF427D008195A9 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		B025A95829CC38CD00F9261C /* FormPlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlaceImage.swift; sourceTree = "<group>"; };
 		B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
+		B026977729D1A6E10065C735 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoroAppApp.swift; sourceTree = "<group>"; };
 		B03C5A5429BA1D3200BFE310 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +139,7 @@
 				B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */,
 				B06EA5A329C323C800D425E6 /* WorldMapView.swift */,
 				B009AA1429C9BD9D00D9AA94 /* AddPlaceView.swift */,
+				B026977729D1A6E10065C735 /* PlaceDetailView.swift */,
 				B0C8BE6329C1E35500483769 /* SettingsView.swift */,
 			);
 			path = View;
@@ -163,7 +164,6 @@
 				B025A95829CC38CD00F9261C /* FormPlaceImage.swift */,
 				B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */,
 				B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */,
-				B0063A6629D05C6A00957E71 /* CircularMapAnnotationView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -273,7 +273,6 @@
 				B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */,
 				B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */,
 				B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */,
-				B0063A6729D05C6A00957E71 /* CircularMapAnnotationView.swift in Sources */,
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
 				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */,
@@ -290,6 +289,7 @@
 				B0117D5D29CF3E7C008195A9 /* ViewExtension.swift in Sources */,
 				B009AA1529C9BD9D00D9AA94 /* AddPlaceView.swift in Sources */,
 				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,
+				B026977829D1A6E10065C735 /* PlaceDetailView.swift in Sources */,
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
 				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,

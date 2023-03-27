@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 class PlaceManager: ObservableObject {
     
     let placeDirectory = "Places"

@@ -14,6 +14,8 @@ struct WorldMapView: View {
     @EnvironmentObject var placeManager: PlaceManager
     
     @State private var showAddPlaceView = false
+    @State private var showPlaceDetailView = false
+    @State private var selectedPlace: Location?
     
     @State var showErrorAlert = false
     @State var showRestrictedSettingsAlert = false
@@ -36,7 +38,7 @@ struct WorldMapView: View {
             
             ZStack {
                 
-                MapArea(mapRegion: regionBinding, annotationItems: placeManager.places)
+                MapArea(mapRegion: regionBinding, showPlaceDetailView: $showPlaceDetailView, selectedPlace: $selectedPlace)
                 
                 MapPointer()
                 
@@ -44,6 +46,12 @@ struct WorldMapView: View {
                 
             }
             .edgesIgnoringSafeArea(.top)
+            // Go Place Details
+            .navigationDestination(isPresented: $showPlaceDetailView) {
+                if let selectedPlace = selectedPlace {
+                    PlaceDetailView(place: selectedPlace)
+                }
+            }
             
             
         }

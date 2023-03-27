@@ -50,4 +50,6 @@ struct Location: Identifiable, Codable {
         }
         
     }
+    
+    static let example = Location(title: "Place 1", description: "", emotionalRating: .happy, latitude: -10, longitude: 10)
 }
