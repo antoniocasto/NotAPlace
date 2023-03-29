@@ -33,6 +33,7 @@
 		B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE6329C1E35500483769 /* SettingsView.swift */; };
 		B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB859429C8ADBD004A49B7 /* LocationManager.swift */; };
 		B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */; };
+		B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD318829D4761E00C6EB3A /* AppTheme.swift */; };
 		B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB502F29C8DFFE00388E10 /* MapArea.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		B0C8BE6329C1E35500483769 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B0CB859429C8ADBD004A49B7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
+		B0DD318829D4761E00C6EB3A /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		B0EB502F29C8DFFE00388E10 /* MapArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArea.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B009AA1229C9B21200D9AA94 /* Location.swift */,
+				B0DD318829D4761E00C6EB3A /* AppTheme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
 				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
+				B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,
 				B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */,
 			);

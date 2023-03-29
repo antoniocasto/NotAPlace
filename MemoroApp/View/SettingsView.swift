@@ -15,6 +15,7 @@ struct SettingsView: View {
     // Persistent settings
     @AppStorage("LocalAuthEnabled") private var localAuthEnabled = false
     @AppStorage("LocalAuthWithBiometrics") private var localAuthWithBiometrics = false
+    @AppStorage("ThemePreference") private var themePreference: AppTheme = .systemBased
     
     @State private var enableLocalAuth = false
     @State private var enableBiometricAuthToggle = false
@@ -61,9 +62,21 @@ struct SettingsView: View {
                     }
                     
                 } header: {
-                    Text(SettingsView.securitySectionHeaderText)
+                    Label(SettingsView.securitySectionHeaderText, systemImage: "lock")
                 } footer: {
                     Text(SettingsView.securitySectionFooterText)
+                }
+                
+                Section {
+                    Picker(SettingsView.themePickerText, selection: $themePreference) {
+                        ForEach(AppTheme.allCases, id: \.hashValue) { theme in
+                            Text(theme.themeName)
+                                .tag(theme)
+                        }
+                    }
+                    .pickerStyle(.navigationLink)
+                } header: {
+                    Label(SettingsView.themeSectionHeaderText, systemImage: "paintpalette")
                 }
                 
             }
@@ -155,5 +168,7 @@ extension SettingsView {
     static let passwordErrorMessage1 = LocalizedStringKey("SettingsView.ErrorMessage1")
     static let passwordErrorMessage2 = LocalizedStringKey("SettingsView.ErrorMessage2")
     static let passwordErrorMessage3 = LocalizedStringKey("SettingsView.ErrorMessage3")
+    static let themeSectionHeaderText = LocalizedStringKey("SettingsView.Theme")
+    static let themePickerText = LocalizedStringKey("SettingsView.themePickerText")
     
 }

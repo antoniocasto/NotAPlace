@@ -47,6 +47,14 @@
 "SettingsView.ErrorMessage1" = "Password must contain at least 8 characters.";
 "SettingsView.ErrorMessage2" = "Password not matching password confirmation.";
 "SettingsView.ErrorMessage3" = "An error occured while saving your password. Try again.";
+"SettingsView.Theme" = "Theme";
+"SettingsView.themePickerText" = "Preferred theme";
+
+/* AppTheme */
+"AppTheme.systemBasedText" = "System";
+"AppTheme.lightThemeText" = "Light";
+"AppTheme.darkThemeText" = "Dark";
+
 
 /* WorldMapView */
 "WorldMapView.ErrorTitle" = "Location not available";

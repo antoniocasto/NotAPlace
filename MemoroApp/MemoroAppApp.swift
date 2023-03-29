@@ -9,18 +9,22 @@ import SwiftUI
 
 @main
 struct MemoroAppApp: App {
-    
+        
     // Manager for Local Authentication
     @StateObject var localAuthManager = LocalAuthManager()
     
     // Manager for saved places
     @StateObject var placeManager = PlaceManager()
     
+    // Persistent settings
+    @AppStorage("ThemePreference") private var themePreference: AppTheme = .systemBased
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(localAuthManager)
                 .environmentObject(placeManager)
+                .preferredColorScheme(themePreference.themeScheme)
         }
     }
 }
