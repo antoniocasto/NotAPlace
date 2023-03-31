@@ -18,7 +18,7 @@ struct KeychainHelper {
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
             kSecAttrAccount: account
-        ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
             
         let saveStatus = SecItemAdd(query, nil)
      
@@ -39,7 +39,7 @@ struct KeychainHelper {
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
             kSecAttrAccount: account
-        ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
             
         let updatedData = [kSecValueData: data] as CFDictionary
         SecItemUpdate(query, updatedData)
@@ -53,7 +53,7 @@ struct KeychainHelper {
             kSecAttrService: service,
             kSecAttrAccount: account,
             kSecReturnData: true
-        ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
             
         var result: AnyObject?
         SecItemCopyMatching(query, &result)
