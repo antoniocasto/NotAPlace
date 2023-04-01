@@ -27,15 +27,14 @@ struct PlaceDetailView: View {
         return AVCaptureDevice.authorizationStatus(for: .video) == .denied
     }
     
-    var inputRegion = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
+    var inputCoordinate: CLLocationCoordinate2D = MapDetails.startingLocation
     var place: Location?
     
-    
-    private var region: MKCoordinateRegion {
+    private var coordinate: CLLocationCoordinate2D {
         if let place = place {
-            return MKCoordinateRegion(center: place.coordinate, span: MapDetails.defaultSpan)
+            return place.coordinate
         } else {
-            return inputRegion
+            return inputCoordinate
         }
     }
     
@@ -58,31 +57,27 @@ struct PlaceDetailView: View {
     
     @State private var navTitle = navigationTitle
     
+    
     var body: some View {
         
-        NavigationStack {
-            
-            GeometryReader { proxy in
+        
+        GeometryReader { proxy in
+            NavigationStack {
                 
-                let imageHeight = proxy.size.height / 3
+                let width = proxy.size.width
                 
                 ZStack {
                     
                     Form {
                         
                         Section {
-                            ZStack {
-                                Map(coordinateRegion: .constant(region), showsUserLocation: true)
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: imageHeight / 1.5)
-                                    .cornerRadius(10)
-                                    .disabled(true)
-                                
-                                MapPointer()
-                            }
+                            
+                            MapResume(width: width, height: 150, coordinate: coordinate)
+                            
                         }
                         .listRowBackground(Color.clear)
                         .listRowInsets(EdgeInsets())
+                        
                         
                         titleSection
                             .disabled(!editModeEnabled && detailViewMode)
@@ -98,7 +93,7 @@ struct PlaceDetailView: View {
                                 
                                 FormPlaceImage(image: uiImage)
                                     .frame(maxWidth: .infinity)
-                                    .frame(height: imageHeight)
+                                    .frame(height: 200)
                                 
                                 deleteImageButton
                                     .padding()
@@ -229,33 +224,35 @@ struct PlaceDetailView: View {
                     }
                     
                 }
-            }
-            .onAppear {
                 
-                if cameraDisabled {
-                    permissionAlertDescription = PlaceDetailView.cameraError
-                    showPermissionAlert = true
-                }
-                
-                if detailViewMode {
-                    setInputPlaceParams()
+                .onAppear {
+                    
+                    if cameraDisabled {
+                        permissionAlertDescription = PlaceDetailView.cameraError
+                        showPermissionAlert = true
+                    }
+                    
+                    if detailViewMode {
+                        setInputPlaceParams()
+                        
+                    }
                     
                 }
+                .alert(PlaceDetailView.permissionError, isPresented: $showPermissionAlert) {
+                    Button(PlaceDetailView.cancelButton, role: .cancel) { }
+                    Button(PlaceDetailView.openSettingsButtonText) {
+                        // Get the App Settings URL in iOS Settings and open it.
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                } message: {
+                    Text(permissionAlertDescription)
+                }
                 
             }
-            .alert(PlaceDetailView.permissionError, isPresented: $showPermissionAlert) {
-                Button(PlaceDetailView.cancelButton, role: .cancel) { }
-                Button(PlaceDetailView.openSettingsButtonText) {
-                    // Get the App Settings URL in iOS Settings and open it.
-                    if let url = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(url)
-                    }
-                }
-            } message: {
-                Text(permissionAlertDescription)
-            }
-            
         }
+        
     }
     
     var titleSection: some View {
@@ -400,7 +397,7 @@ struct PlaceDetailView: View {
     private func savePlace() {
         
         // Save new place here
-        var newPlace = Location(title: title, description: description, image: nil, emotionalRating: emotionalRating, latitude: region.center.latitude, longitude: region.center.longitude)
+        var newPlace = Location(title: title, description: description, image: nil, emotionalRating: emotionalRating, latitude: coordinate.latitude, longitude: coordinate.longitude)
         
         if let image = selectedImage {
             let imageUrl = placeManager.saveImage(image)

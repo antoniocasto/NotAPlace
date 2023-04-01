@@ -73,7 +73,7 @@ struct WorldMapView: View {
         }
         // Full Screen sheet to present the view to add a place
         .fullScreenCover(isPresented: $showAddPlaceView) {
-            PlaceDetailView(inputRegion: locationManager.region, place: nil)
+            PlaceDetailView(inputCoordinate: locationManager.region.center, place: nil)
         }
         .onReceive(locationManager.$clAuthStatus) { newStatus in
             if newStatus == .denied {
