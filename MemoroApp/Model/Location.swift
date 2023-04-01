@@ -30,18 +30,18 @@ struct Location: Identifiable, Codable, Hashable {
         var ratingIconName: String {
             switch self {
             case .slightlyHappy:
-                return "hand.thumbsup"
+                return "hand.thumbsup.fill"
             case .happy:
                 return "face.smiling"
             case .veryHappy:
-                return "heart"
+                return "heart.fill"
             }
         }
         
         var ratingColor: Color {
             switch self {
             case .slightlyHappy:
-                return .gray
+                return .white
             case .happy:
                 return .yellow
             case .veryHappy:

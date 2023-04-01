@@ -80,3 +80,6 @@
 "PlaceDetailView.descriptionFooter" = "You can optionally change the default description.";
 "PlaceDetailView.editButton" = "Edit";
 "PlaceDetailView.openInMaps" = "Open in Maps";
+
+/* PlacesSlideshowView */
+"PlacesSlideshowView.navigationTitleText" = "Places";

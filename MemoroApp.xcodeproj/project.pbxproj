@@ -26,6 +26,9 @@
 		B06EA5A729C3259B00D425E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B06EA5A929C3259B00D425E6 /* Localizable.strings */; };
 		B06EA5B729C33ADC00D425E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B06EA5B929C33ADC00D425E6 /* InfoPlist.strings */; };
 		B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09F196B29C89EBC00656900 /* KeychainHelper.swift */; };
+		B0A8538129D71A3800A34FE6 /* PlacesSlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8538029D71A3800A34FE6 /* PlacesSlideshowView.swift */; };
+		B0A8538329D72E6500A34FE6 /* ImageSlideshowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8538229D72E6500A34FE6 /* ImageSlideshowCard.swift */; };
+		B0A8538729D7507000A34FE6 /* MapSlideshowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8538629D7507000A34FE6 /* MapSlideshowCard.swift */; };
 		B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */; };
 		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
@@ -35,6 +38,7 @@
 		B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */; };
 		B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD318829D4761E00C6EB3A /* AppTheme.swift */; };
 		B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB502F29C8DFFE00388E10 /* MapArea.swift */; };
+		B0F81B7C29D836EB00524DC0 /* MKMapSnapshotterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F81B7B29D836EB00524DC0 /* MKMapSnapshotterHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,9 @@
 		B06EA5B829C33ADC00D425E6 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B06EA5BA29C33AE000D425E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B09F196B29C89EBC00656900 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		B0A8538029D71A3800A34FE6 /* PlacesSlideshowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSlideshowView.swift; sourceTree = "<group>"; };
+		B0A8538229D72E6500A34FE6 /* ImageSlideshowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlideshowCard.swift; sourceTree = "<group>"; };
+		B0A8538629D7507000A34FE6 /* MapSlideshowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSlideshowCard.swift; sourceTree = "<group>"; };
 		B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthManager.swift; sourceTree = "<group>"; };
 		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -70,6 +77,7 @@
 		B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 		B0DD318829D4761E00C6EB3A /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		B0EB502F29C8DFFE00388E10 /* MapArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArea.swift; sourceTree = "<group>"; };
+		B0F81B7B29D836EB00524DC0 /* MKMapSnapshotterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapSnapshotterHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 				B06EA5A329C323C800D425E6 /* WorldMapView.swift */,
 				B009AA1429C9BD9D00D9AA94 /* PlaceDetailView.swift */,
 				B0C8BE6329C1E35500483769 /* SettingsView.swift */,
+				B0A8538029D71A3800A34FE6 /* PlacesSlideshowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +175,8 @@
 				B025A95829CC38CD00F9261C /* FormPlaceImage.swift */,
 				B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */,
 				B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */,
+				B0A8538229D72E6500A34FE6 /* ImageSlideshowCard.swift */,
+				B0A8538629D7507000A34FE6 /* MapSlideshowCard.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 			children = (
 				B09F196B29C89EBC00656900 /* KeychainHelper.swift */,
 				B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */,
+				B0F81B7B29D836EB00524DC0 /* MKMapSnapshotterHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -227,7 +239,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					B03C5A4E29BA1D3200BFE310 = {
 						CreatedOnToolsVersion = 14.2;
@@ -272,17 +284,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F81B7C29D836EB00524DC0 /* MKMapSnapshotterHelper.swift in Sources */,
 				B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */,
 				B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */,
 				B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */,
+				B0A8538729D7507000A34FE6 /* MapSlideshowCard.swift in Sources */,
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
 				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */,
 				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
+				B0A8538329D72E6500A34FE6 /* ImageSlideshowCard.swift in Sources */,
 				B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */,
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
 				B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */,
 				B009AA1329C9B21200D9AA94 /* Location.swift in Sources */,
+				B0A8538129D71A3800A34FE6 /* PlacesSlideshowView.swift in Sources */,
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
 				B0117D6129CF4132008195A9 /* PlaceManager.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
@@ -327,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -387,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

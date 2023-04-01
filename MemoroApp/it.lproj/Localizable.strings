@@ -82,6 +82,9 @@
 "PlaceDetailView.editButton" = "Modifica";
 "PlaceDetailView.openInMaps" = "Apri in Mappe";
 
+/* PlacesSlideshowView */
+"PlacesSlideshowView.navigationTitleText" = "Luoghi";
+
 
 
 
