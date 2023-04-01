@@ -26,7 +26,7 @@ struct MapResume: View {
                     
                     Image(uiImage: image)
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
                         .frame(width: width, height: height)
                     
                     MapPointer()

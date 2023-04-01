@@ -76,11 +76,22 @@ struct PlaceDetailView: View {
                             
                         }
                         .listRowBackground(Color.clear)
-                        .listRowInsets(EdgeInsets())
+                        .listRowInsets(EdgeInsets()).onTapGesture {
+                            hideKeyboard()
+                        }
                         
                         
                         titleSection
                             .disabled(!editModeEnabled && detailViewMode)
+                            .onTapGesture {
+                                hideKeyboard()
+                            }
+                        
+                        descriptionSection
+                            .disabled(!editModeEnabled && detailViewMode)
+                            .onTapGesture {
+                                hideKeyboard()
+                            }
                         
                         
                         sliderSection
@@ -107,7 +118,9 @@ struct PlaceDetailView: View {
                                 
                             }
                             .listRowBackground(Color.clear)
-                            .listRowInsets(EdgeInsets())
+                            .listRowInsets(EdgeInsets()).onTapGesture {
+                                hideKeyboard()
+                            }
                             
                         }
                         
@@ -124,21 +137,21 @@ struct PlaceDetailView: View {
                                 .listRowBackground(Color.clear)
                                 .listRowInsets(EdgeInsets())
                                 
+                                
                             } footer: {
                                 Text(PlaceDetailView.imageReason)
                             }
                         }
                         
-                        descriptionSection
-                            .disabled(!editModeEnabled && detailViewMode)
-                        
                         
                         if detailViewMode && !editModeEnabled {
                             openInMapsSection
+                                .onTapGesture {
+                                    hideKeyboard()
+                                }
                         }
                         
                     }
-                    
                     
                     
                     if showAddedPlaceCard {
@@ -154,14 +167,6 @@ struct PlaceDetailView: View {
                         .ignoresSafeArea()
                 }
                 .toolbar {
-                    
-                    ToolbarItem(placement: .keyboard) {
-                        Button {
-                            hideKeyboard()
-                        } label: {
-                            Image(systemName: "keyboard.chevron.compact.down.fill")
-                        }
-                    }
                     
                     if !detailViewMode {
                         

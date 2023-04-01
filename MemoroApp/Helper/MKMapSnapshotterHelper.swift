@@ -21,7 +21,7 @@ class MKMapSnapshotterHelper {
         // Map options
         let mapOptions = MKMapSnapshotter.Options()
         mapOptions.region = region
-        mapOptions.size = CGSize(width: width, height: height)
+        mapOptions.size = CGSize(width: width + 15, height: height + 15)
         mapOptions.showsBuildings = true
         
         // Set light or dark mode
