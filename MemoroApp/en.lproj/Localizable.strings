@@ -83,3 +83,5 @@
 
 /* PlacesSlideshowView */
 "PlacesSlideshowView.navigationTitleText" = "Places";
+"PlacesSlideshowView.noPlacesText" = "There are no saved places";
+"PlacesSlideshowView.startText" = "Let's start!";
