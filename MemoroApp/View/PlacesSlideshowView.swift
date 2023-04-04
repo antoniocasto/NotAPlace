@@ -17,6 +17,8 @@ struct PlacesSlideshowView: View {
     @State private var showPlaceDetail = false
     @State private var selectedPlace: Location?
     
+    @State private var dragMove:CGFloat = .zero
+    
     var body: some View {
         
         NavigationStack {
@@ -25,13 +27,15 @@ struct PlacesSlideshowView: View {
                 
                 if placeManager.places.count != 0 {
                     
-                    slideshow
+                    carousel
                     
                 } else {
                     
                     noPlacesPlaceholder
                     
                 }
+                
+                
                 
             }
             .navigationDestination(isPresented: $showPlaceDetail) {
@@ -46,42 +50,46 @@ struct PlacesSlideshowView: View {
         
     }
     
-    var slideshow: some View {
-        GeometryReader { proxy in
+    var carousel: some View {
+        VStack {
             
-            
-            let width = proxy.size.width - (proxy.size.width * 10 / 100)
-            let height = proxy.size.height  - (proxy.size.height * 10 / 100)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
-                    ForEach(placeManager.places) { place in
-                        Group {
-                            
-                            if let imageName = place.image {
+            GeometryReader { proxy in
+                
+                let pageHeight: CGFloat = proxy.size.height / 1.15
+                let pageWidth: CGFloat = proxy.size.width / 1.12
+                let imageWidth: CGFloat = proxy.size.width / 1.17
+                
+                // Carousel with snap
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 0) {
+                        ForEach(placeManager.places) { place in
+                            Group {
                                 
-                                let image = placeManager.loadImage(imageName: imageName)
-                                
-                                
-                                ImageSlideshowCard(width: width, height: height, place: place, image: image)
-                                    .frame(width: width, height: height)
-                                
-                            } else {
-                                MapSlideshowCard(width: width, height: height, place: place, coordinate: place.coordinate)
-                                    .frame(width: width, height: height)
+                                if let imageName = place.image {
+                                    
+                                    let image = placeManager.loadImage(imageName: imageName)
+                                    
+                                    
+                                    ImageSlideshowCard(width: imageWidth, height: pageHeight, place: place, image: image)
+                                    
+                                    
+                                } else {
+                                    MapSlideshowCard(width: imageWidth, height: pageHeight, place: place, coordinate: place.coordinate)
+                                    
+                                }
                             }
+                            .frame(width: pageWidth, height: pageHeight)
                         }
-                        .onTapGesture {
-                            selectedPlace = place
-                            showPlaceDetail.toggle()
-                        }
-                        
+                    }
+                    // Start from the center of the screen
+                    .padding(.horizontal, (proxy.size.width - pageWidth) / 2)
+                    .background {
+                        SnapCarouselHelper(pageWidth: pageWidth, pageCount: placeManager.places.count)
                     }
                 }
-                .frame(maxHeight: .infinity)
-                .padding(.horizontal)
-                .ignoresSafeArea()
+                
             }
+            
         }
     }
     

@@ -18,6 +18,7 @@
 		B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D6229CF427D008195A9 /* FileManagerExtension.swift */; };
 		B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95829CC38CD00F9261C /* FormPlaceImage.swift */; };
 		B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */; };
+		B03C21E429DC20AA00D1AD4C /* SnapCarouselHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */; };
 		B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */; };
 		B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5429BA1D3200BFE310 /* ContentView.swift */; };
 		B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5629BA1D3300BFE310 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		B025A95829CC38CD00F9261C /* FormPlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlaceImage.swift; sourceTree = "<group>"; };
 		B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
 		B026977929D1B15D0065C735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarouselHelper.swift; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoroAppApp.swift; sourceTree = "<group>"; };
 		B03C5A5429BA1D3200BFE310 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				B09F196B29C89EBC00656900 /* KeychainHelper.swift */,
 				B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */,
 				B0F81B7B29D836EB00524DC0 /* MKMapSnapshotterHelper.swift */,
+				B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				B009AA1329C9B21200D9AA94 /* Location.swift in Sources */,
 				B0A8538129D71A3800A34FE6 /* PlacesSlideshowView.swift in Sources */,
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
+				B03C21E429DC20AA00D1AD4C /* SnapCarouselHelper.swift in Sources */,
 				B0117D6129CF4132008195A9 /* PlaceManager.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,
