@@ -92,14 +92,12 @@ struct WorldMapView: View {
             Image(systemName: "plus")
                 .font(.title.bold())
                 .padding()
-                .background(Color.backgroundColor)
-                .foregroundColor(Color.foregroundColor)
+                .background(.thickMaterial)
                 .clipShape(Circle())
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
         .padding()
         .padding(.bottom)
-        .shadow(color: Color.backgroundColor.opacity(0.4), radius: 10, x: 0, y: 10)
         
     }
     
