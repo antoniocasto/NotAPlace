@@ -60,7 +60,6 @@ struct PlaceDetailView: View {
     
     var body: some View {
         
-        
         GeometryReader { proxy in
             NavigationStack {
                 
@@ -192,9 +191,7 @@ struct PlaceDetailView: View {
                         // Place Detail Mode
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(PlaceDetailView.cancelButton, role: .cancel) {
-                                withAnimation {
-                                    restoreValues()
-                                }
+                                restoreValues()
                             }
                             .tint(.accentColor)
                             .opacity(editModeEnabled ? 1 : 0)
@@ -203,10 +200,9 @@ struct PlaceDetailView: View {
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
+                                
                                 if !editModeEnabled {
-                                    withAnimation {
-                                        editModeEnabled = true
-                                    }
+                                    editModeEnabled = true
                                 } else {
                                     updatePlace()
                                 }
@@ -216,20 +212,17 @@ struct PlaceDetailView: View {
                             
                         }
                         
-                        ToolbarItem {
-                            if(detailViewMode && editModeEnabled) {
-                                Button {
-                                    deletePlace()
-                                } label: {
-                                    Image(systemName: "trash")
-                                }
+                        ToolbarItem(placement: .bottomBar) {
+                            Button {
+                                deletePlace()
+                            } label: {
+                                Image(systemName: "trash")
                             }
                         }
                         
                     }
                     
                 }
-                
                 .onAppear {
                     
                     if cameraDisabled {
@@ -257,6 +250,9 @@ struct PlaceDetailView: View {
                 
             }
         }
+        .navigationBarBackButtonHidden(editModeEnabled)
+        .toolbar(editModeEnabled ? .hidden : .visible, for: .tabBar)
+        .toolbar(detailViewMode && editModeEnabled ? .visible : .hidden, for: .bottomBar)
         
     }
     
@@ -483,6 +479,7 @@ struct PlaceDetailView: View {
         // Persist changes
         placeManager.updatePlaceAt(id: place.id, place: updatedPlace)
         
+        editModeEnabled = false
         confirmAndDismiss()
         
     }
