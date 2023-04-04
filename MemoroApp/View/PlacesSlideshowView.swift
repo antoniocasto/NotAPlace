@@ -51,43 +51,39 @@ struct PlacesSlideshowView: View {
     }
     
     var carousel: some View {
-        VStack {
+        GeometryReader { proxy in
             
-            GeometryReader { proxy in
-                
-                let pageHeight: CGFloat = proxy.size.height / 1.15
-                let pageWidth: CGFloat = proxy.size.width / 1.12
-                let imageWidth: CGFloat = proxy.size.width / 1.17
-                
-                // Carousel with snap
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 0) {
-                        ForEach(placeManager.places) { place in
-                            Group {
+            let pageHeight: CGFloat = proxy.size.height / 1.15
+            let pageWidth: CGFloat = proxy.size.width / 1.12
+            let imageWidth: CGFloat = proxy.size.width / 1.17
+            
+            // Carousel with snap
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 0) {
+                    ForEach(placeManager.places) { place in
+                        Group {
+                            
+                            if let imageName = place.image {
                                 
-                                if let imageName = place.image {
-                                    
-                                    let image = placeManager.loadImage(imageName: imageName)
-                                    
-                                    
-                                    ImageSlideshowCard(width: imageWidth, height: pageHeight, place: place, image: image)
-                                    
-                                    
-                                } else {
-                                    MapSlideshowCard(width: imageWidth, height: pageHeight, place: place, coordinate: place.coordinate)
-                                    
-                                }
+                                let image = placeManager.loadImage(imageName: imageName)
+                                
+                                
+                                ImageSlideshowCard(width: imageWidth, height: pageHeight, place: place, image: image)
+                                
+                                
+                            } else {
+                                MapSlideshowCard(width: imageWidth, height: pageHeight, place: place, coordinate: place.coordinate)
+                                
                             }
-                            .frame(width: pageWidth, height: pageHeight)
                         }
-                    }
-                    // Start from the center of the screen
-                    .padding(.horizontal, (proxy.size.width - pageWidth) / 2)
-                    .background {
-                        SnapCarouselHelper(pageWidth: pageWidth, pageCount: placeManager.places.count)
+                        .frame(width: pageWidth, height: pageHeight)
                     }
                 }
-                
+                // Start from the center of the screen
+                .padding(.horizontal, (proxy.size.width - pageWidth) / 2)
+                .background {
+                    SnapCarouselHelper(pageWidth: pageWidth, pageCount: placeManager.places.count)
+                }
             }
             
         }
