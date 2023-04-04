@@ -31,11 +31,18 @@ struct MapSlideshowCard: View {
                     
                 }
             } else {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
+                
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .frame(width: width, height: height)
+                    .foregroundStyle(.thickMaterial)
+                    .overlay {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                    }
+                
             }
         }
+        .animation(.default, value: snapshotImage)
         .task {
             await setImage()
         }

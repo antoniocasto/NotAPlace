@@ -77,6 +77,10 @@ struct PlacesSlideshowView: View {
                             }
                         }
                         .frame(width: pageWidth, height: pageHeight)
+                        .onTapGesture {
+                            selectedPlace = place
+                            showPlaceDetail.toggle()
+                        }
                     }
                 }
                 // Start from the center of the screen
