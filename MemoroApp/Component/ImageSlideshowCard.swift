@@ -25,18 +25,7 @@ struct ImageSlideshowCard: View {
                 .scaledToFill()
                 .frame(width: width, height: height)
                 .overlay(alignment: .topTrailing) {
-                    Image(systemName: place.emotionalRating.ratingIconName)
-                        .font(.title2)
-                        .foregroundColor(place.emotionalRating.ratingColor)
-                        .padding(8)
-                        .background(.regularMaterial)
-                        .clipShape(Circle())
-                        .overlay {
-                            Circle()
-                                .stroke(lineWidth: 3)
-                                .foregroundColor(.white.opacity(0.7))
-                            
-                        }
+                    HappinessIcon(happinessRate: place.emotionalRating, fontSize: 25)
                         .padding()
                 }
             
