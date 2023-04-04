@@ -93,7 +93,7 @@ struct PlaceDetailView: View {
                             }
                         
                         
-                        sliderSection
+                        happinessSection
                             .disabled(!editModeEnabled && detailViewMode)
                         
                         
@@ -282,7 +282,7 @@ struct PlaceDetailView: View {
         }
     }
     
-    var sliderSection: some View {
+    var happinessSection: some View {
         Section(PlaceDetailView.happinessSection) {
             Picker(PlaceDetailView.happinessSection, selection: $emotionalRating) {
                 ForEach(Location.HappinessRating.allCases, id: \.rawValue) { item in
