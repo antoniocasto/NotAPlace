@@ -71,7 +71,11 @@ struct PlacesSlideshowView: View {
                 guard placeManager.places.count > 0 else { return }
                 
                 await computeThumbnails()
-                backgroundImage = thumbnails[0]
+                
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    backgroundImage = thumbnails[0]
+                }
+                
             }
             .onDisappear {
                 thumbnails = []
