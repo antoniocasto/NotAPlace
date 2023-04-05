@@ -51,7 +51,7 @@ struct PlaceDetailView: View {
     
     @State private var description = ""
     
-    @State private var showAddedPlaceCard = false
+    @State private var showConfirmationCard = false
     
     @State private var editModeEnabled = false
     
@@ -153,7 +153,7 @@ struct PlaceDetailView: View {
                     }
                     
                     
-                    if showAddedPlaceCard {
+                    if showConfirmationCard {
                         AddedPlaceMaterialCard()
                     }
                     
@@ -506,7 +506,7 @@ struct PlaceDetailView: View {
         // Hide keyboard if open
         hideKeyboard()
         
-        showAddedPlaceCard = true
+        showConfirmationCard = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             dismiss()
