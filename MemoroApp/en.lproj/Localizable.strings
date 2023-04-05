@@ -80,6 +80,9 @@
 "PlaceDetailView.descriptionFooter" = "You can optionally change the default description.";
 "PlaceDetailView.editButton" = "Edit";
 "PlaceDetailView.openInMaps" = "Open in Maps";
+"PlaceDetailView.confirmationDialogText" = "Chose where to pick your photo from.";
+"PlaceDetailView.cameraText" = "Camera";
+"PlaceDetailView.photoLibraryText" = "Photo library";
 
 /* PlacesSlideshowView */
 "PlacesSlideshowView.navigationTitleText" = "Places";

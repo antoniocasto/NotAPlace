@@ -81,6 +81,9 @@
 "PlaceDetailView.descriptionFooter" = "Opzionalmente puoi cambiare la descrizione predefinita.";
 "PlaceDetailView.editButton" = "Modifica";
 "PlaceDetailView.openInMaps" = "Apri in Mappe";
+"PlaceDetailView.confirmationDialogText" = "Scegli da dove selezionare la tua foto.";
+"PlaceDetailView.cameraText" = "Fotocamera";
+"PlaceDetailView.photoLibraryText" = "Libreria Foto";
 
 /* PlacesSlideshowView */
 "PlacesSlideshowView.navigationTitleText" = "Luoghi";

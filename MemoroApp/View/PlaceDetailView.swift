@@ -57,6 +57,9 @@ struct PlaceDetailView: View {
     
     @State private var navTitle = navigationTitle
     
+    @State private var showPhotoDialog = false
+    @State private var showPhotoGalleryPicker = false
+    
     
     var body: some View {
         
@@ -125,18 +128,13 @@ struct PlaceDetailView: View {
                         
                         if editModeEnabled || !detailViewMode {
                             Section {
-                                
-                                HStack {
-                                    
-                                    cameraPicker
-                                    
-                                    
-                                    photoPicker
+                                Button {
+                                    showPhotoDialog.toggle()
+                                } label: {
+                                    photoButtonLabel
                                 }
                                 .listRowBackground(Color.clear)
                                 .listRowInsets(EdgeInsets())
-                                
-                                
                             } footer: {
                                 Text(PlaceDetailView.imageReason)
                             }
@@ -253,6 +251,35 @@ struct PlaceDetailView: View {
         .navigationBarBackButtonHidden(editModeEnabled)
         .toolbar(editModeEnabled ? .hidden : .visible, for: .tabBar)
         .toolbar(detailViewMode && editModeEnabled ? .visible : .hidden, for: .bottomBar)
+        .confirmationDialog(PlaceDetailView.confirmationDialogText, isPresented: $showPhotoDialog) {
+            Button(PlaceDetailView.cameraText) {
+                if cameraDisabled {
+                    permissionAlertDescription = PlaceDetailView.cameraError
+                    showPermissionAlert = true
+                } else {
+                    cameraCoordinatorShown = true
+                }
+            }
+            
+            Button(PlaceDetailView.photoLibraryText) {
+                showPhotoGalleryPicker.toggle()
+            }
+            
+        }
+        .photosPicker(isPresented: $showPhotoGalleryPicker, selection: $pickedImageItem, matching: .images, photoLibrary: .shared())
+        .onChange(of: pickedImageItem) { newItem in
+            Task {
+                // Retrieve selected image in Data format
+                guard let data = try? await newItem?.loadTransferable(type: Data.self) else {
+                    print("Error converting image to type Data")
+                    pickedImageItem = nil
+                    return
+                }
+                
+                selectedImage = UIImage(data: data)
+                
+            }
+        }
         
     }
     
@@ -310,43 +337,7 @@ struct PlaceDetailView: View {
         
     }
     
-    var cameraPicker: some View {
-        Image(systemName: "camera")
-            .font(.title3.bold())
-            .padding()
-            .background(cameraDisabled ? Color.gray.opacity(0.3) : Color.backgroundColor)
-            .foregroundColor(cameraDisabled ? Color.white.opacity(0.3) : Color.foregroundColor)
-            .clipShape(Circle())
-            .onTapGesture {
-                if cameraDisabled {
-                    permissionAlertDescription = PlaceDetailView.cameraError
-                    showPermissionAlert = true
-                } else {
-                    cameraCoordinatorShown = true
-                }
-            }
-    }
-    
-    var photoPicker: some View {
-        PhotosPicker(selection: $pickedImageItem, matching: .images, photoLibrary: .shared()) {
-            photoPickerLabel
-        }
-        .onChange(of: pickedImageItem) { newItem in
-            Task {
-                // Retrieve selected image in Data format
-                guard let data = try? await newItem?.loadTransferable(type: Data.self) else {
-                    print("Error converting image to type Data")
-                    pickedImageItem = nil
-                    return
-                }
-                
-                selectedImage = UIImage(data: data)
-                
-            }
-        }
-    }
-    
-    var photoPickerLabel: some View {
+    var photoButtonLabel: some View {
         Label(selectedImage == nil ? PlaceDetailView.pickImage : PlaceDetailView.changeImage, systemImage: "photo")
             .font(.title3.bold())
             .padding()
@@ -543,4 +534,8 @@ extension PlaceDetailView {
     static let descriptionSectionFooter = LocalizedStringKey("PlaceDetailView.descriptionFooter")
     static let editButton = LocalizedStringKey("PlaceDetailView.editButton")
     static let openInMapsString = LocalizedStringKey("PlaceDetailView.openInMaps")
+    static let confirmationDialogText = LocalizedStringKey("PlaceDetailView.confirmationDialogText")
+    static let cameraText = LocalizedStringKey("PlaceDetailView.cameraText")
+    static let photoLibraryText = LocalizedStringKey("PlaceDetailView.photoLibraryText")
+    
 }
