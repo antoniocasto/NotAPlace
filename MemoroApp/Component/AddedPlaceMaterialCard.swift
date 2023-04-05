@@ -28,6 +28,9 @@ struct AddedPlaceMaterialCard: View {
                 // Appear
                 DispatchQueue.main.asyncAfter(deadline: now + 0.3) {
                     showAnimation = true
+                    
+                    // Trigger haptic feedback
+                    simpleSuccess()
                 }
                 
                 now = DispatchTime.now()
@@ -40,6 +43,12 @@ struct AddedPlaceMaterialCard: View {
             }
             .animation(.easeInOut(duration: 0.3), value: showAnimation)
     }
+    
+    private func simpleSuccess() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
 }
 
 struct AddedPlaceMaterialCard_Previews: PreviewProvider {
