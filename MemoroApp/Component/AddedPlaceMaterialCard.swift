@@ -30,7 +30,7 @@ struct AddedPlaceMaterialCard: View {
                     showAnimation = true
                     
                     // Trigger haptic feedback
-                    simpleSuccess()
+                    successHaptic()
                 }
                 
                 now = DispatchTime.now()
@@ -44,7 +44,7 @@ struct AddedPlaceMaterialCard: View {
             .animation(.easeInOut(duration: 0.3), value: showAnimation)
     }
     
-    private func simpleSuccess() {
+    private func successHaptic() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }
