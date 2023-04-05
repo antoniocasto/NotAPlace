@@ -7,17 +7,20 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 struct PlacesSlideshowView: View {
     
     @EnvironmentObject var placeManager: PlaceManager
     
     @AppStorage("SelectedTab") var selectedTab: TabNavigationView.TabSelectable = .places
+    @AppStorage("ThemePreference") private var themePreference: AppTheme = .systemBased
     
     @State private var showPlaceDetail = false
     @State private var selectedPlace: Location?
-    
-    @State private var dragMove:CGFloat = .zero
+    @State private var currentIndex: Int = 0
+    @State private var backgroundImage: Thumbnail?
+    @State private var thumbnails = [Thumbnail]()
     
     var body: some View {
         
@@ -28,11 +31,29 @@ struct PlacesSlideshowView: View {
                 if placeManager.places.count != 0 {
                     
                     carousel
+                        .background {
+                            if let thumbnail = backgroundImage {
+                                Image(uiImage: thumbnail.image)
+                                    .resizable()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                                    .scaledToFill()
+                                    .overlay {
+                                        Color.clear
+                                            .background(.ultraThinMaterial)
+                                    }
+                                    .edgesIgnoringSafeArea(.top)
+                                    .allowsHitTesting(false)
+                                    .onChange(of: currentIndex) { newValue in
+                                        withAnimation(.easeInOut(duration: 0.3)) {
+                                            backgroundImage = thumbnails[newValue]
+                                        }
+                                    }
+                            }
+                        }
+                    
                     
                 } else {
-                    
                     noPlacesPlaceholder
-                    
                 }
                 
                 
@@ -45,6 +66,16 @@ struct PlacesSlideshowView: View {
             }
             .navigationTitle(PlacesSlideshowView.navigationTitleText)
             .navigationBarTitleDisplayMode(.large)
+            .task {
+                
+                guard placeManager.places.count > 0 else { return }
+                
+                await computeThumbnails()
+                backgroundImage = thumbnails[0]
+            }
+            .onDisappear {
+                thumbnails = []
+            }
             
         }
         
@@ -60,33 +91,21 @@ struct PlacesSlideshowView: View {
             // Carousel with snap
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 0) {
-                    ForEach(placeManager.places) { place in
-                        Group {
-                            
-                            if let imageName = place.image {
-                                
-                                let image = placeManager.loadImage(imageName: imageName)
-                                
-                                
-                                ImageSlideshowCard(width: imageWidth, height: pageHeight, place: place, image: image)
-                                
-                                
-                            } else {
-                                MapSlideshowCard(width: imageWidth, height: pageHeight, place: place, coordinate: place.coordinate)
-                                
+                    ForEach(Array(thumbnails.enumerated()), id: \.offset) { index, thumbnail in
+                        
+                        SlideshowCard(image: thumbnail.image, width: imageWidth, height: pageHeight, showMapPointer: thumbnail.isMap, happinessRate: placeManager.places[index].emotionalRating, text: placeManager.places[index].title)
+                            .onTapGesture {
+                                selectedPlace = placeManager.places[index]
+                                showPlaceDetail.toggle()
                             }
-                        }
-                        .frame(width: pageWidth, height: pageHeight)
-                        .onTapGesture {
-                            selectedPlace = place
-                            showPlaceDetail.toggle()
-                        }
+                            .frame(width: pageWidth, height: pageHeight)
+                        
                     }
                 }
                 // Start from the center of the screen
                 .padding(.horizontal, (proxy.size.width - pageWidth) / 2)
                 .background {
-                    SnapCarouselHelper(pageWidth: pageWidth, pageCount: placeManager.places.count)
+                    SnapCarouselHelper(displayedElementIndex: $currentIndex, pageWidth: pageWidth, pageCount: thumbnails.count)
                 }
             }
             
@@ -109,6 +128,19 @@ struct PlacesSlideshowView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private func computeThumbnails() async {
+                
+        for index in 0 ... (placeManager.places.count - 1) {
+            if let imageName = placeManager.places[index].image {
+                let thumbnail = await placeManager.loadThumbnail(imageName: imageName)
+                thumbnails.append(Thumbnail(image: thumbnail, isMap: false))
+            } else {
+                guard let thumbnail = await MKMapSnapshotterHelper.generateSnapshot(width: 400, height: 400, coordinate: placeManager.places[index].coordinate, themePreference: themePreference).byPreparingThumbnail(ofSize: CGSize(width: 400, height: 400)) else { return }
+                thumbnails.append(Thumbnail(image: thumbnail, isMap: true))
+            }
+        }
     }
     
 }

@@ -93,6 +93,28 @@ class PlaceManager: ObservableObject {
         }
     }
     
+    func loadThumbnail(imageName: String) async -> UIImage {
+        
+        let url = FileManager.documentsDirectory.appending(component: imageDirectory).appending(component: imageName)
+        
+        do {
+            
+            let imageData = try Data(contentsOf: url)
+            
+            guard let image = await UIImage(data: imageData)?.byPreparingThumbnail(ofSize: CGSize(width: 400, height: 400)) else {
+                print("Error loading image. Return default one.")
+                return UIImage(imageLiteralResourceName: "Logo")
+            }
+            
+            return image
+            
+            
+        } catch {
+            print("An error occured while loading an image: \(error)")
+            return UIImage(imageLiteralResourceName: "Logo")
+        }
+    }
+    
     func addPlace(_ place: Location) {
         do {
             places.append(place)

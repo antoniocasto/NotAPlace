@@ -496,6 +496,8 @@ struct PlaceDetailView: View {
         
         placeManager.deletePlace(place: place)
         
+        editModeEnabled = false
+        
         confirmAndDismiss()
         
     }

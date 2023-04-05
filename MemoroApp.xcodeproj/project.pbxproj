@@ -28,8 +28,8 @@
 		B06EA5B729C33ADC00D425E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B06EA5B929C33ADC00D425E6 /* InfoPlist.strings */; };
 		B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09F196B29C89EBC00656900 /* KeychainHelper.swift */; };
 		B0A8538129D71A3800A34FE6 /* PlacesSlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8538029D71A3800A34FE6 /* PlacesSlideshowView.swift */; };
-		B0A8538329D72E6500A34FE6 /* ImageSlideshowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8538229D72E6500A34FE6 /* ImageSlideshowCard.swift */; };
-		B0A8538729D7507000A34FE6 /* MapSlideshowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8538629D7507000A34FE6 /* MapSlideshowCard.swift */; };
+		B0AB203C29DDB221001722B8 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB203B29DDB221001722B8 /* Thumbnail.swift */; };
+		B0AB203E29DDB40F001722B8 /* SlideshowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB203D29DDB40F001722B8 /* SlideshowCard.swift */; };
 		B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */; };
 		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
@@ -69,8 +69,8 @@
 		B06EA5BA29C33AE000D425E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B09F196B29C89EBC00656900 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		B0A8538029D71A3800A34FE6 /* PlacesSlideshowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSlideshowView.swift; sourceTree = "<group>"; };
-		B0A8538229D72E6500A34FE6 /* ImageSlideshowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlideshowCard.swift; sourceTree = "<group>"; };
-		B0A8538629D7507000A34FE6 /* MapSlideshowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSlideshowCard.swift; sourceTree = "<group>"; };
+		B0AB203B29DDB221001722B8 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		B0AB203D29DDB40F001722B8 /* SlideshowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowCard.swift; sourceTree = "<group>"; };
 		B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthManager.swift; sourceTree = "<group>"; };
 		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -144,6 +144,7 @@
 			children = (
 				B009AA1229C9B21200D9AA94 /* Location.swift */,
 				B0DD318829D4761E00C6EB3A /* AppTheme.swift */,
+				B0AB203B29DDB221001722B8 /* Thumbnail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,9 +180,8 @@
 				B025A95829CC38CD00F9261C /* FormPlaceImage.swift */,
 				B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */,
 				B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */,
-				B0A8538229D72E6500A34FE6 /* ImageSlideshowCard.swift */,
-				B0A8538629D7507000A34FE6 /* MapSlideshowCard.swift */,
 				B0F81B7D29D83A1800524DC0 /* MapResume.swift */,
+				B0AB203D29DDB40F001722B8 /* SlideshowCard.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -293,13 +293,12 @@
 				B0F81B7C29D836EB00524DC0 /* MKMapSnapshotterHelper.swift in Sources */,
 				B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */,
 				B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */,
+				B0AB203C29DDB221001722B8 /* Thumbnail.swift in Sources */,
 				B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */,
-				B0A8538729D7507000A34FE6 /* MapSlideshowCard.swift in Sources */,
 				B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */,
 				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */,
 				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
-				B0A8538329D72E6500A34FE6 /* ImageSlideshowCard.swift in Sources */,
 				B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */,
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
 				B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */,
@@ -319,6 +318,7 @@
 				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
 				B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,
+				B0AB203E29DDB40F001722B8 /* SlideshowCard.swift in Sources */,
 				B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
