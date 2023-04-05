@@ -20,6 +20,7 @@ struct AddedPlaceMaterialCard: View {
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .opacity(showAnimation ? 1 : 0)
             .blur(radius: showAnimation ? 0 : 20)
+            .shadow(radius: 2, y: 2)
             .onAppear {
                 
                 var now = DispatchTime.now()
