@@ -10,6 +10,8 @@ import MapKit
 
 struct MapResume: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     @AppStorage("ThemePreference") private var themePreference: AppTheme = .systemBased
     
     @State private var snapshotImage: UIImage? = nil
@@ -40,6 +42,11 @@ struct MapResume: View {
         }
         .task {
             await setImage()
+        }
+        .onChange(of: colorScheme) { _ in
+            Task {
+                await setImage()
+            }
         }
     }
     
