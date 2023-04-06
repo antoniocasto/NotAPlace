@@ -11,6 +11,8 @@ import Combine
 
 struct PlacesSlideshowView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     @EnvironmentObject var placeManager: PlaceManager
     
     @AppStorage("SelectedTab") var selectedTab: TabNavigationView.TabSelectable = .places
@@ -21,6 +23,8 @@ struct PlacesSlideshowView: View {
     @State private var currentIndex: Int = 0
     @State private var backgroundImage: Thumbnail?
     @State private var thumbnails = [Thumbnail]()
+    
+    @State private var thumbnailsLoaded = false
     
     var body: some View {
         
@@ -67,18 +71,16 @@ struct PlacesSlideshowView: View {
             .navigationTitle(PlacesSlideshowView.navigationTitleText)
             .navigationBarTitleDisplayMode(.large)
             .task {
-                
-                guard placeManager.places.count > 0 else { return }
-                
-                await computeThumbnails()
-                
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    backgroundImage = thumbnails[0]
-                }
-                
+                await setup()
             }
             .onDisappear {
                 thumbnails = []
+            }
+            .onChange(of: colorScheme) { _ in
+                Task {
+                    await setup()
+                }
+                
             }
             
         }
@@ -92,27 +94,35 @@ struct PlacesSlideshowView: View {
             let pageWidth: CGFloat = proxy.size.width / 1.12
             let imageWidth: CGFloat = proxy.size.width / 1.17
             
-            // Carousel with snap
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 0) {
-                    ForEach(Array(thumbnails.enumerated()), id: \.offset) { index, thumbnail in
-                        
-                        SlideshowCard(image: thumbnail.image, width: imageWidth, height: pageHeight, showMapPointer: thumbnail.isMap, happinessRate: placeManager.places[index].emotionalRating, text: placeManager.places[index].title)
-                            .onTapGesture {
-                                selectedPlace = placeManager.places[index]
-                                showPlaceDetail.toggle()
-                            }
-                            .frame(width: pageWidth, height: pageHeight)
-                        
+            if thumbnailsLoaded {
+                
+                // Carousel with snap
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 0) {
+                        ForEach(Array(thumbnails.enumerated()), id: \.offset) { index, thumbnail in
+                            
+                            SlideshowCard(image: thumbnail.image, width: imageWidth, height: pageHeight, showMapPointer: thumbnail.isMap, happinessRate: placeManager.places[index].emotionalRating, text: placeManager.places[index].title)
+                                .onTapGesture {
+                                    selectedPlace = placeManager.places[index]
+                                    showPlaceDetail.toggle()
+                                }
+                                .frame(width: pageWidth, height: pageHeight)
+                            
+                        }
+                    }
+                    // Start from the center of the screen
+                    .padding(.horizontal, (proxy.size.width - pageWidth) / 2)
+                    .background {
+                        SnapCarouselHelper(displayedElementIndex: $currentIndex, pageWidth: pageWidth, pageCount: thumbnails.count)
                     }
                 }
-                // Start from the center of the screen
-                .padding(.horizontal, (proxy.size.width - pageWidth) / 2)
-                .background {
-                    SnapCarouselHelper(displayedElementIndex: $currentIndex, pageWidth: pageWidth, pageCount: thumbnails.count)
-                }
+                
+            } else {
+                
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                
             }
-            
         }
     }
     
@@ -134,8 +144,21 @@ struct PlacesSlideshowView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
+    private func setup() async {
+        
+        guard placeManager.places.count > 0 else { return }
+        
+        thumbnailsLoaded = false
+        thumbnails = []
+        await computeThumbnails()
+        backgroundImage = thumbnails[0]
+        currentIndex = 0
+        thumbnailsLoaded = true
+        
+    }
+    
     private func computeThumbnails() async {
-                
+        
         for index in 0 ... (placeManager.places.count - 1) {
             if let imageName = placeManager.places[index].image {
                 let thumbnail = await ImageHelper.loadThumbnail(imageName: imageName)
