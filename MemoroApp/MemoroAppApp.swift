@@ -24,6 +24,7 @@ struct MemoroAppApp: App {
             ContentView()
                 .environmentObject(localAuthManager)
                 .environmentObject(placeManager)
+                .tint(themePreference.accentColor)
                 .preferredColorScheme(themePreference.themeScheme)
         }
     }

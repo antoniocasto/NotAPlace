@@ -10,4 +10,6 @@ import SwiftUI
 extension Color {
     static let backgroundColor = Color("Background")
     static let foregroundColor = Color("Foreground")
+    static let darkAccentColor = Color("DarkAccent")
+    static let lightAccentColor = Color("AccentColor")
 }

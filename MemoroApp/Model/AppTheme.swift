@@ -32,6 +32,18 @@ enum AppTheme: Int, CaseIterable {
             return .light
         }
     }
+    
+    var accentColor: Color {
+        switch self {
+        case .systemBased:
+            return Color.accentColor
+        case .darkMode:
+            return .darkAccentColor
+        case .lightMode:
+            return .lightAccentColor
+        }
+    }
+    
 }
 
 extension AppTheme {
