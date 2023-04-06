@@ -61,6 +61,10 @@ struct SettingsView: View {
                     .onAppear {
                         selectedImage = ImageHelper.loadProfileImage()
                     }
+                    .onTapGesture{
+                        hideKeyboard()
+                    }
+
 
                 
                 Section {
@@ -172,6 +176,9 @@ struct SettingsView: View {
                     Label(SettingsView.securitySectionHeaderText, systemImage: "lock")
                 } footer: {
                     Text(SettingsView.securitySectionFooterText)
+                }
+                .onTapGesture{
+                    hideKeyboard()
                 }
                 
                 Section {
