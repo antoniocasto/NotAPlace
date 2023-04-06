@@ -138,7 +138,7 @@ struct PlacesSlideshowView: View {
                 
         for index in 0 ... (placeManager.places.count - 1) {
             if let imageName = placeManager.places[index].image {
-                let thumbnail = await placeManager.loadThumbnail(imageName: imageName)
+                let thumbnail = await ImageHelper.loadThumbnail(imageName: imageName)
                 thumbnails.append(Thumbnail(image: thumbnail, isMap: false))
             } else {
                 guard let thumbnail = await MKMapSnapshotterHelper.generateSnapshot(width: 400, height: 400, coordinate: placeManager.places[index].coordinate, themePreference: themePreference).byPreparingThumbnail(ofSize: CGSize(width: 400, height: 400)) else { return }

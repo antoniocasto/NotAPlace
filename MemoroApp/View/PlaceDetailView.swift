@@ -392,7 +392,7 @@ struct PlaceDetailView: View {
         var newPlace = Location(title: title, description: description, image: nil, emotionalRating: emotionalRating, latitude: coordinate.latitude, longitude: coordinate.longitude)
         
         if let image = selectedImage {
-            let imageUrl = placeManager.saveImage(image)
+            let imageUrl = ImageHelper.saveImage(image)
             
             newPlace.image = imageUrl
         }
@@ -434,7 +434,7 @@ struct PlaceDetailView: View {
             description = place.description
             
             if let image = place.image {
-                selectedImage = placeManager.loadImage(imageName: image)
+                selectedImage = ImageHelper.loadImage(imageName: image)
             }
             
         }
@@ -451,12 +451,12 @@ struct PlaceDetailView: View {
         
         // Delete old place image
         if let placeImage = place.image {
-            placeManager.deleteImage(imageName: placeImage)
+            ImageHelper.deleteImage(imageName: placeImage)
         }
         
         // Save new place image
         if let image = selectedImage {
-            let imageUrl = placeManager.saveImage(image)
+            let imageUrl = ImageHelper.saveImage(image)
             updatedPlace.image = imageUrl
         } else {
             updatedPlace.image = nil
@@ -482,7 +482,7 @@ struct PlaceDetailView: View {
         }
         
         if let image = place.image {
-            placeManager.deleteImage(imageName: image)
+            ImageHelper.deleteImage(imageName: image)
         }
         
         placeManager.deletePlace(place: place)

@@ -11,108 +11,11 @@ import SwiftUI
 class PlaceManager: ObservableObject {
     
     let placeDirectory = "Places"
-    let imageDirectory = "Images"
     
     @Published private(set) var places = [Location]()
     
     init() {
         loadPlaces()
-    }
-    
-    func saveImage(_ image: UIImage) -> String? {
-        
-        let imageName = UUID().uuidString
-        
-        let imagesDirectoryUrl = FileManager.documentsDirectory.appendingPathComponent(imageDirectory, conformingTo: .directory)
-        
-        
-        do {
-            
-            if !FileManager.default.fileExists(atPath: imagesDirectoryUrl.path) {
-                try FileManager.default.createDirectory(atPath: imagesDirectoryUrl.path, withIntermediateDirectories: false)
-            }
-            
-            let url = imagesDirectoryUrl.appending(component: imageName)
-            
-            
-            guard let compressedImage = image.jpegData(compressionQuality: 0.7) else {
-                fatalError("Error while compressing image.")
-            }
-            
-            try compressedImage.write(to: url, options: .completeFileProtection)
-            
-            return imageName
-        } catch {
-            print("An error occured while saving the image: \(error)")
-            return nil
-        }
-        
-    }
-    
-    func deleteImage(imageName: String) {
-        
-        let imagesDirectoryUrl = FileManager.documentsDirectory.appendingPathComponent(imageDirectory, conformingTo: .directory)
-        
-        
-        do {
-            
-            if !FileManager.default.fileExists(atPath: imagesDirectoryUrl.path) {
-                try FileManager.default.createDirectory(atPath: imagesDirectoryUrl.path, withIntermediateDirectories: false)
-            }
-            
-            let url = imagesDirectoryUrl.appending(component: imageName)
-            
-            if FileManager.default.fileExists(atPath: url.absoluteString) {
-                try FileManager.default.removeItem(at: url)
-            }
-            
-        } catch {
-            print("An error occured while deleting the image: \(error)")
-        }
-    }
-    
-    func loadImage(imageName: String) -> UIImage {
-        
-        let url = FileManager.documentsDirectory.appending(component: imageDirectory).appending(component: imageName)
-        
-        do {
-            
-            let imageData = try Data(contentsOf: url)
-            
-            guard let image = UIImage(data: imageData) else {
-                print("Error loading image. Return default one.")
-                return UIImage(imageLiteralResourceName: "Logo")
-            }
-            
-            return image
-            
-            
-        } catch {
-            print("An error occured while loading an image: \(error)")
-            return UIImage(imageLiteralResourceName: "Logo")
-        }
-    }
-    
-    func loadThumbnail(imageName: String) async -> UIImage {
-        
-        let url = FileManager.documentsDirectory.appending(component: imageDirectory).appending(component: imageName)
-        
-        do {
-            
-            let imageData = try Data(contentsOf: url)
-            
-            guard let image = await UIImage(data: imageData)?.byPreparingThumbnail(ofSize: CGSize(width: 400, height: 400)) else {
-                print("Error loading image. Return default one.")
-                return UIImage(imageLiteralResourceName: "Logo")
-            }
-            
-            return image
-            
-            
-        } catch {
-            print("An error occured while loading an image: \(error)")
-            return UIImage(imageLiteralResourceName: "Logo")
-        }
     }
     
     func addPlace(_ place: Location) {
@@ -161,7 +64,7 @@ class PlaceManager: ObservableObject {
                 return
             }
             
-            deleteImage(imageName: image)
+            ImageHelper.deleteImage(imageName: image)
             
         } catch {
             print(error)
