@@ -508,8 +508,6 @@ struct PlaceDetailView: View {
 
 struct AddPlaceView_Previews: PreviewProvider {
     static var previews: some View {
-        //        PlaceDetailView(place: .constant(Location.example))
-        //            .environmentObject(PlaceManager())
         
         PlaceDetailView(place: Location.example)
             .environmentObject(PlaceManager())
