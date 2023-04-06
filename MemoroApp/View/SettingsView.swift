@@ -144,6 +144,7 @@ struct SettingsView: View {
                 Section {
                     
                     Toggle(SettingsView.localAuthToggleText, isOn: $enableLocalAuth)
+                        .tint(nil)
                         .onChange(of: enableLocalAuth) { newValue in
                             if newValue {
                                 // If Local Authentication is enabled. A password must be set.
@@ -159,6 +160,7 @@ struct SettingsView: View {
                     // and Face ID or Touch ID is available
                     if localAuthEnabled && localAuthManager.canEvaluatePolicy {
                         Toggle(SettingsView.biometricsLocalAuthToggleText, isOn: $enableBiometricAuthToggle)
+                            .tint(nil)
                             .disabled(!localAuthEnabled)
                             .onChange(of: enableBiometricAuthToggle) { newValue in
                                 if newValue {

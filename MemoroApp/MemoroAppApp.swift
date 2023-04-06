@@ -18,7 +18,7 @@ struct MemoroAppApp: App {
     
     // Persistent settings
     @AppStorage("ThemePreference") private var themePreference: AppTheme = .systemBased
-    
+        
     var body: some Scene {
         WindowGroup {
             ContentView()
