@@ -49,7 +49,15 @@
 "SettingsView.ErrorMessage3" = "Si è verificato un errore durante il salvataggio della tua password. Prova di nuovo.";
 "SettingsView.Theme" = "Tema";
 "SettingsView.themePickerText" = "Tema preferito";
-
+"SettingsView.userProfileText" = "Profilo Utente";
+"SettingsView.userNameText" = "Nome utente";
+"SettingsView.userPhotoText" = "Foto utente";
+"SettingsView.PermissionError" = "Accesso fotocamera disabilitato";
+"SettingsView.confirmationDialogText" = "Scegli da dove selezionare la tua foto.";
+"SettingsView.cameraText" = "Fotocamera";
+"SettingsView.photoLibraryText" = "Libreria Foto";
+"SettingsView.Open Settings" = "Apri Impostazioni";
+"SettingsView.CameraError" = "La fotocamera non è disponibile. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
 
 /* AppTheme */
 "AppTheme.systemBasedText" = "Sistema";
@@ -64,7 +72,7 @@
 "WorldMapView.Error Message" = "Impossibile ottenere la tua posizione. Se ne hai revocato il permesso, riattivalo dalle impostazione di iOS per favore.";
 "WorldMapView.Error Restriction Message" = "Impossibile ottenere la tua posizione a causa di alcune restrizioni. Per favore controlla le Impostazioni di iOS.";
 
-/* AddPlaceView */
+/* PlaceDetailView */
 "PlaceDetailView.NewPlace" = "Nuovo luogo";
 "PlaceDetailView.PlaceTitleSection" = "Titolo luogo";
 "PlaceDetailView.TitleMaxChar" = "caratteri";

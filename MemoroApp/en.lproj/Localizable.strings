@@ -49,6 +49,16 @@
 "SettingsView.ErrorMessage3" = "An error occured while saving your password. Try again.";
 "SettingsView.Theme" = "Theme";
 "SettingsView.themePickerText" = "Preferred theme";
+"SettingsView.userProfileText" = "User Profile";
+"SettingsView.userNameText" = "User name";
+"SettingsView.userPhotoText" = "User picture";
+"SettingsView.PermissionError" = "Camera access disabled";
+"SettingsView.confirmationDialogText" = "Chose where to pick your photo from.";
+"SettingsView.cameraText" = "Camera";
+"SettingsView.photoLibraryText" = "Photo library";
+"SettingsView.Open Settings" = "Open Settings";
+"SettingsView.CameraError" = "Your camera is not available. If you revoked its permission, please enable it from iOS Settings.";
+
 
 /* AppTheme */
 "AppTheme.systemBasedText" = "System";

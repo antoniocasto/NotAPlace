@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct SettingsView: View {
     
@@ -17,6 +18,15 @@ struct SettingsView: View {
     @AppStorage("LocalAuthWithBiometrics") private var localAuthWithBiometrics = false
     @AppStorage("ThemePreference") private var themePreference: AppTheme = .systemBased
     
+    @AppStorage("UserName") private var username = ""
+    
+    @State private var pickedImageItem: PhotosPickerItem?
+    @State private var selectedImage: UIImage?
+    @State private var showPhotoDialog = false
+    @State private var showPhotoGalleryPicker = false
+    @State private var cameraCoordinatorShown = false
+
+    
     @State private var enableLocalAuth = false
     @State private var enableBiometricAuthToggle = false
     @State private var showPasswordInput = false
@@ -25,10 +35,103 @@ struct SettingsView: View {
     @State private var showPasswordAlert = false
     @State private var passwordAlertMessage = LocalizedStringKey("")
     
+    @State private var showPermissionAlert = false
+    @State private var permissionAlertDescription = LocalizedStringKey("")
+    
+    let usernameCharLimit = 20
+    
+    private var profileUsername: String {
+        if username.isEmpty {
+            return "Memoro"
+        } else {
+            return username
+        }
+    }
+    
+    private var cameraDisabled: Bool {
+        return AVCaptureDevice.authorizationStatus(for: .video) == .denied
+    }
+    
     var body: some View {
         NavigationStack {
             
             Form {
+                
+                ProfileArea(image: selectedImage , title: profileUsername)
+                    .onAppear {
+                        loadProfileImage()
+                    }
+
+                
+                Section {
+                    
+                    HStack {
+                        
+                        Image(systemName: "person.circle.fill")
+                            .foregroundColor(.secondary)
+                        
+                        TextField(SettingsView.userNameText, text: $username)
+                            .onChange(of: username) { newValue in
+                                if newValue.count > usernameCharLimit {
+                                    username = String(newValue.prefix(usernameCharLimit))
+                                }
+                        }
+                    }
+                    
+                    HStack {
+                        
+                        Image(systemName: "camera.circle.fill")
+                            .foregroundColor(.secondary)
+                        
+                        Button(SettingsView.userPhotoText) {
+                            showPhotoDialog.toggle()
+                        }
+                        .tint(.accentColor)
+                        .confirmationDialog(SettingsView.confirmationDialogText, isPresented: $showPhotoDialog) {
+                            Button(SettingsView.cameraText) {
+                                if cameraDisabled {
+                                    permissionAlertDescription = SettingsView.cameraError
+                                    showPermissionAlert = true
+                                } else {
+                                    cameraCoordinatorShown = true
+                                }
+                            }
+                            
+                            Button(SettingsView.photoLibraryText) {
+                                showPhotoGalleryPicker.toggle()
+                            }
+                            
+                        }
+                        .sheet(isPresented: $cameraCoordinatorShown) {
+                            CameraImagePicker(isCoordinatorShown: $cameraCoordinatorShown, image: $selectedImage)
+                                .ignoresSafeArea()
+                        }
+                        .photosPicker(isPresented: $showPhotoGalleryPicker, selection: $pickedImageItem, matching: .images, photoLibrary: .shared())
+                        .onChange(of: pickedImageItem) { newItem in
+                            Task {
+                                // Retrieve selected image in Data format
+                                guard let data = try? await newItem?.loadTransferable(type: Data.self) else {
+                                    print("Error converting image to type Data")
+                                    pickedImageItem = nil
+                                    return
+                                }
+                                
+                                selectedImage = UIImage(data: data)
+                                
+                                saveProfileImage()
+                                
+                            }
+                        }
+                        
+                    }
+                    
+                } header: {
+                    HStack {
+                        Image(systemName: "person")
+                        Text(SettingsView.userProfileText)
+                    }
+                }
+                
                 
                 Section {
                     
@@ -84,7 +187,7 @@ struct SettingsView: View {
             .alert(SettingsView.passwordAlertTitle, isPresented: $showPasswordInput, actions: {
                 SecureField(SettingsView.passwordInput, text: $password)
                 SecureField(SettingsView.passwordConfirmInput, text: $passwordConfirm)
-                Button(SettingsView.passwordCancelButton, role: .cancel) {
+                Button(SettingsView.cancelButton, role: .cancel) {
                     // Disable Local Authentication if password is not set.
                     localAuthEnabled = false
                     enableLocalAuth = false
@@ -115,7 +218,19 @@ struct SettingsView: View {
             } message: {
                 Text(passwordAlertMessage)
             }
+            .alert(SettingsView.permissionError, isPresented: $showPermissionAlert) {
+                Button(SettingsView.cancelButton, role: .cancel) { }
+                Button(SettingsView.openSettingsButtonText) {
+                    // Get the App Settings URL in iOS Settings and open it.
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                }
+            } message: {
+                Text(permissionAlertDescription)
+            }
             .navigationTitle(SettingsView.viewTitleText)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
             enableLocalAuth = localAuthEnabled
@@ -142,6 +257,18 @@ struct SettingsView: View {
         
     }
     
+    private func saveProfileImage() {
+        guard let image = selectedImage, let data = image.jpegData(compressionQuality: 0.5) else { return }
+        let encoded = try! PropertyListEncoder().encode(data)
+        UserDefaults.standard.set(encoded, forKey: "UserImage")
+    }
+
+    private func loadProfileImage() {
+         guard let data = UserDefaults.standard.data(forKey: "UserImage") else { return }
+         let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
+         selectedImage = UIImage(data: decoded)
+    }
+    
 }
 
 struct SettingsView_Previews: PreviewProvider {
@@ -159,7 +286,7 @@ extension SettingsView {
     static let biometricsLocalAuthToggleText = LocalizedStringKey("SettingsView.Use Face ID or Touch ID")
     static let passwordAlertTitle = LocalizedStringKey("SettingsView.Password Requested")
     static let passwordAlertMessage = LocalizedStringKey("SettingsView.PasswordAlertMessage")
-    static let passwordCancelButton = LocalizedStringKey("SettingsView.Cancel")
+    static let cancelButton = LocalizedStringKey("SettingsView.Cancel")
     static let passwordCreateButton = LocalizedStringKey("SettingsView.Create")
     static let passwordInput = LocalizedStringKey("SettingsView.Password")
     static let passwordConfirmInput = LocalizedStringKey("SettingsView.Repeat Password")
@@ -170,5 +297,14 @@ extension SettingsView {
     static let passwordErrorMessage3 = LocalizedStringKey("SettingsView.ErrorMessage3")
     static let themeSectionHeaderText = LocalizedStringKey("SettingsView.Theme")
     static let themePickerText = LocalizedStringKey("SettingsView.themePickerText")
+    static let userProfileText = LocalizedStringKey("SettingsView.userProfileText")
+    static let userNameText = LocalizedStringKey("SettingsView.userNameText")
+    static let userPhotoText = LocalizedStringKey("SettingsView.userPhotoText")
+    static let permissionError = LocalizedStringKey("SettingsView.PermissionError")
+    static let confirmationDialogText = LocalizedStringKey("SettingsView.confirmationDialogText")
+    static let cameraText = LocalizedStringKey("SettingsView.cameraText")
+    static let photoLibraryText = LocalizedStringKey("SettingsView.photoLibraryText")
+    static let openSettingsButtonText = LocalizedStringKey("SettingsView.Open Settings")
+    static let cameraError = LocalizedStringKey("SettingsView.CameraError")
     
 }
