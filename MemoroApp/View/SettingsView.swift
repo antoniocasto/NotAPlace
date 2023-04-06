@@ -59,7 +59,7 @@ struct SettingsView: View {
                 
                 ProfileArea(image: selectedImage , title: profileUsername)
                     .onAppear {
-                        loadProfileImage()
+                        selectedImage = ImageHelper.loadProfileImage()
                     }
 
                 
@@ -116,9 +116,13 @@ struct SettingsView: View {
                                     return
                                 }
                                 
-                                selectedImage = UIImage(data: data)
+                                let image = UIImage(data: data)
                                 
-                                saveProfileImage()
+                                selectedImage = image
+                                
+                                if let image = image {
+                                    ImageHelper.saveProfileImage(image: image)
+                                }
                                 
                             }
                         }
@@ -255,18 +259,6 @@ struct SettingsView: View {
         // Password Ok
         return true
         
-    }
-    
-    private func saveProfileImage() {
-        guard let image = selectedImage, let data = image.jpegData(compressionQuality: 0.5) else { return }
-        let encoded = try! PropertyListEncoder().encode(data)
-        UserDefaults.standard.set(encoded, forKey: "UserImage")
-    }
-
-    private func loadProfileImage() {
-         guard let data = UserDefaults.standard.data(forKey: "UserImage") else { return }
-         let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
-         selectedImage = UIImage(data: decoded)
     }
     
 }
