@@ -27,7 +27,7 @@ struct TabNavigationView: View {
                 }
                 .tag(TabSelectable.map)
             
-            PlacesSlideshowView()
+            SlideshowView()
                 .tabItem {
                     Label(TabNavigationView.placesLabelText, systemImage: "house")
                 }

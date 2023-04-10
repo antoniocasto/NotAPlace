@@ -64,7 +64,7 @@ struct SnapCarouselHelper: UIViewRepresentable {
             // Updating current index
             let index = min(max(Int (targetIndex), 0), pageCount - 1)
             parent.displayedElementIndex = index
-                        
+                                    
             targetContentOffset.pointee.x = targetIndex * pageWidth
             
         }
