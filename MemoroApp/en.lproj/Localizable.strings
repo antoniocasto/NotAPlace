@@ -77,7 +77,7 @@
 "PlaceDetailView.NewPlace" = "New place";
 "PlaceDetailView.PlaceTitleSection" = "Place title";
 "PlaceDetailView.TitleMaxChar" = "characters";
-"PlaceDetailView.PermissionError" = "Camera access disabled";
+"PlaceDetailView.PermissionError" = "Permission not allowed";
 "PlaceDetailView.Cancel" = "Cancel";
 "PlaceDetailView.Save" = "Save";
 "PlaceDetailView.Open Settings" = "Open Settings";
@@ -93,6 +93,7 @@
 "PlaceDetailView.confirmationDialogText" = "Chose where to pick your photo from.";
 "PlaceDetailView.cameraText" = "Camera";
 "PlaceDetailView.photoLibraryText" = "Photo library";
+"PlaceDetailView.addPhotoToAlbumError" = "Impossible to add the image to Photos. If you revoked its permission, please enable it from iOS Settings.";
 
 /* PlacesSlideshowView */
 "PlacesSlideshowView.navigationTitleText" = "Places";

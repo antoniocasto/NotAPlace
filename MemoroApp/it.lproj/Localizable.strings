@@ -76,7 +76,7 @@
 "PlaceDetailView.NewPlace" = "Nuovo luogo";
 "PlaceDetailView.PlaceTitleSection" = "Titolo luogo";
 "PlaceDetailView.TitleMaxChar" = "caratteri";
-"PlaceDetailView.PermissionError" = "Accesso fotocamera disabilitato";
+"PlaceDetailView.PermissionError" = "Permesso non concesso";
 "PlaceDetailView.Cancel" = "Annulla";
 "PlaceDetailView.Save" = "Salva";
 "PlaceDetailView.Open Settings" = "Apri Impostazioni";
@@ -92,6 +92,7 @@
 "PlaceDetailView.confirmationDialogText" = "Scegli da dove selezionare la tua foto.";
 "PlaceDetailView.cameraText" = "Fotocamera";
 "PlaceDetailView.photoLibraryText" = "Libreria Foto";
+"PlaceDetailView.addPhotoToAlbumError" = "Impossibile aggiungere l'immagine su Foto. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
 
 /* PlacesSlideshowView */
 "PlacesSlideshowView.navigationTitleText" = "Luoghi";

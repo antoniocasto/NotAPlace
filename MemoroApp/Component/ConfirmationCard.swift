@@ -7,12 +7,20 @@
 
 import SwiftUI
 
-struct AddedPlaceMaterialCard: View {
+enum ConfirmationCardIconSystemName: String {
+    case confirm = "checkmark"
+    case downloaded = "arrow.down"
+    case deleted = "trash"
+}
+
+struct ConfirmationCard: View {
+    
+    var icon: ConfirmationCardIconSystemName
     
     @State private var showAnimation = false
     
     var body: some View {
-        Image(systemName: "checkmark")
+        Image(systemName: icon.rawValue)
             .font(.system(size: 50).bold())
             .padding(40)
             .foregroundStyle(.secondary.blendMode(.difference))
@@ -53,7 +61,7 @@ struct AddedPlaceMaterialCard: View {
 
 struct AddedPlaceMaterialCard_Previews: PreviewProvider {
     static var previews: some View {
-        AddedPlaceMaterialCard()
+        ConfirmationCard(icon: .confirm)
             .preferredColorScheme(.dark)
     }
 }

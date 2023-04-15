@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */; };
+		B0063A6529D0423300957E71 /* ConfirmationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6429D0423300957E71 /* ConfirmationCard.swift */; };
 		B009AA1329C9B21200D9AA94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1229C9B21200D9AA94 /* Location.swift */; };
 		B009AA1529C9BD9D00D9AA94 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1429C9BD9D00D9AA94 /* PlaceDetailView.swift */; };
 		B009AA1729C9C25E00D9AA94 /* MapPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1629C9C25E00D9AA94 /* MapPointer.swift */; };
@@ -18,6 +18,7 @@
 		B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117D6229CF427D008195A9 /* FileManagerExtension.swift */; };
 		B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95829CC38CD00F9261C /* FormPlaceImage.swift */; };
 		B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */; };
+		B02A20F529EAA3B80069D485 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A20F429EAA3B80069D485 /* ImageSaver.swift */; };
 		B03C21E429DC20AA00D1AD4C /* SnapCarouselHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */; };
 		B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */; };
 		B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5429BA1D3200BFE310 /* ContentView.swift */; };
@@ -45,7 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedPlaceMaterialCard.swift; sourceTree = "<group>"; };
+		B0063A6429D0423300957E71 /* ConfirmationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCard.swift; sourceTree = "<group>"; };
 		B009AA1229C9B21200D9AA94 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B009AA1429C9BD9D00D9AA94 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		B009AA1629C9C25E00D9AA94 /* MapPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointer.swift; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		B025A95829CC38CD00F9261C /* FormPlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlaceImage.swift; sourceTree = "<group>"; };
 		B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
 		B026977929D1B15D0065C735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B02A20F429EAA3B80069D485 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarouselHelper.swift; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoroAppApp.swift; sourceTree = "<group>"; };
@@ -180,7 +182,7 @@
 				B009AA1829C9CC7E00D9AA94 /* CharacterCounter.swift */,
 				B025A95829CC38CD00F9261C /* FormPlaceImage.swift */,
 				B0117D5A29CF2C7C008195A9 /* HappinessIcon.swift */,
-				B0063A6429D0423300957E71 /* AddedPlaceMaterialCard.swift */,
+				B0063A6429D0423300957E71 /* ConfirmationCard.swift */,
 				B0F81B7D29D83A1800524DC0 /* MapResume.swift */,
 				B0D9452329E4088F00F5D01F /* SlideshowCard.swift */,
 				B0F2FA0729DEB251008A5C6B /* ProfileArea.swift */,
@@ -196,6 +198,7 @@
 				B0F81B7B29D836EB00524DC0 /* MKMapSnapshotterHelper.swift */,
 				B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */,
 				B0F2FA0929DECAC1008A5C6B /* ImageHelper.swift */,
+				B02A20F429EAA3B80069D485 /* ImageSaver.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
 				B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */,
 				B0F81B7E29D83A1800524DC0 /* MapResume.swift in Sources */,
+				B02A20F529EAA3B80069D485 /* ImageSaver.swift in Sources */,
 				B009AA1329C9B21200D9AA94 /* Location.swift in Sources */,
 				B0F2FA0A29DECAC1008A5C6B /* ImageHelper.swift in Sources */,
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
@@ -323,7 +327,7 @@
 				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
 				B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,
-				B0063A6529D0423300957E71 /* AddedPlaceMaterialCard.swift in Sources */,
+				B0063A6529D0423300957E71 /* ConfirmationCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +486,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = NSPhotoLibraryAddUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -518,6 +523,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = NSPhotoLibraryAddUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

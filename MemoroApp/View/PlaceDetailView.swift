@@ -11,7 +11,7 @@ import PhotosUI
 import AVFoundation
 
 struct PlaceDetailView: View {
-    
+        
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var placeManager: PlaceManager
@@ -60,6 +60,8 @@ struct PlaceDetailView: View {
     @State private var showPhotoDialog = false
     @State private var showPhotoGalleryPicker = false
     
+    @State private var cardIcon: ConfirmationCardIconSystemName = .confirm
+    
     
     var body: some View {
         
@@ -102,22 +104,31 @@ struct PlaceDetailView: View {
                         
                         if let uiImage = selectedImage {
                             
-                            ZStack(alignment: .topTrailing) {
+                            ZStack(alignment: .topLeading) {
                                 
                                 FormPlaceImage(image: uiImage)
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 200)
                                 
-                                deleteImageButton
-                                    .padding()
-                                    .onTapGesture {
-                                        self.pickedImageItem = nil
-                                        self.selectedImage = nil
+                                HStack(spacing: 16) {
+                                    
+                                    if editModeEnabled || !detailViewMode {
+                                        deleteImageButton
+                                            .onTapGesture {
+                                                self.pickedImageItem = nil
+                                                self.selectedImage = nil
+                                            }
+                                            
                                     }
-                                    .opacity(!editModeEnabled && detailViewMode ? 0 : 1)
-                                    .disabled(!editModeEnabled && detailViewMode)
-                                
-                                
+                                    
+                                    saveImageButton
+                                        .onTapGesture {
+                                            writeToPhotoAlbum()
+                                        }
+                                    
+                                }
+                                .padding()
+
                             }
                             .listRowBackground(Color.clear)
                             .listRowInsets(EdgeInsets()).onTapGesture {
@@ -152,10 +163,11 @@ struct PlaceDetailView: View {
                     
                     
                     if showConfirmationCard {
-                        AddedPlaceMaterialCard()
+                        ConfirmationCard(icon: cardIcon)
                     }
                     
                 }
+                .animation(.easeInOut(duration: 0.3), value: editModeEnabled)
                 .animation(.easeInOut(duration: 0.3), value: selectedImage)
                 .navigationTitle(navTitle)
                 .navigationBarTitleDisplayMode(.inline)
@@ -326,7 +338,7 @@ struct PlaceDetailView: View {
     
     var deleteImageButton: some View {
         Circle()
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
             .foregroundStyle(.regularMaterial)
             .overlay(
                 Image(systemName: "trash")
@@ -335,6 +347,17 @@ struct PlaceDetailView: View {
             )
             .frame(width: 30, height: 30)
         
+    }
+    
+    var saveImageButton: some View {
+        Circle()
+            .frame(width: 40, height: 40)
+            .foregroundStyle(.regularMaterial)
+            .overlay(
+                Image(systemName: "arrow.down")
+                    .font(.system(size: 20).bold())
+            )
+            .frame(width: 30, height: 30)
     }
     
     var photoButtonLabel: some View {
@@ -398,6 +421,8 @@ struct PlaceDetailView: View {
         }
         
         placeManager.addPlace(newPlace)
+        
+        cardIcon = .confirm
         
         confirmAndDismiss()
     }
@@ -471,6 +496,9 @@ struct PlaceDetailView: View {
         placeManager.updatePlaceAt(id: place.id, place: updatedPlace)
         
         editModeEnabled = false
+        
+        cardIcon = .confirm
+        
         confirmAndDismiss()
         
     }
@@ -489,6 +517,8 @@ struct PlaceDetailView: View {
         
         editModeEnabled = false
         
+        cardIcon = .deleted
+        
         confirmAndDismiss()
         
     }
@@ -502,6 +532,33 @@ struct PlaceDetailView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             dismiss()
         }
+    }
+    
+    private func writeToPhotoAlbum() {
+        
+        guard showConfirmationCard == false else { return }
+         
+        guard let inputImage = selectedImage else { return }
+        
+        let imageSaver = ImageSaver()
+        
+        imageSaver.errorHandler = { _ in
+            permissionAlertDescription = PlaceDetailView.addPhotoToAlbumError
+            showPermissionAlert = true
+        }
+        
+        imageSaver.successHandler = {
+            cardIcon = .downloaded
+            showConfirmationCard = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                showConfirmationCard = false
+            }
+            
+        }
+        
+        imageSaver.writeToPhotoAlbum(image: inputImage)
+        
     }
     
 }
@@ -535,5 +592,6 @@ extension PlaceDetailView {
     static let confirmationDialogText = LocalizedStringKey("PlaceDetailView.confirmationDialogText")
     static let cameraText = LocalizedStringKey("PlaceDetailView.cameraText")
     static let photoLibraryText = LocalizedStringKey("PlaceDetailView.photoLibraryText")
+    static let addPhotoToAlbumError = LocalizedStringKey("PlaceDetailView.addPhotoToAlbumError")
     
 }
