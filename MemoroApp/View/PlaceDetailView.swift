@@ -23,6 +23,8 @@ struct PlaceDetailView: View {
     @State private var showPermissionAlert = false
     @State private var permissionAlertDescription = LocalizedStringKey("")
     
+    @State private var blockUIInteraction = false
+    
     private var cameraDisabled: Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .denied
     }
@@ -210,7 +212,6 @@ struct PlaceDetailView: View {
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                
                                 if !editModeEnabled {
                                     editModeEnabled = true
                                 } else {
@@ -292,6 +293,7 @@ struct PlaceDetailView: View {
                 
             }
         }
+        .disabled(blockUIInteraction)
         
     }
     
@@ -411,6 +413,9 @@ struct PlaceDetailView: View {
     
     private func savePlace() {
         
+        // Prevent user to tap any UI field
+        blockUIInteraction = true
+        
         // Save new place here
         var newPlace = Location(title: title, description: description, image: nil, emotionalRating: emotionalRating, latitude: coordinate.latitude, longitude: coordinate.longitude)
         
@@ -471,6 +476,8 @@ struct PlaceDetailView: View {
             return
         }
         
+        blockUIInteraction = true
+        
         var updatedPlace = Location(title: "", description: "", emotionalRating: .happy, latitude: place.latitude, longitude: place.longitude)
         
         
@@ -508,6 +515,8 @@ struct PlaceDetailView: View {
         guard let place = place else {
             return
         }
+        
+        blockUIInteraction = true
         
         if let image = place.image {
             ImageHelper.deleteImage(imageName: image)
