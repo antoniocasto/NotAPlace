@@ -491,6 +491,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemoroApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Memoro;
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
@@ -528,6 +529,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemoroApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Memoro;
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = NSFaceIDUsageDescription;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
