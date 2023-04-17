@@ -16,28 +16,37 @@ struct TabNavigationView: View {
     }
     
     @AppStorage("SelectedTab") var selectedTab: TabSelectable = .places
+    @AppStorage("ShowWelcomeNotice") var showWelcomeNotice: Bool = true
     
     var body: some View {
         
-        TabView(selection: $selectedTab) {
+        ZStack {
             
-            WorldMapView()
-                .tabItem {
-                    Label(TabNavigationView.mapViewLabelText, systemImage: "map")
-                }
-                .tag(TabSelectable.map)
+            TabView(selection: $selectedTab) {
+                
+                WorldMapView()
+                    .tabItem {
+                        Label(TabNavigationView.mapViewLabelText, systemImage: "map")
+                    }
+                    .tag(TabSelectable.map)
+                
+                SlideshowView()
+                    .tabItem {
+                        Label(TabNavigationView.placesLabelText, systemImage: "house")
+                    }
+                    .tag(TabSelectable.places)
+                
+                SettingsView()
+                    .tabItem {
+                        Label(TabNavigationView.settingsLabelText, systemImage: "gear")
+                    }
+                    .tag(TabSelectable.settings)
+                
+            }
             
-            SlideshowView()
-                .tabItem {
-                    Label(TabNavigationView.placesLabelText, systemImage: "house")
-                }
-                .tag(TabSelectable.places)
-            
-            SettingsView()
-                .tabItem {
-                    Label(TabNavigationView.settingsLabelText, systemImage: "gear")
-                }
-                .tag(TabSelectable.settings)
+            if showWelcomeNotice {
+                WelcomeNotice(showWelcomeNotice: $showWelcomeNotice)
+            }
             
         }
         
@@ -47,6 +56,8 @@ struct TabNavigationView: View {
 struct TabNavigationView_Previews: PreviewProvider {
     static var previews: some View {
         TabNavigationView()
+            .environmentObject(LocalAuthManager())
+            .environmentObject(PlaceManager())
     }
 }
 

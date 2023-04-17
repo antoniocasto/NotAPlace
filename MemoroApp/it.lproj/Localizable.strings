@@ -58,6 +58,8 @@
 "SettingsView.photoLibraryText" = "Libreria Foto";
 "SettingsView.Open Settings" = "Apri Impostazioni";
 "SettingsView.CameraError" = "La fotocamera non è disponibile. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
+"SettingsView.showWelcomeNoticeText" = "Mostra Messaggio di Benvenuto";
+
 
 /* AppTheme */
 "AppTheme.systemBasedText" = "Sistema";
@@ -98,6 +100,19 @@
 "PlacesSlideshowView.navigationTitleText" = "Luoghi";
 "PlacesSlideshowView.noPlacesText" = "Non sono presenti luoghi salvati";
 "PlacesSlideshowView.startText" = "Iniziamo!";
+
+/* WelcomeNotice */
+"WelcomeNotice.pageOneTitle" = "Memoro";
+"WelcomeNotice.pageOneDescription" = "Il tuo **diario**\nper ritrovare i **luoghi** che ti hanno suscitato **emozioni positive**.";
+"WelcomeNotice.pageTwoTitle" = "La tua Privacy\nPrima di Tutto";
+"WelcomeNotice.pageTwoDescription" = "Proteggi la tua **privacy**,\nimpostando una **password** dalle impostazioni di Memoro e, opzionalmente, impostando l'**autenticazione biometrica**.";
+"WelcomeNotice.pageThreeTitle" = "Salva i tuoi\nLuoghi";
+"WelcomeNotice.pageThreeDescription" = "Dalla **mappa**, aggiungi un luogo impostando un **titolo** e un **livello di emozione positiva**.\nOpzionalmente, puoi aggiungere una **foto** ed una **descrizione**.";
+"WelcomeNotice.pageFourTitle" = "Trova i tuoi Luoghi\nSplendidamente";
+"WelcomeNotice.pageFourDescription" = "Visualizza i **luoghi salvati** direttamente sulla **mappa** oppure su uno **slideshow** bello e accattivante.";
+"WelcomeNotice.pageFiveTitle" = "Rilassa i tuoi Occhi";
+"WelcomeNotice.pageFiveDescription" = "\nTema **scuro** o **chiaro** disponibili a tua scelta dalle **impostazioni** di Memoro.\nOpzionalmete, puoi scegliere di adattare il tema in base alle impostazioni di iOS.";
+
 
 
 

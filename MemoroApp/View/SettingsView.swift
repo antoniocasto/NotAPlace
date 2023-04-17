@@ -20,6 +20,8 @@ struct SettingsView: View {
     
     @AppStorage("UserName") private var username = ""
     
+    @AppStorage("ShowWelcomeNotice") var showWelcomeNotice: Bool = true
+    
     @State private var pickedImageItem: PhotosPickerItem?
     @State private var selectedImage: UIImage?
     @State private var showPhotoDialog = false
@@ -195,6 +197,12 @@ struct SettingsView: View {
                     Label(SettingsView.themeSectionHeaderText, systemImage: "paintpalette")
                 }
                 
+                Section {
+                    Button(SettingsView.showWelcomeNoticeText) {
+                        showWelcomeNotice = true
+                    }
+                }
+                
             }
             // Alert for password creation
             .alert(SettingsView.passwordAlertTitle, isPresented: $showPasswordInput, actions: {
@@ -307,5 +315,6 @@ extension SettingsView {
     static let photoLibraryText = LocalizedStringKey("SettingsView.photoLibraryText")
     static let openSettingsButtonText = LocalizedStringKey("SettingsView.Open Settings")
     static let cameraError = LocalizedStringKey("SettingsView.CameraError")
+    static let showWelcomeNoticeText = LocalizedStringKey("SettingsView.showWelcomeNoticeText")
     
 }

@@ -58,6 +58,7 @@
 "SettingsView.photoLibraryText" = "Photo library";
 "SettingsView.Open Settings" = "Open Settings";
 "SettingsView.CameraError" = "Your camera is not available. If you revoked its permission, please enable it from iOS Settings.";
+"SettingsView.showWelcomeNoticeText" = "Show Welcome Notice";
 
 
 /* AppTheme */
@@ -99,3 +100,15 @@
 "PlacesSlideshowView.navigationTitleText" = "Places";
 "PlacesSlideshowView.noPlacesText" = "There are no saved places";
 "PlacesSlideshowView.startText" = "Let's start!";
+
+/* WelcomeNotice */
+"WelcomeNotice.pageOneTitle" = "Memoro";
+"WelcomeNotice.pageOneDescription" = "Your **diary**\nto find **places** that have aroused **positive emotions** in you.";
+"WelcomeNotice.pageTwoTitle" = "Your Privacy\nFirst";
+"WelcomeNotice.pageTwoDescription" = "Protect your **privacy**,\nby setting a **password** on Memoro settings and, optionally, by setting up **biometric authentication**.";
+"WelcomeNotice.pageThreeTitle" = "Save your\nPlaces";
+"WelcomeNotice.pageThreeDescription" = "In the **map**, add a place by setting a **title** and a **level of positive emotion**.\nOptionally, you can add a **photo** and a **description**.";
+"WelcomeNotice.pageFourTitle" = "Find your Places\nBeautifully";
+"WelcomeNotice.pageFourDescription" = "View the **saved places** directly on the **map** or on a beautiful and\neye-catching **slideshow**.";
+"WelcomeNotice.pageFiveTitle" = "Relax your Eyes";
+"WelcomeNotice.pageFiveDescription" = "\n**Dark** or **Light** theme available by your choice from Memoro **settings**.\nOptionally, you can choose to adjust the theme according to iOS settings.";
