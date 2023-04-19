@@ -19,7 +19,6 @@
 		B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95829CC38CD00F9261C /* FormPlaceImage.swift */; };
 		B025A95B29CC6A5500F9261C /* CameraImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */; };
 		B02A20F529EAA3B80069D485 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A20F429EAA3B80069D485 /* ImageSaver.swift */; };
-		B03C21E429DC20AA00D1AD4C /* SnapCarouselHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */; };
 		B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */; };
 		B03C5A5529BA1D3200BFE310 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C5A5429BA1D3200BFE310 /* ContentView.swift */; };
 		B03C5A5729BA1D3300BFE310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C5A5629BA1D3300BFE310 /* Assets.xcassets */; };
@@ -31,6 +30,7 @@
 		B09009C329ED4E1E00B73C84 /* WelcomeNoticePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09009C229ED4E1D00B73C84 /* WelcomeNoticePage.swift */; };
 		B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09F196B29C89EBC00656900 /* KeychainHelper.swift */; };
 		B0A71F2D29EFDD16004C8662 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A71F2C29EFDD16004C8662 /* SearchBar.swift */; };
+		B0A71F2F29F02F01004C8662 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A71F2E29F02F01004C8662 /* SnapCarousel.swift */; };
 		B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */; };
 		B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */; };
 		B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */; };
@@ -62,7 +62,6 @@
 		B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
 		B026977929D1B15D0065C735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B02A20F429EAA3B80069D485 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
-		B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarouselHelper.swift; sourceTree = "<group>"; };
 		B03C5A4F29BA1D3200BFE310 /* MemoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C5A5229BA1D3200BFE310 /* MemoroAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoroAppApp.swift; sourceTree = "<group>"; };
 		B03C5A5429BA1D3200BFE310 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		B09009C229ED4E1D00B73C84 /* WelcomeNoticePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeNoticePage.swift; sourceTree = "<group>"; };
 		B09F196B29C89EBC00656900 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		B0A71F2C29EFDD16004C8662 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		B0A71F2E29F02F01004C8662 /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		B0C8BE5A29C1C5ED00483769 /* LocalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthManager.swift; sourceTree = "<group>"; };
 		B0C8BE5D29C1C86600483769 /* LocalAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthView.swift; sourceTree = "<group>"; };
 		B0C8BE5F29C1CEC800483769 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -195,6 +195,7 @@
 				B09009C029ED39AB00B73C84 /* WelcomeNotice.swift */,
 				B09009C229ED4E1D00B73C84 /* WelcomeNoticePage.swift */,
 				B0A71F2C29EFDD16004C8662 /* SearchBar.swift */,
+				B0A71F2E29F02F01004C8662 /* SnapCarousel.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -205,7 +206,6 @@
 				B09F196B29C89EBC00656900 /* KeychainHelper.swift */,
 				B025A95A29CC6A5500F9261C /* CameraImagePicker.swift */,
 				B0F81B7B29D836EB00524DC0 /* MKMapSnapshotterHelper.swift */,
-				B03C21E329DC20AA00D1AD4C /* SnapCarouselHelper.swift */,
 				B0F2FA0929DECAC1008A5C6B /* ImageHelper.swift */,
 				B02A20F429EAA3B80069D485 /* ImageSaver.swift */,
 			);
@@ -314,6 +314,7 @@
 				B0F2FA0829DEB251008A5C6B /* ProfileArea.swift in Sources */,
 				B0A71F2D29EFDD16004C8662 /* SearchBar.swift in Sources */,
 				B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */,
+				B0A71F2F29F02F01004C8662 /* SnapCarousel.swift in Sources */,
 				B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */,
 				B0C8BE5B29C1C5ED00483769 /* LocalAuthManager.swift in Sources */,
 				B09009C129ED39AB00B73C84 /* WelcomeNotice.swift in Sources */,
@@ -326,7 +327,6 @@
 				B009AA1329C9B21200D9AA94 /* Location.swift in Sources */,
 				B0F2FA0A29DECAC1008A5C6B /* ImageHelper.swift in Sources */,
 				B09F196C29C89EBC00656900 /* KeychainHelper.swift in Sources */,
-				B03C21E429DC20AA00D1AD4C /* SnapCarouselHelper.swift in Sources */,
 				B0117D6129CF4132008195A9 /* PlaceManager.swift in Sources */,
 				B0C8BE5E29C1C86600483769 /* LocalAuthView.swift in Sources */,
 				B03C5A5329BA1D3200BFE310 /* MemoroAppApp.swift in Sources */,

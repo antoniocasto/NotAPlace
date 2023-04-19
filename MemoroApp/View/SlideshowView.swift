@@ -21,23 +21,30 @@ struct SlideshowView: View {
     
     @State private var searchActive = false
     
+    @State private var selectedPlace: Location?
+    @State private var showPlaceDetail = false
+    
     var body: some View {
         
         NavigationStack {
             
             ZStack {
                 
-                VStack(spacing: 0) {
+                VStack {
                     
                     if placeManager.places.count != 0 {
                         
                         SearchBar(searchText: $placeManager.searchPlace, searchActive: $searchActive)
                             .padding(.horizontal)
-                            .padding(.top, 8)
+                            .padding(.top)
                         
                     }
                     
-                    carousel
+                    if searchActive {
+                        filteredList
+                    } else {
+                        carousel
+                    }
                     
                 }
                 .background {
@@ -66,14 +73,21 @@ struct SlideshowView: View {
                 
             }
             .animation(.easeInOut(duration: 0.3), value: backgroundImage)
-            .onTapGesture {
-                
-                placeManager.searchPlace = ""
-                
-                withAnimation {
-                    searchActive = false
+            .navigationDestination(isPresented: $showPlaceDetail) {
+                PlaceDetailView(place: selectedPlace)
+            }
+            .task {
+                await setup()
+            }
+            .onChange(of: currentIndex) { newValue in
+                Task {
+                    await setup()
                 }
-                hideKeyboard()
+            }
+            .onChange(of: colorScheme) { newValue in
+                Task {
+                    await setup()
+                }
             }
             
         }
@@ -81,51 +95,49 @@ struct SlideshowView: View {
     }
     
     var carousel: some View {
-        GeometryReader { proxy in
+        
+        SnapCarousel(index: $currentIndex, items: placeManager.places) { place in
             
-            let pageHeight: CGFloat = proxy.size.height / 1.10
-            let pageWidth: CGFloat = proxy.size.width / 1.12
-            let imageWidth: CGFloat = proxy.size.width / 1.17
+            GeometryReader { proxy in
+                
+                let size = proxy.size
+                
+                SlideshowCard(place: place, width: size.width, height: size.height)
+                    .onTapGesture {
+                        placeManager.searchPlace = ""
+                        searchActive = false
+                        selectedPlace = place
+                        showPlaceDetail.toggle()
+                    }
+                
+            }
             
-            // Carousel with snap
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 0) {
-                    ForEach(placeManager.filteredPlaces) { place in
-                        
-                        NavigationLink {
-                            PlaceDetailView(place: place)
-                        } label: {
-                            SlideshowCard(place: place, width: imageWidth, height: pageHeight)
-                        }
-                        .frame(width: pageWidth)
-                        
-                        
-                    }
-                }
-                // Start from the center of the screen
-                .padding(.horizontal, (proxy.size.width - pageWidth) / 2)
-                .background {
-                    SnapCarouselHelper(displayedElementIndex: $currentIndex, pageWidth: pageWidth, pageCount: placeManager.places.count)
-                }
-                .task {
-                    await setup()
-                }
-                .onChange(of: currentIndex) { newValue in
-                    Task {
-                        await setup()
-                    }
-                }
-                .onChange(of: colorScheme) { newValue in
-                    Task {
-                        await setup()
-                    }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.vertical, 16)
+        .ignoresSafeArea(.keyboard)
+        
+    }
+    
+    var filteredList: some View {
+        List(placeManager.filteredPlaces) { place in
+            NavigationLink {
+                PlaceDetailView(place: place)
+            } label: {
+                
+                HStack {
+                    Text(place.title)
+                    
+                    Spacer()
+                    
+                    HappinessIcon(happinessRate: place.emotionalRating)
+
                 }
                 
             }
-            .disabled(placeManager.places.isEmpty)
             
         }
-        
+        .scrollContentBackground(.hidden)
     }
     
     var placeholder: some View {
@@ -165,6 +177,7 @@ struct SlideshowView: View {
         } else {
             backgroundImage = await MKMapSnapshotterHelper.generateSnapshot(width: 400, height: 400, coordinate: place.coordinate, themePreference: themePreference).byPreparingThumbnail(ofSize: CGSize(width: 400, height: 400))
         }
+        
     }
 }
 
