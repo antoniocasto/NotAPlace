@@ -112,3 +112,7 @@
 "WelcomeNotice.pageFourDescription" = "View the **saved places** directly on the **map** or on a beautiful and\neye-catching **slideshow**.";
 "WelcomeNotice.pageFiveTitle" = "Relax your Eyes";
 "WelcomeNotice.pageFiveDescription" = "\n**Dark** or **Light** theme available by your choice from Memoro **settings**.\nOptionally, you can choose to adjust the theme according to iOS settings.";
+
+/* SearchBar */
+"SearchBar.searchPrompt" = "Search...";
+"SearchBar.cancelButtonText" = "Cancel";

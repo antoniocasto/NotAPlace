@@ -101,6 +101,7 @@
 "PlacesSlideshowView.noPlacesText" = "Non sono presenti luoghi salvati";
 "PlacesSlideshowView.startText" = "Iniziamo!";
 
+
 /* WelcomeNotice */
 "WelcomeNotice.pageOneTitle" = "Memoro";
 "WelcomeNotice.pageOneDescription" = "Il tuo **diario**\nper ritrovare i **luoghi** che ti hanno suscitato **emozioni positive**.";
@@ -112,6 +113,11 @@
 "WelcomeNotice.pageFourDescription" = "Visualizza i **luoghi salvati** direttamente sulla **mappa** oppure su uno **slideshow** bello e accattivante.";
 "WelcomeNotice.pageFiveTitle" = "Rilassa i tuoi Occhi";
 "WelcomeNotice.pageFiveDescription" = "\nTema **scuro** o **chiaro** disponibili a tua scelta dalle **impostazioni** di Memoro.\nOpzionalmete, puoi scegliere di adattare il tema in base alle impostazioni di iOS.";
+
+/* SearchBar */
+"SearchBar.searchPrompt" = "Cerca...";
+"SearchBar.cancelButtonText" = "Annulla";
+
 
 
 

@@ -19,29 +19,43 @@ struct SlideshowView: View {
     @State private var currentIndex: Int = 0
     @State private var backgroundImage: UIImage?
     
+    @State private var searchActive = false
+    
     var body: some View {
         
         NavigationStack {
             
             ZStack {
-                                    
+                
+                VStack(spacing: 0) {
+                    
+                    if placeManager.places.count != 0 {
+                        
+                        SearchBar(searchText: $placeManager.searchPlace, searchActive: $searchActive)
+                            .padding(.horizontal)
+                            .padding(.top, 8)
+                        
+                    }
+                    
                     carousel
-                        .background {
-                                                        
-                            if let backgroundImage = backgroundImage, placeManager.places.count != 0 {
-                                Image(uiImage: backgroundImage)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .overlay {
-                                        Color.clear
-                                            .background(.ultraThinMaterial)
-                                    }
-                                    .ignoresSafeArea()
+                    
+                }
+                .background {
+                    
+                    if let backgroundImage = backgroundImage, placeManager.places.count != 0 {
+                        Image(uiImage: backgroundImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .overlay {
+                                Color.clear
+                                    .background(.ultraThinMaterial)
                             }
-                            
-                        }
+                            .ignoresSafeArea()
+                    }
                     
-                    
+                }
+                
+                
                 if placeManager.places.count == 0 {
                     
                     placeholder
@@ -52,8 +66,15 @@ struct SlideshowView: View {
                 
             }
             .animation(.easeInOut(duration: 0.3), value: backgroundImage)
-            .navigationTitle(SlideshowView.navigationTitleText)
-            .navigationBarTitleDisplayMode(.large)
+            .onTapGesture {
+                
+                placeManager.searchPlace = ""
+                
+                withAnimation {
+                    searchActive = false
+                }
+                hideKeyboard()
+            }
             
         }
         
@@ -62,14 +83,14 @@ struct SlideshowView: View {
     var carousel: some View {
         GeometryReader { proxy in
             
-            let pageHeight: CGFloat = proxy.size.height / 1.15
+            let pageHeight: CGFloat = proxy.size.height / 1.10
             let pageWidth: CGFloat = proxy.size.width / 1.12
             let imageWidth: CGFloat = proxy.size.width / 1.17
             
             // Carousel with snap
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 0) {
-                    ForEach(placeManager.places) { place in
+                    ForEach(placeManager.filteredPlaces) { place in
                         
                         NavigationLink {
                             PlaceDetailView(place: place)
@@ -77,7 +98,7 @@ struct SlideshowView: View {
                             SlideshowCard(place: place, width: imageWidth, height: pageHeight)
                         }
                         .frame(width: pageWidth)
-
+                        
                         
                     }
                 }
@@ -158,4 +179,5 @@ extension SlideshowView {
     static let navigationTitleText = LocalizedStringKey("PlacesSlideshowView.navigationTitleText")
     static let noPlacesText = LocalizedStringKey("PlacesSlideshowView.noPlacesText")
     static let startText = LocalizedStringKey("PlacesSlideshowView.startText")
+    
 }

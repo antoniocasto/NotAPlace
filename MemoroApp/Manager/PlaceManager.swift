@@ -14,6 +14,18 @@ class PlaceManager: ObservableObject {
     
     @Published private(set) var places = [Location]()
     
+    @Published var searchPlace = ""
+    
+    var filteredPlaces: [Location] {
+        
+        if searchPlace != "" {
+            return places.filter { $0.title.trimmingCharacters(in: .whitespacesAndNewlines).lowercased().contains(searchPlace.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()) }
+        }
+        
+        return places
+        
+    }
+    
     init() {
         loadPlaces()
     }
