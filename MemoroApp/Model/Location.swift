@@ -27,27 +27,17 @@ struct Location: Identifiable, Codable, Hashable {
         case happy = 1
         case veryHappy = 2
         
-        var ratingIconName: String {
+        var ratingEmoji: String {
             switch self {
             case .slightlyHappy:
-                return "hand.thumbsup.fill"
+                return "👍🏻"
             case .happy:
-                return "face.smiling"
+                return "🙂"
             case .veryHappy:
-                return "heart.fill"
+                return "❤️"
             }
         }
         
-        var ratingColor: Color {
-            switch self {
-            case .slightlyHappy:
-                return .white
-            case .happy:
-                return .yellow
-            case .veryHappy:
-                return .red
-            }
-        }
         
     }
     

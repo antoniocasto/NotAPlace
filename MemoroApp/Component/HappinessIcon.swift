@@ -13,10 +13,9 @@ struct HappinessIcon: View {
     var fontSize: CGFloat = 20
     
     var body: some View {
-        Image(systemName: happinessRate.ratingIconName)
+        Text(happinessRate.ratingEmoji)
             .font(.system(size: fontSize))
             .padding(8)
-            .foregroundColor(happinessRate.ratingColor)
             .background(.thickMaterial)
             .clipShape(Circle())
     }
