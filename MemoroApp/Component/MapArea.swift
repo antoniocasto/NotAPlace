@@ -26,18 +26,7 @@ struct MapArea: View {
                 NavigationLink {
                     PlaceDetailView(place: item)
                 } label: {
-                    Image(systemName: item.emotionalRating.ratingIconName)
-                        .font(.title3).bold()
-                        .foregroundColor(item.emotionalRating.ratingColor)
-                        .padding(3)
-                        .background(Color.white.opacity(0.5))
-                        .clipShape(Circle())
-                        .overlay {
-                            Circle()
-                                .stroke(lineWidth: 2)
-                                .foregroundColor(.white.opacity(0.7))
-                            
-                        }
+                    HappinessIcon(happinessRate: item.emotionalRating)
                 }
                 
             }
