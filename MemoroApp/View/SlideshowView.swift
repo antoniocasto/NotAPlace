@@ -65,7 +65,12 @@ struct SlideshowView: View {
                 
                 if placeManager.places.count == 0 {
                     
-                    placeholder
+                    ViewPlaceholder(iconSystemName: "mappin.slash.circle.fill", text: SlideshowView.noPlacesText) {
+                        Button(SlideshowView.startText) {
+                            selectedTab = .map
+                        }
+                        .bold()
+                    }
                     
                 }
                 
@@ -120,42 +125,35 @@ struct SlideshowView: View {
     }
     
     var filteredList: some View {
-        List(placeManager.filteredPlaces) { place in
-            NavigationLink {
-                PlaceDetailView(place: place)
-            } label: {
+        
+        Group {
+            
+            if placeManager.filteredPlaces.count != 0 {
                 
-                HStack {
-                    Text(place.title)
+                List(placeManager.filteredPlaces) { place in
+                    NavigationLink {
+                        PlaceDetailView(place: place)
+                    } label: {
+                        
+                        HStack {
+                            Text(place.title)
+                            
+                            Spacer()
+                            
+                            HappinessIcon(happinessRate: place.emotionalRating)
+                            
+                        }
+                        
+                    }
                     
-                    Spacer()
-                    
-                    HappinessIcon(happinessRate: place.emotionalRating)
-
                 }
+                .scrollContentBackground(.hidden)
                 
+            } else if placeManager.places.count != 0 {
+                ViewPlaceholder(iconSystemName: "magnifyingglass", text: SlideshowView.noResultsText) { }
             }
             
         }
-        .scrollContentBackground(.hidden)
-    }
-    
-    var placeholder: some View {
-        VStack(alignment: .center) {
-            Image(systemName: "mappin.slash.circle.fill")
-                .font(.system(size: 60))
-                .foregroundColor(.secondary)
-            Text(SlideshowView.noPlacesText)
-                .font(.title2.bold())
-                .padding(8)
-            
-            Button(SlideshowView.startText) {
-                selectedTab = .map
-            }
-            .bold()
-            
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     @MainActor
@@ -189,8 +187,8 @@ struct SlideshowView_Previews: PreviewProvider {
 }
 
 extension SlideshowView {
-    static let navigationTitleText = LocalizedStringKey("PlacesSlideshowView.navigationTitleText")
-    static let noPlacesText = LocalizedStringKey("PlacesSlideshowView.noPlacesText")
-    static let startText = LocalizedStringKey("PlacesSlideshowView.startText")
-    
+    static let navigationTitleText = LocalizedStringKey("SlideshowView.navigationTitleText")
+    static let noPlacesText = LocalizedStringKey("SlideshowView.noPlacesText")
+    static let startText = LocalizedStringKey("SlideshowView.startText")
+    static let noResultsText = LocalizedStringKey("SlideshowView.noResultsFound")
 }

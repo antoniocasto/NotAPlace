@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B002974529F122C4005CD00A /* ViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B002974429F122C4005CD00A /* ViewPlaceholder.swift */; };
 		B0063A6529D0423300957E71 /* ConfirmationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0063A6429D0423300957E71 /* ConfirmationCard.swift */; };
 		B009AA1329C9B21200D9AA94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1229C9B21200D9AA94 /* Location.swift */; };
 		B009AA1529C9BD9D00D9AA94 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009AA1429C9BD9D00D9AA94 /* PlaceDetailView.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B002974429F122C4005CD00A /* ViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlaceholder.swift; sourceTree = "<group>"; };
 		B0063A6429D0423300957E71 /* ConfirmationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCard.swift; sourceTree = "<group>"; };
 		B009AA1229C9B21200D9AA94 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B009AA1429C9BD9D00D9AA94 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				B09009C229ED4E1D00B73C84 /* WelcomeNoticePage.swift */,
 				B0A71F2C29EFDD16004C8662 /* SearchBar.swift */,
 				B0A71F2E29F02F01004C8662 /* SnapCarousel.swift */,
+				B002974429F122C4005CD00A /* ViewPlaceholder.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				B009AA1529C9BD9D00D9AA94 /* PlaceDetailView.swift in Sources */,
 				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
+				B002974529F122C4005CD00A /* ViewPlaceholder.swift in Sources */,
 				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
 				B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,

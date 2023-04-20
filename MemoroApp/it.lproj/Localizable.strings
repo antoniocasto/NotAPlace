@@ -96,10 +96,12 @@
 "PlaceDetailView.photoLibraryText" = "Libreria Foto";
 "PlaceDetailView.addPhotoToAlbumError" = "Impossibile aggiungere l'immagine su Foto. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
 
-/* PlacesSlideshowView */
-"PlacesSlideshowView.navigationTitleText" = "Luoghi";
-"PlacesSlideshowView.noPlacesText" = "Non sono presenti luoghi salvati";
-"PlacesSlideshowView.startText" = "Iniziamo!";
+/* SlideshowView */
+"SlideshowView.navigationTitleText" = "Luoghi";
+"SlideshowView.noPlacesText" = "Non sono presenti luoghi salvati";
+"SlideshowView.startText" = "Iniziamo!";
+"SlideshowView.noResultsFound" = "Nessun risultato trovato";
+
 
 
 /* WelcomeNotice */
