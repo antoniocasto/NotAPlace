@@ -58,7 +58,9 @@
 "SettingsView.photoLibraryText" = "Libreria Foto";
 "SettingsView.Open Settings" = "Apri Impostazioni";
 "SettingsView.CameraError" = "La fotocamera non è disponibile. Se ne hai revocato il permesso, per favore abilitalo dalle Impostazioni di iOS.";
-"SettingsView.showWelcomeNoticeText" = "Mostra Messaggio di Benvenuto";
+"SettingsView.showWelcomeNoticeText" = "Mostra messaggio di benvenuto";
+"SettingsView.infoSectionHeaderText" = "Informazioni";
+"SettingsView.showDevInfoText" = "Informazioni sullo sviluppatore";
 
 
 /* AppTheme */

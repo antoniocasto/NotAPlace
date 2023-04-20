@@ -39,6 +39,9 @@
 		B0C8BE6429C1E35500483769 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8BE6329C1E35500483769 /* SettingsView.swift */; };
 		B0CB859529C8ADBD004A49B7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB859429C8ADBD004A49B7 /* LocationManager.swift */; };
 		B0CB859729C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */; };
+		B0CD3BA429F1383000FB0A11 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD3BA329F1383000FB0A11 /* DeveloperView.swift */; };
+		B0CD3BA629F1383F00FB0A11 /* AnimatedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD3BA529F1383F00FB0A11 /* AnimatedBackground.swift */; };
+		B0CD3BA829F1444200FB0A11 /* LinkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD3BA729F1444200FB0A11 /* LinkLabel.swift */; };
 		B0D9452229E4073400F5D01F /* SlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9452129E4073400F5D01F /* SlideshowView.swift */; };
 		B0D9452429E4088F00F5D01F /* SlideshowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9452329E4088F00F5D01F /* SlideshowCard.swift */; };
 		B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD318829D4761E00C6EB3A /* AppTheme.swift */; };
@@ -86,6 +89,9 @@
 		B0C8BE6329C1E35500483769 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B0CB859429C8ADBD004A49B7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B0CB859629C8B089004A49B7 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
+		B0CD3BA329F1383000FB0A11 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
+		B0CD3BA529F1383F00FB0A11 /* AnimatedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBackground.swift; sourceTree = "<group>"; };
+		B0CD3BA729F1444200FB0A11 /* LinkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLabel.swift; sourceTree = "<group>"; };
 		B0D9452129E4073400F5D01F /* SlideshowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowView.swift; sourceTree = "<group>"; };
 		B0D9452329E4088F00F5D01F /* SlideshowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowCard.swift; sourceTree = "<group>"; };
 		B0DD318829D4761E00C6EB3A /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 				B009AA1429C9BD9D00D9AA94 /* PlaceDetailView.swift */,
 				B0C8BE6329C1E35500483769 /* SettingsView.swift */,
 				B0D9452129E4073400F5D01F /* SlideshowView.swift */,
+				B0CD3BA329F1383000FB0A11 /* DeveloperView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,11 +201,13 @@
 				B0F81B7D29D83A1800524DC0 /* MapResume.swift */,
 				B0D9452329E4088F00F5D01F /* SlideshowCard.swift */,
 				B0F2FA0729DEB251008A5C6B /* ProfileArea.swift */,
+				B0CD3BA529F1383F00FB0A11 /* AnimatedBackground.swift */,
 				B09009C029ED39AB00B73C84 /* WelcomeNotice.swift */,
 				B09009C229ED4E1D00B73C84 /* WelcomeNoticePage.swift */,
 				B0A71F2C29EFDD16004C8662 /* SearchBar.swift */,
 				B0A71F2E29F02F01004C8662 /* SnapCarousel.swift */,
 				B002974429F122C4005CD00A /* ViewPlaceholder.swift */,
+				B0CD3BA729F1444200FB0A11 /* LinkLabel.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -324,6 +333,7 @@
 				B0D9452229E4073400F5D01F /* SlideshowView.swift in Sources */,
 				B0117D6329CF427D008195A9 /* FileManagerExtension.swift in Sources */,
 				B0C8BE6229C1D92400483769 /* TabNavigationView.swift in Sources */,
+				B0CD3BA629F1383F00FB0A11 /* AnimatedBackground.swift in Sources */,
 				B025A95929CC38CD00F9261C /* FormPlaceImage.swift in Sources */,
 				B0F81B7E29D83A1800524DC0 /* MapResume.swift in Sources */,
 				B02A20F529EAA3B80069D485 /* ImageSaver.swift in Sources */,
@@ -337,11 +347,13 @@
 				B0117D5D29CF3E7C008195A9 /* ViewExtension.swift in Sources */,
 				B009AA1529C9BD9D00D9AA94 /* PlaceDetailView.swift in Sources */,
 				B06EA5A429C323C800D425E6 /* WorldMapView.swift in Sources */,
+				B0CD3BA429F1383000FB0A11 /* DeveloperView.swift in Sources */,
 				B0C8BE6029C1CEC800483769 /* ColorExtension.swift in Sources */,
 				B002974529F122C4005CD00A /* ViewPlaceholder.swift in Sources */,
 				B009AA1929C9CC7E00D9AA94 /* CharacterCounter.swift in Sources */,
 				B0DD318929D4761E00C6EB3A /* AppTheme.swift in Sources */,
 				B0EB503029C8DFFE00388E10 /* MapArea.swift in Sources */,
+				B0CD3BA829F1444200FB0A11 /* LinkLabel.swift in Sources */,
 				B0063A6529D0423300957E71 /* ConfirmationCard.swift in Sources */,
 				B09009C329ED4E1E00B73C84 /* WelcomeNoticePage.swift in Sources */,
 			);

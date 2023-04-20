@@ -22,6 +22,8 @@ struct SettingsView: View {
     
     @AppStorage("ShowWelcomeNotice") var showWelcomeNotice: Bool = true
     
+    @State private var showDevInfo = false
+    
     @State private var pickedImageItem: PhotosPickerItem?
     @State private var selectedImage: UIImage?
     @State private var showPhotoDialog = false
@@ -201,6 +203,12 @@ struct SettingsView: View {
                     Button(SettingsView.showWelcomeNoticeText) {
                         showWelcomeNotice = true
                     }
+                    
+                    Button(SettingsView.showDevInfoText) {
+                        showDevInfo = true
+                    }
+                } header: {
+                    Label(SettingsView.infoSectionHeaderText, systemImage: "info.circle")
                 }
                 
             }
@@ -249,6 +257,9 @@ struct SettingsView: View {
                 }
             } message: {
                 Text(permissionAlertDescription)
+            }
+            .navigationDestination(isPresented: $showDevInfo) {
+                DeveloperView()
             }
             .navigationTitle(SettingsView.viewTitleText)
             .navigationBarTitleDisplayMode(.inline)
@@ -316,5 +327,7 @@ extension SettingsView {
     static let openSettingsButtonText = LocalizedStringKey("SettingsView.Open Settings")
     static let cameraError = LocalizedStringKey("SettingsView.CameraError")
     static let showWelcomeNoticeText = LocalizedStringKey("SettingsView.showWelcomeNoticeText")
+    static let showDevInfoText = LocalizedStringKey("SettingsView.showDevInfoText")
+    static let infoSectionHeaderText = LocalizedStringKey("SettingsView.infoSectionHeaderText")
     
 }

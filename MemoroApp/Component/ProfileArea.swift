@@ -12,13 +12,11 @@ struct ProfileArea: View {
     var image: UIImage?
     var title = "Memoro"
     
-    @State private var animation = false
     
     var body: some View {
         ZStack {
             
-            animatedShapes
-                .blur(radius: 15)
+            AnimatedBackground()
             
             imageAndTitle
                 .animation(.default, value: image)
@@ -54,30 +52,7 @@ struct ProfileArea: View {
                 .padding(.horizontal)
         }
     }
-    
-    var animatedShapes: some View {
         
-        ZStack {
-            
-            Image(systemName: "hexagon.fill")
-                .font(.system(size: 100))
-                .foregroundStyle(LinearGradient(colors: [Color.foregroundColor, Color.backgroundColor], startPoint: .topLeading, endPoint: .bottomTrailing))
-                .offset(x: animation ? 170 : -170, y: animation ? 50 : -50)
-                .rotationEffect(.degrees(animation ? 100 : 0))
-            
-            Image(systemName: "hexagon.fill")
-                .font(.system(size: 100))
-                .foregroundStyle(LinearGradient(colors: [Color.foregroundColor, Color.backgroundColor], startPoint: .topLeading, endPoint: .bottomTrailing))
-                .offset(x: animation ? -170 : 170, y: animation ? -50 : 50)
-                .rotationEffect(.degrees(animation ? 100 : 0))
-            
-        }
-        .animation(.easeInOut(duration: 20).repeatForever(autoreverses: true), value: animation)
-        .onAppear {
-            animation.toggle()
-        }
-    }
-    
 }
 
 struct ProfileArea_Previews: PreviewProvider {

@@ -58,7 +58,10 @@
 "SettingsView.photoLibraryText" = "Photo library";
 "SettingsView.Open Settings" = "Open Settings";
 "SettingsView.CameraError" = "Your camera is not available. If you revoked its permission, please enable it from iOS Settings.";
-"SettingsView.showWelcomeNoticeText" = "Show Welcome Notice";
+"SettingsView.showWelcomeNoticeText" = "Show welcome notice";
+"SettingsView.infoSectionHeaderText" = "Informations";
+"SettingsView.showDevInfoText" = "About the developer";
+
 
 
 /* AppTheme */
