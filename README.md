@@ -5,9 +5,11 @@
 ### Preview 
 
 <div>
-    <img src="/doc/54.PNG" width="200px"</img>
-    <img src="/doc/39.PNG" width="200px"</img>
-    <img src="/doc/41.PNG" width="200px"</img>
+    <img src="/doc/56.PNG" width="180px"</img>
+    <img src="/doc/54.PNG" width="180px"</img>
+    <img src="/doc/39.PNG" width="180px"</img>
+    <img src="/doc/41.PNG" width="180px"</img>
+    <img src="/doc/44.PNG" width="180px"</img>
 </div>
 
 - - - -
