@@ -4,6 +4,12 @@
 
 ### Preview 
 
+<div>
+    <img src="/doc/54.PNG" width="200px"</img>
+    <img src="/doc/39.PNG" width="200px"</img>
+    <img src="/doc/41.PNG" width="200px"</img>
+</div>
+
 - - - -
 
 ### What is?
