@@ -107,7 +107,7 @@ class ImageHelper {
             
             let imageData = try Data(contentsOf: url)
             
-            guard let image = await UIImage(data: imageData)?.byPreparingThumbnail(ofSize: CGSize(width: 400, height: 400)) else {
+            guard let image = await UIImage(data: imageData)?.byPreparingThumbnail(ofSize: CGSize(width: 1000, height: 1000)) else {
                 print("Error loading image. Return default one.")
                 return UIImage(imageLiteralResourceName: "Logo")
             }
