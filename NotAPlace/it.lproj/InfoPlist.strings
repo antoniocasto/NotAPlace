@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.string.strings
+  NotAPlaceApp
+
+  Created by Antonio Casto on 16/03/23.
+  
+*/
+
+NSFaceIDUsageDescription = "Abbiamo bisogno di questo permesso per sbloccare i luoghi che hai salvato.";
+NSLocationWhenInUseUsageDescription = "Abbiamo bisogno di accedere alla tua posizione al fine di centrare la mappa attorno alla tua posizione corrente.";
+NSCameraUsageDescription = "Abbiamo bisogno di accedere alla fotocamera per permetterti di scegliere le foto per i tuoi luoghi.";
+NSPhotoLibraryAddUsageDescription = "Abbiamo bisogno di questo permesso per salvare le foto dei tuoi luoghi.";
