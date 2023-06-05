@@ -63,5 +63,5 @@ Alternatively, you can choose to have the theme fit the one you chose from the i
 
 ### Credits
 Snap Carousel: 
-Code inspired by a YouTube channel named Kavsoft. Hear the link to the tutorial: https://www.youtube.com/watch?v=4Gw5lDXJ04g
+Code inspired by a YouTube channel named Kavsoft. Here the link to the tutorial: https://www.youtube.com/watch?v=4Gw5lDXJ04g
 - - - -
